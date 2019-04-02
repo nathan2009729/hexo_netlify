@@ -60,7 +60,7 @@
 <h2 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h2><p><strong>This is bold text</strong></p>
 <p><strong>This is bold text</strong></p>
 <p><em>This is italic text</em></p>
-<p><em>This is italic text</em></p>
+<p>_This is italic text_</p>
 <p><del>Strikethrough</del></p>
 <h2 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h2><blockquote>
 <p>Blockquotes can also be nested…</p>
@@ -200,7 +200,7 @@ line 3 of code
 <pre><code>    { some code, part of Definition 2 }
 
 Third paragraph of definition 2.
-</code></pre><p><em>Compact style:</em></p>
+</code></pre><p>_Compact style:_</p>
 <p>Term 1<br>  ~ Definition 1</p>
 <p>Term 2<br>  ~ Definition 2a<br>  ~ Definition 2b</p>
 <h3 id="Abbreviations"><a href="#Abbreviations" class="headerlink" title="Abbreviations"></a><a href="https://github.com/markdown-it/markdown-it-abbr" target="_blank" rel="noopener">Abbreviations</a></h3><p>This is HTML abbreviation example.</p>
@@ -263,26 +263,24 @@ Third paragraph of definition 2.
         </div>
     <div class="back-to-top" id="back-to-top">
             <i class="iconfont icon-up"></i>
-    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+    </div>
         
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/back-to-top.js"></script>
     <script src="/js/scroll.js"></script>
