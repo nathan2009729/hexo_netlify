@@ -41,36 +41,13 @@
     </div>
     <p class="sub">Apr 01 2019</p>
     <div class="post-content">
-        <p>Regular language(RL)，便是可以用finite automata(FA)辨識的語言。finite automata長的像是這樣：</p>
-<p><img src="https://i.imgur.com/bXWLuwN.png" alt></p>
-<p>或是這樣：</p>
-<p><img src="https://i.imgur.com/qd4unXg.png" alt></p>
-<p>或是這樣：</p>
-<p><img src="https://i.imgur.com/HFzgZy7.png" alt></p>
-<p>等等。</p>
-<p>圖中有兩個圈圈的是accept。</p>
-<p>而FA又分成DFA跟NFA(Deterministic,Nondeterministic)，差別在於每個state是否會有超過一種的選擇。比如上圖在<script type="math/tex">q_2</script>這個state遇到a時可以繼續留在<script type="math/tex">q_2</script>或是前往<script type="math/tex">q_3</script>，所以是NFA，反之則是DFA。下圖是DFA及其對應的NFA:  </p>
-<p><img src="https://i.imgur.com/ri2hO5j.png" alt></p>
-<p>乍看之下NFA的識別能力比較強，但其實DFA跟NFA的識別能力是等價的，也就是說，NFA可以識別的語言，DFA也可以識別。要證明這件事，就需要給出一個方法，可以把NFA轉換成DFA。要注意的是Pushdown Automata(PDA)的Deterministic跟Nondeterministic能力就不同了—Nondeterministic版本的PDA比較厲害。</p>
-<p>而某language是regular $ \Leftrightarrow $ 有NFA可辨識該language。</p>
-<p>而Regular language在union,concatenation,star等operation下是close的。也就是說，RL經過這三符號運算依然是RL。</p>
-<p>證明圖示如下：  </p>
-<p>union:  </p>
-<p><img src="https://i.imgur.com/ZHQTxTi.png" alt></p>
-<p>concatenation:  </p>
-<p><img src="https://i.imgur.com/GWgl18B.png" alt></p>
-<p>star:  </p>
-<p><img src="https://i.imgur.com/co1UIMA.png" alt></p>
-<p>regular expression(左行)跟FA的關係入下圖:  </p>
-<p><img src="https://i.imgur.com/VmZlydF.png" alt></p>
-<p>某language是regular $ \Leftrightarrow $ some regular expression describe it。</p>
-<p>此證明會用到GNFA，需注意。  </p>
-<p>proof:  </p>
-<p><img src="https://i.imgur.com/C3k4Q5X.png" alt>  </p>
-<p><img src="https://i.imgur.com/8aYYTBR.png" alt>  </p>
-<p><img src="https://i.imgur.com/YzcCAEX.png" alt>  </p>
-<p>$\delta(r_i,w_{i+1}) = r_{i+1}$</p>
-
+        <script type="math/tex; mode=display">
+\begin{eqnarray}
+\nabla\cdot\vec{E} &=& \frac{\rho}{\epsilon_0} \\
+\nabla\cdot\vec{B} &=& 0 \\
+\nabla\times\vec{E} &=& -\frac{\partial B}{\partial t} \\
+\nabla\times\vec{B} &=& \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)
+\end{eqnarray}</script>
     </div>
     </article>
 </div>
