@@ -37,23 +37,29 @@
 <div class="post-wrapper">
     <article class="post article-entry">
     <div class="post-title">
-        aizu_1-A
+        Aizu IPT1_2_A Small, Large, or Equal
     </div>
-    <p class="sub">Feb 16 2019</p>
+    <p class="sub">Feb 17 2019</p>
     <div class="post-content">
         <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A</a></p>
-<p>Hello World<br>Welcome to Online Judge!</p>
-<p>Write a program which prints “Hello World” to standard output.</p>
-<p>Input<br>There is no input for this problem.</p>
-<p>Output<br>Print “Hello World” in a line.</p>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_A</a></p>
+<h2 id="Small-Large-or-Equal"><a href="#Small-Large-or-Equal" class="headerlink" title="Small, Large, or Equal"></a>Small, Large, or Equal</h2><hr>
+<p>Write a program which prints small/large/equal relation of given two integers a and b.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><hr>
+<p>Two integers a and b separated by a single space are given in a line.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><hr>
+<p>For given two integers a and b, print</p>
+<p>a &lt; b<br>if a is less than b,</p>
+<p>a &gt; b<br>if a is greater than b, and</p>
+<p>a == b<br>if a equals to b.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><hr>
+<p>-1000 ≤ a, b ≤ 1000</p>
 <h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
-<p>Sample Input 1<br>No input</p>
+<p>Sample Input 1<br>1 2<br>Sample Input 2<br>4 3<br>Sample Input 3<br>5 5</p>
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
-<p>Sample Output 1<br>Hello World</p>
+<p>Sample Output 1<br>a &lt; b<br>Sample Output 2<br>a &gt; b<br>Sample Output 3<br>a == b</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
-<p>這題沒什麼好說，會PO出此題只是測試網誌。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)<span class="built_in">printf</span>(<span class="string">"a &gt; b\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a &lt; b)<span class="built_in">printf</span>(<span class="string">"a &lt; b\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a == b)<span class="built_in">printf</span>(<span class="string">"a == b\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     </article>
 </div>
@@ -63,7 +69,7 @@
         Contents
         </strong>
         <div class="toc-content">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Small-Large-or-Equal"><span class="toc-text">Small, Large, or Equal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraints"><span class="toc-text">Constraints</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
         </div>
     </div>
 
@@ -76,6 +82,8 @@
                 
                     <a href="/tags/基礎語法練習/">基礎語法練習</a>
                 
+                    <a href="/tags/Aizu-OJ/">Aizu OJ</a>
+                
             </div>
         
     </nav>
@@ -84,11 +92,17 @@
 
     <nav class="paginator">
         
-            <a class="prev" href="/2019/02/17/aizu-IPT1-1-B/">
+            <a class="prev" href="/2019/03/31/hello-world/">
                 <i class="iconfont icon-left"></i>
-                <span class="prev-text">aizu_IPT1_1-B</span>
+                <span class="prev-text">Hello World</span>
             </a>
         
+        
+            <a class="next" href="/2019/02/17/aizu-IPT1-1-D/">
+                
+                <span class="prev-text">aizu_IPT1_1-D</span>
+                <i class="iconfont icon-right"></i>
+            </a>
         
     </nav>
 
