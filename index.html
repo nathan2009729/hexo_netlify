@@ -257,7 +257,92 @@ Third paragraph of definition 2.
     
         <article class="post article-entry">
             <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/16/aizu-1-A/">aizu_1-A</a>
+                <a class="post-title-link text-underline" href="/2019/02/17/aizu-IPT1-1-D/">aizu_IPT1_1-D</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_D</a></p>
+<p>Watch<br>Write a program which reads an integer S [second] and converts it to h:m:swhere h, m, s denote hours, minutes (less than 60) and seconds (less than 60) respectively.</p>
+<p>Input<br>An integer S is given in a line.</p>
+<p>Output<br>Print h, m and s separated by ‘:’. You do not need to put ‘0’ for a value, which consists of a digit.</p>
+<p>Constraints<br>0≤S≤86400</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
+<p>Sample Input 1<br>46979</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
+<p>Sample Output 1<br>13:2:59</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> S,h,m,s;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;S);</span><br><span class="line">    </span><br><span class="line">    h = S/<span class="number">3600</span>;</span><br><span class="line">    m = (S%<span class="number">3600</span>)/<span class="number">60</span>;</span><br><span class="line">    s = (S%<span class="number">3600</span>) - m*<span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d:%d:%d\n"</span>,h,m,s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/aizu-IPT1-1-C/">aizu_IPT1_1-C</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_C</a></p>
+<p><strong>Rectangle</strong><br>Write a program which calculates the area and perimeter of a given rectangle.</p>
+<p>Input<br>The length a and breadth b of the rectangle are given in a line separated by a single space.</p>
+<p>Output<br>Print the area and perimeter of the rectangle in a line. The two integers should be separated by a single space.</p>
+<p>Constraints<br>1 ≤ a, b ≤ 100</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
+<p>Sample Input 1<br>3 5</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
+<p>Sample Output 1<br>15 16</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="keyword">int</span> area = a*b;</span><br><span class="line">    <span class="keyword">int</span> perimeter = <span class="number">2</span>*(a+b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, area, perimeter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/aizu-IPT1-1-B/">aizu_IPT1_1-B</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_B</a></p>
+<p>X Cubic<br>Write a program which calculates the cube of a given integer x.</p>
+<p>Input<br>An integer x is given in a line.</p>
+<p>Output<br>Print the cube of x in a line.</p>
+<p>Constraints<br>1 ≤ x ≤ 100</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
+<p>Sample Input 1<br>2<br>Sample Input 2<br>3</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
+<p>Sample Output 1<br>8<br>Sample Output 2<br>27</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,x*x*x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/16/aizu-1-A/">aizu-IPT1-1-A</a>
+            </div>
+            <p class="sub">Feb 16 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A</a></p>
+<p>Hello World<br>Welcome to Online Judge!</p>
+<p>Write a program which prints “Hello World” to standard output.</p>
+<p>Input<br>There is no input for this problem.</p>
+<p>Output<br>Print “Hello World” in a line.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
+<p>Sample Input 1<br>No input</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
+<p>Sample Output 1<br>Hello World</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
+<p>這題沒什麼好說，會PO出此題只是測試網誌。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/16/aizu-IPT1-1-A/">aizu_1-A</a>
             </div>
             <p class="sub">Feb 16 2019</p>
             <div class="post-content">
@@ -295,7 +380,7 @@ Third paragraph of definition 2.
         </div>
     <div class="tags">
     <h3 class="tags-title">Tags</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
 </div>
     </div>
 </div>
