@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">Hexo</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        Aizu IPT1_2_D Circle in a Rectangle
+    </div>
+    <p class="sub">Apr 05 2019</p>
+    <div class="post-content">
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00FA9A">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_D</a></p>
+<h2 id="Circle-in-a-Rectangle"><a href="#Circle-in-a-Rectangle" class="headerlink" title="Circle in a Rectangle"></a>Circle in a Rectangle</h2><p>Write a program which reads a rectangle and a circle, and determines whether the circle is arranged inside the rectangle. As shown in the following figures, the upper right coordinate (W,H) of the rectangle and the central coordinate (x,y) and radius r of the circle are given.</p>
+<p><img src="https://judgeapi.u-aizu.ac.jp/resources/images/IMAGE2_circle_and_rectangle.jpg" alt></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Five integers W, H, x, y and r separated by a single space are given in a line.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print “Yes” if the circle is placed inside the rectangle, otherwise “No” in a line.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p> −100≤x,y≤100<br> 0&lt;W,H,r≤100</p>
+<h1 id="Sample-Input-lt-font-color-00FA9A-gt"><a href="#Sample-Input-lt-font-color-00FA9A-gt" class="headerlink" title="Sample Input&lt;/font color=#00FA9A&gt;"></a><font color="#00FA9A">Sample Input&lt;/font color=#00FA9A&gt;</font></h1><hr>
+<p>Sample Input 1<br>5 4 2 2 1<br>Sample Input 2<br>5 4 2 4 1</p>
+<h1 id="Sample-Output-lt-font-color-00FA9A-gt"><a href="#Sample-Output-lt-font-color-00FA9A-gt" class="headerlink" title="Sample Output&lt;/font color=#00FA9A&gt;"></a><font color="#00FA9A">Sample Output&lt;/font color=#00FA9A&gt;</font></h1><hr>
+<p>Sample Output 1<br>Yes<br>Sample Output 2<br>No</p>
+<h1 id="Solution-lt-font-color-00FA9A-gt"><a href="#Solution-lt-font-color-00FA9A-gt" class="headerlink" title="Solution&lt;/font color=#00FA9A&gt;"></a><font color="#00FA9A">Solution&lt;/font color=#00FA9A&gt;</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> W,H,x,y,r;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d %d"</span>, &amp;W, &amp;H, &amp;x, &amp;y, &amp;r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(y-r &lt; <span class="number">0</span> || y+r &gt; H || x-r &lt; <span class="number">0</span> || x+r &gt; W) <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Circle-in-a-Rectangle"><span class="toc-text">Circle in a Rectangle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraints"><span class="toc-text">Constraints</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input-lt-font-color-00FA9A-gt"><span class="toc-text">Sample Input&lt;/font color=#00FA9A&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output-lt-font-color-00FA9A-gt"><span class="toc-text">Sample Output&lt;/font color=#00FA9A&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution-lt-font-color-00FA9A-gt"><span class="toc-text">Solution&lt;/font color=#00FA9A&gt;</span></a></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/基礎語法練習/">基礎語法練習</a>
+                
+                    <a href="/tags/Aizu-OJ/">Aizu OJ</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator">
+        
+        
+            <a class="next" href="/2019/04/05/Aizu-IPT1-2-C-Sorting-Three-Numbers/">
+                
+                <span class="prev-text">Aizu IPT1_2_C Sorting Three Numbers</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/back-to-top.js"></script>
+    <script src="/js/scroll.js"></script>
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
