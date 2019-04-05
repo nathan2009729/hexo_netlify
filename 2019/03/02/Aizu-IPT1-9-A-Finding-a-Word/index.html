@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">Hexo</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        Aizu IPT1_9_A Finding a Word
+    </div>
+    <p class="sub">Mar 02 2019</p>
+    <div class="post-content">
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/9/ITP1_9_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/9/ITP1_9_A
+</a></p>
+<h2 id="Finding-a-Word"><a href="#Finding-a-Word" class="headerlink" title="Finding a Word"></a>Finding a Word</h2><p>Write a program which reads a word W and a text T, and prints the number of word W which appears in text T</p>
+<p>T consists of string Ti separated by space characters and newlines. Count the number of Ti which equals to W. The word and text are case insensitive.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>The length of W ≤ 10<br>W consists of lower case letters<br>The length of T in a line ≤ 1000</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, the word W is given. In the following lines, the text T is given separated by space characters and newlines.</p>
+<p>“END_OF_TEXT” indicates the end of the text.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the number of W in the text.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>computer<br>Nurtures computer scientists and highly-skilled computer engineers<br>who will create and exploit “knowledge” for the new era.<br>Provides an outstanding computer environment.<br>END_OF_TEXT</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>3</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>這題原本想得太複雜，而且還一直WA，等看到別人解答時快吐血了。</p>
+<p>題目的意思是找出單字word在文章Text中出現的次數，Text是由許多行組成的，而每一行不超過1000字。於是一開始的想法，是一行一行讀，再利用strstr去比對單字word在這一行出現的次數，所有行數的出現次數加總起來，就是單字word在文章Text中出現的總次數。</p>
+<p>但其實不用這麼麻煩。只要一個單字一個單字讀取，跟單字word作比對就可以(利用strcmp)，比對成功就把數字加一，直至END_OF_TEXT出現。根本不用管什麼有多少行一行幾個字，棍。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> word_W[<span class="number">10000</span>];</span><br><span class="line">    <span class="keyword">char</span> text_T[<span class="number">10000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, word_W);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; word_W[i]!=<span class="string">'\0'</span>; i++)</span><br><span class="line">        word_W[i] = <span class="built_in">tolower</span>(word_W[i]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, text_T);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(text_T, <span class="string">"END_OF_TEXT"</span>)) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; text_T[i]!=<span class="string">'\0'</span>; i++)</span><br><span class="line">            text_T[i] = <span class="built_in">tolower</span>(text_T[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, text_T);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(text_T, word_W) == <span class="number">0</span>)&#123;</span><br><span class="line">            ans++;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下來貼出另一個比較複雜還WA的程式碼讓大家笑笑，如果有空，說說substr_num這函式的原理。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">substr_num</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">char</span> *sub)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> substr_count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        str = <span class="built_in">strstr</span>(str, sub);</span><br><span class="line">        <span class="keyword">if</span>(str!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            substr_count ++;</span><br><span class="line">            str = str + <span class="built_in">strlen</span>(sub);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(*str != <span class="string">'\0'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> substr_count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> word_W[<span class="number">15</span>];</span><br><span class="line">    <span class="keyword">char</span> *text_T = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">1500</span>);</span><br><span class="line">    <span class="keyword">int</span> num_of_W_in_T = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>, word_W);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; word_W[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">        word_W[i] = <span class="built_in">tolower</span>(word_W[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>, text_T);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(text_T, <span class="string">"END_OF_TEXT"</span>)) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; text_T[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">            text_T[i] = <span class="built_in">tolower</span>(text_T[i]);</span><br><span class="line"></span><br><span class="line">        num_of_W_in_T += substr_num(text_T, word_W);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num_of_W_in_T);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><font color="#00CED1">Reference</font></h1><hr>
+<p>[1]<br><a href="https://www.cnblogs.com/Legen-da/p/6219531.html" target="_blank" rel="noopener">substr_num函式來源</a></p>
+<p>[2]<br><a href="https://sites.google.com/site/9braised/fan-si/c1" target="_blank" rel="noopener">scanf特殊用法</a><br><a href="http://squall.cs.ntou.edu.tw/cprog/practices/scan" target="_blank" rel="noopener">http://squall.cs.ntou.edu.tw/cprog/practices/scan</a></p>
+
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-a-Word"><span class="toc-text">Finding a Word</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraints"><span class="toc-text">Constraints</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/基礎語法練習/">基礎語法練習</a>
+                
+                    <a href="/tags/Aizu-OJ/">Aizu OJ</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator">
+        
+            <a class="prev" href="/2019/03/10/Aizu-IPT1-9-B-Shuffle/">
+                <i class="iconfont icon-left"></i>
+                <span class="prev-text">Aizu IPT1_9_B Shuffle</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/03/01/Aizu-IPT1-8-D-Ring/">
+                
+                <span class="prev-text">Aizu IPT1_8_D Ring</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/back-to-top.js"></script>
+    <script src="/js/scroll.js"></script>
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
