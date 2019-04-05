@@ -38,6 +38,73 @@
     
         <article class="post article-entry">
             <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-D-How-Many-Divisors/">Aizu IPT1_3_D How Many Divisors?</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D</a></p>
+<h2 id="How-Many-Divisors"><a href="#How-Many-Divisors" class="headerlink" title="How Many Divisors?"></a>How Many Divisors?</h2><p>Write a program which reads three integers a, b and c, and prints the number of divisors of c between a and b.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Three integers a, b and c are given in a line separated by a single space.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the number of divisors in a line.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ a, b, c ≤ 10000<br>a ≤ b</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input 1<br>5 14 80</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output 1<br>3</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> counter,divisor_num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(counter = a; counter &lt;= b; counter++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c%counter == <span class="number">0</span>) divisor_num++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, divisor_num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-C-Swapping-Two-Numbers/">Aizu IPT1_3_C Swapping Two Numbers</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_C</a></p>
+<h2 id="Swapping-Two-Numbers"><a href="#Swapping-Two-Numbers" class="headerlink" title="Swapping Two Numbers"></a>Swapping Two Numbers</h2><p>Write a program which reads two integers x and y, and prints them in ascending order.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. Each dataset consists of two integers x and y separated by a single space.</p>
+<p>The input ends with two 0 (when both x and y are zero). Your program should not process for these terminal symbols.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print x and y in ascending order in a line. Put a single space between x and y.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>0 ≤ x,y ≤ 10000<br>the number of datasets ≤ 3000</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>3 2<br>2 2<br>5 3<br>0 0</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>2 3<br>2 2<br>3 5</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y);</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">0</span> &amp;&amp; y==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &gt;= y) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, y, x);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x &lt; y) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, x, y);</span><br><span class="line">        <span class="comment">//if(x &gt; y) printf("%d %d\n", x, y);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-B-Print-Test-Cases/">Aizu IPT1_3_B Print Test Cases</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_B</a></p>
+<h2 id="Print-Test-Cases"><a href="#Print-Test-Cases" class="headerlink" title="Print Test Cases"></a>Print Test Cases</h2><p>In the online judge system, a judge file may include multiple datasets to check whether the submitted program outputs a correct answer for each test case. This task is to practice solving a problem with multiple datasets.</p>
+<p>Write a program which reads an integer x and print it as is. Note that multiple datasets are given for this problem.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. Each dataset consists of an integer x in a line.</p>
+<p>The input ends with an integer 0. You program should not process (print) for this terminal symbol.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print x in the following format:</p>
+<p>Case i: x<br>where i is the case number which starts with 1. Put a single space between “Case” and i. Also, put a single space between ‘:’ and x.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ x ≤ 10000<br>The number of datasets ≤ 10000</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>3<br>5<br>11<br>7<br>8<br>19<br>0</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a><font color="#00CED1">Sample Output </font></h1><hr>
+<p>Sample Output<br>Case 1: 3<br>Case 2: 5<br>Case 3: 11<br>Case 4: 7<br>Case 5: 8<br>Case 6: 19</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> test_case;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;test_case);</span><br><span class="line">        <span class="keyword">if</span>(test_case == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>, counter+<span class="number">1</span>, test_case);</span><br><span class="line">        counter++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
                 <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-A-Print-Many-Hello-World/">Aizu IPT1_3_A Print Many Hello World</a>
             </div>
             <p class="sub">Feb 17 2019</p>
@@ -194,49 +261,6 @@
             </div>
         </article>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/aizu-IPT1-1-B/">aizu_IPT1_1-B</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_B</a></p>
-<p>X Cubic<br>Write a program which calculates the cube of a given integer x.</p>
-<p>Input<br>An integer x is given in a line.</p>
-<p>Output<br>Print the cube of x in a line.</p>
-<p>Constraints<br>1 ≤ x ≤ 100</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
-<p>Sample Input 1<br>2<br>Sample Input 2<br>3</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
-<p>Sample Output 1<br>8<br>Sample Output 2<br>27</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,x*x*x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/16/aizu-IPT1-1-A/">aizu_1-A</a>
-            </div>
-            <p class="sub">Feb 16 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A</a></p>
-<p>Hello World<br>Welcome to Online Judge!</p>
-<p>Write a program which prints “Hello World” to standard output.</p>
-<p>Input<br>There is no input for this problem.</p>
-<p>Output<br>Print “Hello World” in a line.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><hr>
-<p>Sample Input 1<br>No input</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><hr>
-<p>Sample Output 1<br>Hello World</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><hr>
-<p>這題沒什麼好說，會PO出此題只是測試網誌。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-            </div>
-        </article>
-    
 </div>
 <div class="side-bar">
 
@@ -255,7 +279,7 @@
         </div>
     <div class="tags">
     <h3 class="tags-title">Tags</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
 </div>
     </div>
 </div>
@@ -269,6 +293,11 @@
             <span class="prev-text">Prev</span>
         </a>
     
+    
+        <a class="next" href="/page/3/">
+            <span class="next-text">Next</span>
+            <i class="iconfont icon-right"></i>
+        </a>
     
     </nav>
 
