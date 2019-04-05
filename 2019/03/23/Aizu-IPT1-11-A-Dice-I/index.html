@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">Hexo</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        Aizu IPT1_11_A Dice I
+    </div>
+    <p class="sub">Mar 23 2019</p>
+    <div class="post-content">
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/11/ITP1_11_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/11/ITP1_11_A</a></p>
+<h2 id="Dice-I"><a href="#Dice-I" class="headerlink" title="Dice I"></a>Dice I</h2><p>Write a program to simulate rolling a dice, which can be constructed by the following net.</p>
+<p><img src="https://judgeapi.u-aizu.ac.jp/resources/images/IMAGE2_ITP1_11_A_1" alt></p>
+<p>As shown in the figures, each face is identified by a different label from 1 to 6.</p>
+<p>Write a program which reads integers assigned to each face identified by the label and a sequence of commands to roll the dice, and prints the integer on the top face. At the initial state, the dice is located as shown in the above figures.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, six integers assigned to faces are given in ascending order of their corresponding labels.</p>
+<p>In the second line, a string which represents a sequence of commands, is given. The command is one of ‘E’, ‘N’, ‘S’ and ‘W’ representing four directions shown in the above figures.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the integer which appears on the top face after the simulation.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p> 0≤ the integer assigned to a face  ≤100<br> 0≤ the length of the command  ≤100</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><p>1 2 4 8 16 32<br>SE</p>
+<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><p>1 2 4 8 16 32<br>EESWN</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><p>8<br>You are given a dice where 1, 2, 4, 8, 16 are 32 are assigned to a face labeled by 1, 2, …, 6 respectively. After you roll the dice to the direction S and then to the direction E, you can see 8 on the top face.</p>
+<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><p>32</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>這題本來想得很複雜，以為要記住所有翻轉的可能，像是頂部為1前方為2時轉東南西北會是什麼。後來發現沒有必要，只要實際轉轉骰子，記錄哪一面被哪一面取代就好。比如說，</p>
+<p>1 2 3 4 5 6往北轉，會發現點數1的面被點數2取代，那就dice[1] = dice[2]，其他以此類推。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> dice[<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">6</span>; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;dice[i]);</span><br><span class="line">    getchar();    </span><br><span class="line">    <span class="keyword">char</span> direction_command[<span class="number">105</span>];</span><br><span class="line">    fgets(direction_command, <span class="keyword">sizeof</span>(direction_command), <span class="built_in">stdin</span>);</span><br><span class="line">    direction_command[<span class="built_in">strlen</span>(direction_command) - <span class="number">1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="built_in">strlen</span>(direction_command); i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(direction_command[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'N'</span>:</span><br><span class="line">                temp = dice[<span class="number">1</span>];   </span><br><span class="line">                dice[<span class="number">1</span>] = dice[<span class="number">2</span>];</span><br><span class="line">                dice[<span class="number">2</span>] = dice[<span class="number">6</span>];</span><br><span class="line">                dice[<span class="number">6</span>] = dice[<span class="number">5</span>];</span><br><span class="line">                dice[<span class="number">5</span>] = temp;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'S'</span>:</span><br><span class="line">                temp = dice[<span class="number">1</span>];   </span><br><span class="line">                dice[<span class="number">1</span>] = dice[<span class="number">5</span>];</span><br><span class="line">                dice[<span class="number">5</span>] = dice[<span class="number">6</span>];</span><br><span class="line">                dice[<span class="number">6</span>] = dice[<span class="number">2</span>];</span><br><span class="line">                dice[<span class="number">2</span>] = temp;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'E'</span>:</span><br><span class="line">                temp = dice[<span class="number">1</span>];</span><br><span class="line">                dice[<span class="number">1</span>] = dice[<span class="number">4</span>];</span><br><span class="line">                dice[<span class="number">4</span>] = dice[<span class="number">6</span>];</span><br><span class="line">                dice[<span class="number">6</span>] = dice[<span class="number">3</span>];</span><br><span class="line">                dice[<span class="number">3</span>] = temp;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">case</span> <span class="string">'W'</span>:</span><br><span class="line">                temp = dice[<span class="number">1</span>];</span><br><span class="line">                dice[<span class="number">1</span>] = dice[<span class="number">3</span>];</span><br><span class="line">                dice[<span class="number">3</span>] = dice[<span class="number">6</span>];</span><br><span class="line">                dice[<span class="number">6</span>] = dice[<span class="number">4</span>];</span><br><span class="line">                dice[<span class="number">4</span>] = temp;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dice[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dice-I"><span class="toc-text">Dice I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraints"><span class="toc-text">Constraints</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input-1"><span class="toc-text">Sample Input 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input-2"><span class="toc-text">Sample Input 2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output-1"><span class="toc-text">Sample Output 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output-2"><span class="toc-text">Sample Output 2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/基礎語法練習/">基礎語法練習</a>
+                
+                    <a href="/tags/Aizu-OJ/">Aizu OJ</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator">
+        
+            <a class="prev" href="/2019/03/23/Aizu-IPT1-11-B-Dice-II/">
+                <i class="iconfont icon-left"></i>
+                <span class="prev-text">Aizu IPT1_11_B Dice II</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/03/17/Aizu-IPT1-10-C-Standard-Deviation/">
+                
+                <span class="prev-text">Aizu IPT1_10_C Standard Deviation</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/back-to-top.js"></script>
+    <script src="/js/scroll.js"></script>
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
