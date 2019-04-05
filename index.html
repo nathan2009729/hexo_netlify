@@ -257,6 +257,96 @@ Third paragraph of definition 2.
     
         <article class="post article-entry">
             <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-4-D-Min-Max-and-Sum/">Aizu IPT1_4_D Min, Max and Sum</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_D
+</a></p>
+<h2 id="Min-Max-and-Sum"><a href="#Min-Max-and-Sum" class="headerlink" title="Min, Max and Sum"></a>Min, Max and Sum</h2><p>Write a program which reads a sequence of  n integers ai(i=1,2,…n), and prints the minimum value, maximum value and sum of the sequence.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, an integer  n is given. In the next line,  n integers ai are given in a line.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the minimum value, maximum value and sum in a line. Put a single space between the values.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p> 0&lt;n≤10000<br> −1000000≤ai≤1000000</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>5<br>10 1 5 4 17</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>1 17 37</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10001</span>];</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">-1000001</span>, min = <span class="number">1000001</span>;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;=max) max = a[i];</span><br><span class="line">        <span class="keyword">if</span>(a[i]&lt;=min) min = a[i];</span><br><span class="line">        sum += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %.0lf\n"</span>, min, max, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-4-C-Simple-Calculator/">Aizu IPT1_4_C Simple Calculator</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_C
+</a></p>
+<h2 id="Simple-Calculator"><a href="#Simple-Calculator" class="headerlink" title="Simple Calculator"></a>Simple Calculator</h2><p>Write a program which reads two integers a, b and an operator op, and then prints the value of a op b.</p>
+<p>The operator op is ‘+’, ‘-‘, ‘*’ or ‘/‘ (sum, difference, product or quotient). The division should truncate any fractional part.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. Each dataset is given in the following format.</p>
+<p>a op b<br>The input ends with a single ‘?’. Your program should not process for this terminal symbol.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print the value in a line.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>0 ≤a, b≤ 20000<br>No divisions by zero are given.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input 1<br>1 + 2<br>56 - 18<br>13 * 2<br>100 / 10<br>27 + 81<br>0 ? 0</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output 1<br>3<br>38<br>26<br>10<br>108</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %c %d"</span>, &amp;a, &amp;op, &amp;b);</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">'?'</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">'+'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a + b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'-'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a - b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'*'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a * b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'/'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-4-B-Circle/">Aizu IPT1_4_B Circle</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_4_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_4_B
+</a></p>
+<h2 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h2><p>Write a program which calculates the area and circumference of a circle for given radius r.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>A real number r is given.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the area and circumference of the circle in a line. Put a single space between them. The output should not contain an absolute error greater than 10-5.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>0 &lt;  r &lt; 10000</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input 1<br>2</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output 1<br>12.566371 12.566371</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> r;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lf %lf\n"</span>, PI*r*r, <span class="number">2</span>*PI*r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-4-A-A-B-Problem/">Aizu IPT1_4_A A/B Problem</a>
+            </div>
+            <p class="sub">Feb 17 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_4_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_4_A</a></p>
+<h2 id="A-B-Problem"><a href="#A-B-Problem" class="headerlink" title="A/B Problem"></a>A/B Problem</h2><p>Write a program which reads two integers a and b , and calculates the following values:</p>
+<p>a ÷ b: d (in integer)<br>remainder of a ÷ b : r (in integer)<br>a ÷ b : f (in real number)</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Two integers a and b are given in a line.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print d, r and f separated by a space in a line. For f, the output should not contain an absolute error greater than 10-5.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ a, b ≤ 10^9</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input 1<br>3 2</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output 1<br>1 1 1.50000</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a, b;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="keyword">int</span> int_a,int_b;</span><br><span class="line">    int_a = a; int_b = b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %f\n"</span>, int_a/int_b, int_a%int_b, a/b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
                 <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-D-How-Many-Divisors/">Aizu IPT1_3_D How Many Divisors?</a>
             </div>
             <p class="sub">Feb 17 2019</p>
@@ -322,90 +412,6 @@ Third paragraph of definition 2.
             </div>
         </article>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-3-A-Print-Many-Hello-World/">Aizu IPT1_3_A Print Many Hello World</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_3_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_3_A</a></p>
-<h2 id="Print-Many-Hello-World"><a href="#Print-Many-Hello-World" class="headerlink" title="Print Many Hello World"></a>Print Many Hello World</h2><p>Write a program which prints 1000 “Hello World”.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>There is no input for this problem.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>The output consists of 1000 lines. Print “Hello World” in each line.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<p>Sample Input<br>No input</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<p>Sample Output<br>Hello World<br>Hello World<br>Hello World<br>Hello World<br>Hello World<br>Hello World<br>Hello World<br>.<br>.<br>.<br>.<br>.<br>.<br>Hello World</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-2-D-Circle-in-a-Rectangle/">Aizu IPT1_2_D Circle in a Rectangle</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00FA9A">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_D</a></p>
-<h2 id="Circle-in-a-Rectangle"><a href="#Circle-in-a-Rectangle" class="headerlink" title="Circle in a Rectangle"></a>Circle in a Rectangle</h2><p>Write a program which reads a rectangle and a circle, and determines whether the circle is arranged inside the rectangle. As shown in the following figures, the upper right coordinate (W,H) of the rectangle and the central coordinate (x,y) and radius r of the circle are given.</p>
-<p><img src="https://judgeapi.u-aizu.ac.jp/resources/images/IMAGE2_circle_and_rectangle.jpg" alt></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Five integers W, H, x, y and r separated by a single space are given in a line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print “Yes” if the circle is placed inside the rectangle, otherwise “No” in a line.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p> −100≤x,y≤100<br> 0&lt;W,H,r≤100</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00FA9A">Sample Input</font></h1><hr>
-<p>Sample Input 1<br>5 4 2 2 1<br>Sample Input 2<br>5 4 2 4 1</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00FA9A">Sample Output</font></h1><hr>
-<p>Sample Output 1<br>Yes<br>Sample Output 2<br>No</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00FA9A">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> W,H,x,y,r;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d %d"</span>, &amp;W, &amp;H, &amp;x, &amp;y, &amp;r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(y-r &lt; <span class="number">0</span> || y+r &gt; H || x-r &lt; <span class="number">0</span> || x+r &gt; W) <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-2-C-Sorting-Three-Numbers/">Aizu IPT1_2_C Sorting Three Numbers</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00ffff">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C</a></p>
-<h2 id="Sorting-Three-Numbers"><a href="#Sorting-Three-Numbers" class="headerlink" title="Sorting Three Numbers"></a>Sorting Three Numbers</h2><p>Write a program which reads three integers, and prints them in ascending order.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Three integers separated by a single space are given in a line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the given integers in ascending order in a line. Put a single space between two integers.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ the three integers ≤ 10000</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00ffff">Sample Input</font></h1><hr>
-<p>Sample Input 1<br>3 8 1</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00ffff">Sample Output</font></h1><hr>
-<p>Sample Output 1<br>1 3 8</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00ffff">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">10001</span>;</span><br><span class="line">    <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(a &gt; max) max = a;</span><br><span class="line">    <span class="keyword">if</span>(b &gt; max) max = b;</span><br><span class="line">    <span class="keyword">if</span>(c &gt; max) max = c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(a &lt; min) min = a;</span><br><span class="line">    <span class="keyword">if</span>(b &lt; min) min = b;</span><br><span class="line">    <span class="keyword">if</span>(c &lt; min) min = c;</span><br><span class="line">    </span><br><span class="line">    middle = (a+b+c) - max - min;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, min, middle, max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-2-B-Range/">Aizu IPT1_2_B Range</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00ffff">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_B</a></p>
-<h2 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h2><p>Write a program which reads three integers a, b and c, and prints “Yes” if a&lt;b&lt;c, otherwise “No”.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Three integers a, b and c separated by a single space are given in a line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print “Yes” or “No” in a line.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>0 ≤a, b, c ≤ 100</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00ffff">Sample Input</font></h1><hr>
-<p>Sample Input 1<br>1 3 8<br>Sample Input 2<br>3 8 1</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00ffff">Sample Output</font></h1><hr>
-<p>Sample Output 1<br>Yes<br>Sample Output 2<br>No</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00ffff">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b &amp;&amp; b&lt;c)<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
 </div>
 <div class="side-bar">
 
@@ -424,7 +430,7 @@ Third paragraph of definition 2.
         </div>
     <div class="tags">
     <h3 class="tags-title">Tags</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
 </div>
     </div>
 </div>
