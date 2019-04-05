@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">Hexo</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        Aizu IPT1_7_C Spreadsheet
+    </div>
+    <p class="sub">Feb 28 2019</p>
+    <div class="post-content">
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_C</a></p>
+<h2 id="Spreadsheet"><a href="#Spreadsheet" class="headerlink" title="Spreadsheet"></a>Spreadsheet</h2><p>Your task is to perform a simple table calculation.</p>
+<p>Write a program which reads the number of rows r, columns c and a table of r × c elements, and prints a new table, which includes the total sum for each row and column.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, two integers r and c are given. Next, the table is given by r lines, each of which consists of c integers separated by space characters.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the new table of (r+1) × (c+1) elements. Put a single space character between adjacent elements. For each row, print the sum of it’s elements in the last column. For each column, print the sum of it’s elements in the last row. Print the total sum of the elements at the bottom right corner of the table.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ r, c ≤ 100<br>0 ≤ an element of the table ≤ 100</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>4 5<br>1 1 3 4 5<br>2 2 2 4 5<br>3 3 0 1 1<br>2 3 4 4 6</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>1 1 3 4 5 14<br>2 2 2 4 5 15<br>3 3 0 1 1 8<br>2 3 4 4 6 19<br>8 9 9 13 17 56</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>What will happen If we put the statement “sum_of_all += sum_of_column” in line 45?<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> transpose_matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> r,c;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*initialize matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">101</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">101</span>; j++)&#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            transpose_matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Input matrix*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;r, &amp;c);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrix[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_row = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, matrix[i][j]);</span><br><span class="line">            sum_of_row += matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum_of_row);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*transpose of the matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            transpose_matrix[j][i] = matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**/</span></span><br><span class="line">    <span class="keyword">int</span> sum_of_all = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;c; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_column = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;r; j++)&#123;</span><br><span class="line">            sum_of_column += transpose_matrix[i][j];</span><br><span class="line">            <span class="comment">//sum_of_all += sum_of_column;</span></span><br><span class="line">        &#125;</span><br><span class="line">        sum_of_all += sum_of_column;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, sum_of_column);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum_of_all);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spreadsheet"><span class="toc-text">Spreadsheet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constraints"><span class="toc-text">Constraints</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/基礎語法練習/">基礎語法練習</a>
+                
+                    <a href="/tags/Aizu-OJ/">Aizu OJ</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator">
+        
+            <a class="prev" href="/2019/02/28/Aizu-IPT1-7-D-Matrix-Multiplication/">
+                <i class="iconfont icon-left"></i>
+                <span class="prev-text">Aizu IPT1_7_D Matrix Multiplication</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/02/28/Aizu-IPT1-7-B-How-many-ways/">
+                
+                <span class="prev-text">Aizu IPT1_7_B How many ways?</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/back-to-top.js"></script>
+    <script src="/js/scroll.js"></script>
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
