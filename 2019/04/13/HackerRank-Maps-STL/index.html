@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">Hexo</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        HackerRank-Maps STL
+    </div>
+    <p class="sub">Apr 13 2019</p>
+    <div class="post-content">
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://www.hackerrank.com/challenges/cpp-maps/problem" target="_blank" rel="noopener">問題連結</a></p>
+<iframe src="https://drive.google.com/file/d/1Dokl-R4loJyxfX-jHBC3pKh5dH03uIzq/preview" width="100%" height="800"></iframe>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>簡單來說就是可以把一個型態的值(key)對應到另一個型態的值(value)上，比如說張三20分，李四30分，就是把人名(key)對應到分數(value)。以上例而言，宣告方式是map&lt;string,int&gt;。<br>插入有兩種方式，一種是<code>.insert()</code>method，另一種是變數名[key] = value，這兩種不一樣，但現在我還搞不清楚哪裡不同。可以用<code>.find(key)</code>method來尋找此key是否存在，如果找不到，則會return<code>.end()</code>的iterator。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Enter your code here. Read input from STDIN. Print output to STDOUT */</span></span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m1;</span><br><span class="line">    <span class="keyword">int</span> query_num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; query_num;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; query_num; i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> type, marks;</span><br><span class="line">      <span class="built_in">string</span> name;</span><br><span class="line">      <span class="built_in">cin</span> &gt;&gt; type;</span><br><span class="line">      <span class="keyword">if</span> (type == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; marks;</span><br><span class="line">        <span class="comment">// m1.insert(pair&lt;string, int&gt;(name, marks));</span></span><br><span class="line"></span><br><span class="line">        m1[name] += marks;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name;</span><br><span class="line">        m1.erase(name);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name;</span><br><span class="line">        <span class="keyword">if</span> (m1.find(name) != m1.end())</span><br><span class="line">          <span class="built_in">cout</span> &lt;&lt; m1.find(name)-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">          <span class="built_in">cout</span> &lt;&lt; <span class="string">"0\n"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><font color="#00CED1">Reference</font></h1><hr>
+<p><a href="https://mropengate.blogspot.com/2015/12/cc-map-stl.html" target="_blank" rel="noopener">C/C++ - Map (STL) 用法與心得完全攻略</a><br><a href="https://www.cnblogs.com/skyfsm/p/6934246.html" target="_blank" rel="noopener">C++ STL快速入门</a><br><a href="http://www.cplusplus.com/reference/map/map/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/map/map/</a></p>
+
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/c-基礎語法練習/">c++基礎語法練習</a>
+                
+                    <a href="/tags/HackerRank-OJ/">HackerRank OJ</a>
+                
+                    <a href="/tags/STL/">STL</a>
+                
+                    <a href="/tags/map/">map</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator">
+        
+        
+            <a class="next" href="/2019/04/13/HackerRank-Sets-STL/">
+                
+                <span class="prev-text">HackerRank-Sets STL</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/back-to-top.js"></script>
+    <script src="/js/scroll.js"></script>
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
