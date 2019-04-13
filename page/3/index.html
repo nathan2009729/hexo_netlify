@@ -38,6 +38,32 @@
     
         <article class="post article-entry">
             <div class="post-title">
+                <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-B-How-many-ways/">Aizu IPT1_7_B How many ways?</a>
+            </div>
+            <p class="sub">Feb 28 2019</p>
+            <div class="post-content">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_B
+</a></p>
+<h2 id="How-many-ways"><a href="#How-many-ways" class="headerlink" title="How many ways?"></a>How many ways?</h2><p>Write a program which identifies the number of combinations of three integers which satisfy the following conditions:</p>
+<p>You should select three distinct integers from 1 to n.<br>A total sum of the three integers is x.<br>For example, there are two combinations for n = 5 and x = 9.</p>
+<p>1 + 3 + 5 = 9<br>2 + 3 + 4 = 9</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. For each dataset, two integers n and x are given in a line.</p>
+<p>The input ends with two zeros for n and x respectively. Your program should not process for these terminal symbols.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>3 ≤ n ≤ 100<br>0 ≤ x ≤ 300</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print the number of combinations in a line.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>5 9<br>0 0</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>2</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>Pay a attention to the variable ans in line 6. What will happen If declare int ans = 0 in line 6?</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="keyword">int</span> a, b ,c;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;x);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span> &amp;&amp; x==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(a=<span class="number">1</span>; a&lt;=n; a++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(b=a+<span class="number">1</span>; b&lt;=n; b++)&#123;</span><br><span class="line">                c = x-a-b;</span><br><span class="line">                <span class="keyword">if</span>(c&gt;b &amp;&amp; c&lt;=n) ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        </article>
+    
+        <article class="post article-entry">
+            <div class="post-title">
                 <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-A-Grading/">Aizu IPT1_7_A Grading</a>
             </div>
             <p class="sub">Feb 28 2019</p>
@@ -259,30 +285,6 @@
             </div>
         </article>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-4-C-Simple-Calculator/">Aizu IPT1_4_C Simple Calculator</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_C
-</a></p>
-<h2 id="Simple-Calculator"><a href="#Simple-Calculator" class="headerlink" title="Simple Calculator"></a>Simple Calculator</h2><p>Write a program which reads two integers a, b and an operator op, and then prints the value of a op b.</p>
-<p>The operator op is ‘+’, ‘-‘, ‘*’ or ‘/‘ (sum, difference, product or quotient). The division should truncate any fractional part.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. Each dataset is given in the following format.</p>
-<p>a op b<br>The input ends with a single ‘?’. Your program should not process for this terminal symbol.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print the value in a line.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>0 ≤a, b≤ 20000<br>No divisions by zero are given.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<p>Sample Input 1<br>1 + 2<br>56 - 18<br>13 * 2<br>100 / 10<br>27 + 81<br>0 ? 0</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<p>Sample Output 1<br>3<br>38<br>26<br>10<br>108</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %c %d"</span>, &amp;a, &amp;op, &amp;b);</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">'?'</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">'+'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a + b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'-'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a - b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'*'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a * b);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">'/'</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
-    
 </div>
 <div class="side-bar">
 
@@ -301,7 +303,7 @@
         </div>
     <div class="tags">
     <h3 class="tags-title">Tags</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">42</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">42</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a><span class="tag-list-count">35</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li></ul>
 </div>
     </div>
 </div>
