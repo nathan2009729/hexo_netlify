@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <title>
+        Hexo
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
 
-  
-  <title>Halting Problem-using diagonalization method | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-  
-  <meta name="description" content="定義1:(d1)(&amp;lt;M&amp;gt;,x)為機器&amp;lt;M&amp;gt;輸入x時的輸出。輸出有三種情形，一是輸出非0且停機、二是輸出0且停機、三是無限循環也就是不停機。定義2:(d2)halting function hh(&amp;lt;M&amp;gt;,x)=1 $\Leftrightarrow$ (&amp;lt;M&amp;gt;,x)停機，Theorem 1.5:The halting function h is not">
-<meta name="keywords" content="Computational complexity,Halting Problem,diagonalization">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Halting Problem-using diagonalization method">
-<meta property="og:url" content="http://yoursite.com/2019/04/14/Halting-Problem-using-diagonalization-method/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="定義1:(d1)(&amp;lt;M&amp;gt;,x)為機器&amp;lt;M&amp;gt;輸入x時的輸出。輸出有三種情形，一是輸出非0且停機、二是輸出0且停機、三是無限循環也就是不停機。定義2:(d2)halting function hh(&amp;lt;M&amp;gt;,x)=1 $\Leftrightarrow$ (&amp;lt;M&amp;gt;,x)停機，Theorem 1.5:The halting function h is not">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/VGSFgc3.png">
-<meta property="og:updated_time" content="2019-04-14T01:52:31.185Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Halting Problem-using diagonalization method">
-<meta name="twitter:description" content="定義1:(d1)(&amp;lt;M&amp;gt;,x)為機器&amp;lt;M&amp;gt;輸入x時的輸出。輸出有三種情形，一是輸出非0且停機、二是輸出0且停機、三是無限循環也就是不停機。定義2:(d2)halting function hh(&amp;lt;M&amp;gt;,x)=1 $\Leftrightarrow$ (&amp;lt;M&amp;gt;,x)停機，Theorem 1.5:The halting function h is not">
-<meta name="twitter:image" content="https://i.imgur.com/VGSFgc3.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/images/default-avatar.jpeg">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-</html>
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
-    
-      <div id="wrapper" title="图片来自网络">
-    
-    
-      <header id="header">
-  <div id="nav-toggle" class="nav-toggle"></div>
-  <div class="head-box global-width">
-    <nav class="nav-box nav-right">
-      
-        <a class="nav-item" href="/" title>首页</a>
-      
-        <a class="nav-item" href="/archives" title>归档</a>
-      
-    </nav>
-  </div>
-</header>
-      <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-Halting-Problem-using-diagonalization-method" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 class="article-title" itemprop="name">
-      Halting Problem-using diagonalization method
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Hexo
+        </a>
     </h1>
-  
+    <h2 class="desc">
+        
+    </h2>
 
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/" class="article-date">
-  <time datetime="2019-04-14T01:44:37.000Z" itemprop="datePublished">2019-04-14</time>
-</a>
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="https://github.com/FrontendSophie">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://www.linkedin.com/in/frontendsophie/">
+                        LinkedIn
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
     
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diagonalization/">diagonalization</a></li></ul>
-
-  </div>
-  
-    <span id="busuanzi_container_page_pv">
-      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-    </span>
-  
-
-  <div class="article-inner">
     
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
+    <h2 class="post-title">
+        Halting Problem-using diagonalization method
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-04-14
+        </li>
+        <li>
+            bookeel
+        </li>
+    </ul>
+    <div class="post-content">
         <p><strong>定義1:(d1)</strong><br>(&lt;M&gt;,x)為機器&lt;M&gt;輸入x時的輸出。輸出有三種情形，一是輸出非0且停機、二是輸出0且停機、三是無限循環也就是不停機。<br><strong>定義2:(d2)</strong><br>halting function h<br>h(&lt;M&gt;,x)=1 $\Leftrightarrow$ (&lt;M&gt;,x)停機，<br><strong>Theorem 1.5:</strong><br>The halting function h is not computable.<br><strong>Proof:</strong><br>要先知道，機器(也可以想成演算法)有很多種的，像是下圖，有機器T1、T2…等等。這是因為我們想知道世界上所有的演算法是不是有一個可以解決停機問題。下圖的表格，就是演算法Ti輸入演算法Tj時會發生什麼事，是停機呢(輸出Yes或No)，還是進入無限循環。<br><img src="https://i.imgur.com/VGSFgc3.png" alt><br>此圖引用於<a href="http://www.regor.url.tw/cnchou/2016/06/14/〈計算理論很好玩〉計算模型23：不可決定性問題/" target="_blank" rel="noopener">http://www.regor.url.tw/cnchou/2016/06/14/〈計算理論很好玩〉計算模型23：不可決定性問題/</a></p>
 <p>而證明的方法，是證明即使將h限定到其對角線上也不可解。對角線也就是機器自己輸入自己，我們定義<code>h限定到其對角線上</code>這個函數為d，具體來說，d(&lt;M&gt;) = h(&lt;M&gt;,&lt;M&gt;)。<br><strong>定義3:(d3)</strong><br>d(&lt;M&gt;) = h(&lt;M&gt;,&lt;M&gt;)</p>
 <p>我們會先構造一個和d相關的函數d’，先證明d’不可計算。d如果可以計算，那d’也很好算; 但如果d’不可計算，d就不能計算了。又因為d不可計算，clearly，h()也不可計算。</p>
@@ -103,166 +104,35 @@
 <p>在步驟2，d’(&lt;M’&gt;) = 1(by d4)<br>d(&lt;M’’&gt;) = h(&lt;M’’&gt;,&lt;M’’&gt;)(by d3)，<br>h(&lt;M’’&gt;,&lt;M’’&gt;) = 1(by d2)<br>$\Rightarrow$ d(&lt;M’’&gt;) = 1<br>所以步驟2中d(&lt;M’’&gt;) = d’(&lt;M’&gt;)，步驟三跟四也符合這等式。<br><strong>Lemma2(L2) QED</strong></p>
 <p>根據L2，我們可以利用d來算出d’。試著想像一下，有一個算d’的演算法A調用了算出d的演算法B，如果d’根本不能算，那代表演算法B也是不能算的，也就是d也算不出來。</p>
 
-      
     </div>
-    
-      <footer class="article-footer">
-        完
-      </footer>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  <div class="article-nav-block">
-    
-  </div>
-  <div class="article-nav-block">
-    
-      <a href="/2019/04/13/HackerRank-Maps-STL/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">HackerRank-Maps STL</div>
-        <strong class="article-nav-caption"></strong>
-      </a>
-    
-  </div>
-</nav>
-
-    
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  owner: '',
-  repo: '',
-  oauth: {
-    client_id: '',
-    client_secret: '',
-  },
-})
-gitment.render('gitmentContainer')
-</script>
-
-  
-  
 </article>
-</section>
-        <aside id="sidebar">
-  
-    <div class="widget-box">
-  <div class="avatar-box">
-    <img class="avatar" src="/images/default-avatar.jpeg" title="图片来自网络">
-    <h3 class="avatar-name">
-      
-        一路烟霞
-      
-    </h3>
-    <p class="avatar-slogan">
-      特别耐撕的小前端，资深的打酱油攻城狮。
-    </p>
-  </div>
-</div>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
 
-
-  
     
 
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-    </div>
-  </div>
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li></ul>
 
 
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 18px;">Aizu OJ</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 14px;">STL</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Struct/" style="font-size: 12px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 14px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
-    </div>
-  </div>
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
 
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
-    </div>
-  </div>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
 
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Maps-STL/">HackerRank-Maps STL</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Sets-STL/">HackerRank-Sets STL</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-      </div>
-      <footer id="footer">
-  <div class="foot-box global-width">
-    &copy; 2019 John Doe &nbsp;&nbsp;
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
-    <br>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
-  </div>
-</footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-    </div>
-    <nav id="mobile-nav" class="mobile-nav-box">
-  <div class="mobile-nav-img mobile-nav-top"></div>
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-  <div class="mobile-nav-img  mobile-nav-bottom"></div>
-</nav>    
-  </div>
-<script type="text/x-mathjax-config">
+                    </section>
+                </aside>
+        </div>
+    <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -278,4 +148,5 @@ gitment.render('gitmentContainer')
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
+
 </html>
