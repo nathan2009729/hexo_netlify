@@ -1,268 +1,391 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HackerRank-Querying the Document｜undefined
+        
+    </title>
 
-  
-  <title>HackerRank-Querying the Document | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-  
-  <meta name="description" content="Problem 問題連結   Solution 這題跟Structuring the Document一模一樣，只是不能用struct，而是用4-dimensional pointer。所以宣告一個文件，是char**** doc;，那如何宣告這一文件有5個paragraph? 是doc = malloc(5*sizeof(char***));那第i個paragraph含有5個sentence該如">
-<meta name="keywords" content="基礎語法練習,HackerRank OJ,MultiDimension array,Dynamic allocation">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HackerRank-Querying the Document">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/HackerRank-Querying-the-Document/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Problem 問題連結   Solution 這題跟Structuring the Document一模一樣，只是不能用struct，而是用4-dimensional pointer。所以宣告一個文件，是char**** doc;，那如何宣告這一文件有5個paragraph? 是doc = malloc(5*sizeof(char***));那第i個paragraph含有5個sentence該如">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-09T09:51:23.729Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HackerRank-Querying the Document">
-<meta name="twitter:description" content="Problem 問題連結   Solution 這題跟Structuring the Document一模一樣，只是不能用struct，而是用4-dimensional pointer。所以宣告一個文件，是char**** doc;，那如何宣告這一文件有5個paragraph? 是doc = malloc(5*sizeof(char***));那第i個paragraph含有5個sentence該如">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/images/default-avatar.jpeg">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="canonical" href="http://yoursite.com/2019/04/07/HackerRank-Querying-the-Document/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-</html>
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hexo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src>
+
+
+<style>
     
-      <div id="wrapper" title="圖片來自網路">
+    header.intro-header {
+        background-image: url('')
+    }
+
     
-    
-      <header id="header">
-  <div id="nav-toggle" class="nav-toggle"></div>
-  <div class="head-box global-width">
-    <nav class="nav-box nav-right">
-      
-        <a class="nav-item" href="/" title>首页</a>
-      
-        <a class="nav-item" href="/archives" title>归档</a>
-      
-    </nav>
-  </div>
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HackerRank-Querying the Document</h1>
+                    
+                    <span class="meta">
+                         作者 bookeel
+                        <span>
+                          日期 2019-04-07
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#基礎語法練習" title="基礎語法練習">基礎語法練習</a>
+                        
+                        <a class="tag" href="/tags/#HackerRank OJ" title="HackerRank OJ">HackerRank OJ</a>
+                        
+                        <a class="tag" href="/tags/#MultiDimension array" title="MultiDimension array">MultiDimension array</a>
+                        
+                        <a class="tag" href="/tags/#Dynamic allocation" title="Dynamic allocation">Dynamic allocation</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HackerRank-Querying the Document
+        </span>
+    </div>
 </header>
-      <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-HackerRank-Querying-the-Document" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 class="article-title" itemprop="name">
-      HackerRank-Querying the Document
-    </h1>
-  
 
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/04/07/HackerRank-Querying-the-Document/" class="article-date">
-  <time datetime="2019-04-07T04:22:36.000Z" itemprop="datePublished">2019-04-07</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-
-  </div>
-  
-    <span id="busuanzi_container_page_pv">
-      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-    </span>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://www.hackerrank.com/challenges/querying-the-document/problem" target="_blank" rel="noopener">問題連結</a></p>
 <iframe src="https://drive.google.com/file/d/1tNtXgon8xwE-LS6iZwpjZHiOEcGjzfRf/preview" width="100%" height="850"></iframe>
 
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>這題跟<a href="https://www.hackerrank.com/challenges/structuring-the-document/problem" target="_blank" rel="noopener">Structuring the Document</a>一模一樣，只是不能用struct，而是用4-dimensional pointer。所以宣告一個文件，是<code>char**** doc;</code>，那如何宣告這一文件有5個paragraph? 是<code>doc = malloc(5*sizeof(char***));</code><br>那第i個paragraph含有5個sentence該如何宣告?注意，<br>不是<code>char ***doc[i] = malloc(5*sizeof(char**));</code><br>而是<code>doc[i] = malloc(5*sizeof(char**));</code><br>因為當宣告<code>char**** doc;</code>時，<code>doc[i]</code>已經是<code>char***</code>type<br>那麼，假設要宣告一個文件，它最多有5個pagraph、每個paragraph有100個sentence、每個sentence有1000個word、每個word有1000個字母，要如何用迴圈配置?<br>答案如下:<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ****doc;</span><br><span class="line">doc = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>***));</span><br><span class="line"><span class="keyword">int</span> i, j , k;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">    doc[i] = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span> **));</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">100</span>; j++)&#123;</span><br><span class="line">        doc[i][j] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">            doc[i][j][k] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p>整題答案如下，hackerrank要我們填寫的是<code>char**** get_document(char* text)</code>、<code>char*** kth_paragraph(char**** document, int k)</code>、<code>char** kth_sentence_in_mth_paragraph</code>及<code>char* kth_word_in_mth_sentence_of_nth_paragraph</code>等函數:<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_CHARACTERS 1005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_PARAGRAPHS 5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> document[n<span class="number">-1</span>][m<span class="number">-1</span>][k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>** <span class="title">kth_sentence_in_mth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k, <span class="keyword">int</span> m)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> document[m<span class="number">-1</span>][k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>*** <span class="title">kth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> document[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>**** <span class="title">get_document</span><span class="params">(<span class="keyword">char</span>* text)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> ****doc;</span><br><span class="line">    doc = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>***));</span><br><span class="line">    <span class="keyword">int</span> i, j , k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        doc[i] = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span> **));</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">100</span>; j++)&#123;</span><br><span class="line">            doc[i][j] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">                doc[i][j][k] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> par = <span class="number">0</span>, se = <span class="number">0</span>, wr = <span class="number">0</span>, ch = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; text[i]!=<span class="string">'\0'</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(text[i] == <span class="string">' '</span>)&#123;</span><br><span class="line">            doc[par][se][wr][ch] = <span class="string">'\0'</span>;</span><br><span class="line">            ch++;wr++;</span><br><span class="line">            ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i] == <span class="string">'.'</span>)&#123;</span><br><span class="line">            se++;</span><br><span class="line">            wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i] == <span class="string">'\n'</span>)&#123;</span><br><span class="line">            par++;</span><br><span class="line">            se = <span class="number">0</span>; wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            doc[par][se][wr][ch] = text[i];</span><br><span class="line">            ch++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> doc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_input_text</span><span class="params">()</span> </span>&#123;	</span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;paragraph_count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> p[MAX_PARAGRAPHS][MAX_CHARACTERS], doc[MAX_CHARACTERS];</span><br><span class="line">    <span class="built_in">memset</span>(doc, <span class="number">0</span>, <span class="keyword">sizeof</span>(doc));</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; paragraph_count; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%[^\n]%*c"</span>, p[i]);</span><br><span class="line">        <span class="built_in">strcat</span>(doc, p[i]);</span><br><span class="line">        <span class="keyword">if</span> (i != paragraph_count - <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">strcat</span>(doc, <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span>* returnDoc = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>((<span class="built_in">strlen</span> (doc)+<span class="number">1</span>) * (<span class="keyword">sizeof</span>(<span class="keyword">char</span>)));</span><br><span class="line">    <span class="built_in">strcpy</span>(returnDoc, doc);</span><br><span class="line">    <span class="keyword">return</span> returnDoc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_word</span><span class="params">(<span class="keyword">char</span>* word)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, word);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_sentence</span><span class="params">(<span class="keyword">char</span>** sentence)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> word_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;word_count);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word_count; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, sentence[i]);</span><br><span class="line">        <span class="keyword">if</span>( i != word_count - <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_paragraph</span><span class="params">(<span class="keyword">char</span>*** paragraph)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sentence_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;sentence_count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sentence_count; i++) &#123;</span><br><span class="line">        print_sentence(*(paragraph + i));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* text = get_input_text();</span><br><span class="line">    <span class="keyword">char</span>**** document = get_document(text);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="keyword">int</span> type;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;type);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (type == <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k, m, n;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;k, &amp;m, &amp;n);</span><br><span class="line">            <span class="keyword">char</span>* word = kth_word_in_mth_sentence_of_nth_paragraph(document, k, m, n);</span><br><span class="line">            print_word(word);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (type == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k, m;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;k, &amp;m);</span><br><span class="line">            <span class="keyword">char</span>** sentence = kth_sentence_in_mth_paragraph(document, k, m);</span><br><span class="line">            print_sentence(sentence);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> k;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            <span class="keyword">char</span>*** paragraph = kth_paragraph(document, k);</span><br><span class="line">            print_paragraph(paragraph);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>這題跟<a href="https://www.hackerrank.com/challenges/structuring-the-document/problem" target="_blank" rel="noopener">Structuring the Document</a>一模一樣，只是不能用struct，而是用4-dimensional pointer。所以宣告一個文件，是<code>char**** doc;</code>，那如何宣告這一文件有5個paragraph? 是<code>doc = malloc(5*sizeof(char***));</code><br>那第i個paragraph含有5個sentence該如何宣告?注意，<br>不是<code>char ***doc[i] = malloc(5*sizeof(char**));</code><br>而是<code>doc[i] = malloc(5*sizeof(char**));</code><br>因為當宣告<code>char**** doc;</code>時，<code>doc[i]</code>已經是<code>char***</code>type<br>那麼，假設要宣告一個文件，它最多有5個pagraph、每個paragraph有100個sentence、每個sentence有1000個word、每個word有1000個字母，要如何用迴圈配置?<br>答案如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ****doc;</span><br><span class="line">doc = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>***));</span><br><span class="line"><span class="keyword">int</span> i, j , k;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">    doc[i] = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span> **));</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">100</span>; j++)&#123;</span><br><span class="line">        doc[i][j] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">            doc[i][j][k] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>整題答案如下，hackerrank要我們填寫的是<code>char**** get_document(char* text)</code>、<code>char*** kth_paragraph(char**** document, int k)</code>、<code>char** kth_sentence_in_mth_paragraph</code>及<code>char* kth_word_in_mth_sentence_of_nth_paragraph</code>等函數:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_CHARACTERS 1005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_PARAGRAPHS 5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> document[n<span class="number">-1</span>][m<span class="number">-1</span>][k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>** <span class="title">kth_sentence_in_mth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k, <span class="keyword">int</span> m)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> document[m<span class="number">-1</span>][k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>*** <span class="title">kth_paragraph</span><span class="params">(<span class="keyword">char</span>**** document, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> document[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>**** <span class="title">get_document</span><span class="params">(<span class="keyword">char</span>* text)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> ****doc;</span><br><span class="line">    doc = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>***));</span><br><span class="line">    <span class="keyword">int</span> i, j , k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        doc[i] = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span> **));</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">100</span>; j++)&#123;</span><br><span class="line">            doc[i][j] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">                doc[i][j][k] = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> par = <span class="number">0</span>, se = <span class="number">0</span>, wr = <span class="number">0</span>, ch = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; text[i]!=<span class="string">'\0'</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(text[i] == <span class="string">' '</span>)&#123;</span><br><span class="line">            doc[par][se][wr][ch] = <span class="string">'\0'</span>;</span><br><span class="line">            ch++;wr++;</span><br><span class="line">            ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i] == <span class="string">'.'</span>)&#123;</span><br><span class="line">            se++;</span><br><span class="line">            wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i] == <span class="string">'\n'</span>)&#123;</span><br><span class="line">            par++;</span><br><span class="line">            se = <span class="number">0</span>; wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            doc[par][se][wr][ch] = text[i];</span><br><span class="line">            ch++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> doc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_input_text</span><span class="params">()</span> </span>&#123;	</span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;paragraph_count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> p[MAX_PARAGRAPHS][MAX_CHARACTERS], doc[MAX_CHARACTERS];</span><br><span class="line">    <span class="built_in">memset</span>(doc, <span class="number">0</span>, <span class="keyword">sizeof</span>(doc));</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; paragraph_count; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%[^\n]%*c"</span>, p[i]);</span><br><span class="line">        <span class="built_in">strcat</span>(doc, p[i]);</span><br><span class="line">        <span class="keyword">if</span> (i != paragraph_count - <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">strcat</span>(doc, <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span>* returnDoc = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>((<span class="built_in">strlen</span> (doc)+<span class="number">1</span>) * (<span class="keyword">sizeof</span>(<span class="keyword">char</span>)));</span><br><span class="line">    <span class="built_in">strcpy</span>(returnDoc, doc);</span><br><span class="line">    <span class="keyword">return</span> returnDoc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_word</span><span class="params">(<span class="keyword">char</span>* word)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, word);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_sentence</span><span class="params">(<span class="keyword">char</span>** sentence)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> word_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;word_count);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word_count; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, sentence[i]);</span><br><span class="line">        <span class="keyword">if</span>( i != word_count - <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_paragraph</span><span class="params">(<span class="keyword">char</span>*** paragraph)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sentence_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;sentence_count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sentence_count; i++) &#123;</span><br><span class="line">        print_sentence(*(paragraph + i));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* text = get_input_text();</span><br><span class="line">    <span class="keyword">char</span>**** document = get_document(text);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="keyword">int</span> type;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;type);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (type == <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k, m, n;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;k, &amp;m, &amp;n);</span><br><span class="line">            <span class="keyword">char</span>* word = kth_word_in_mth_sentence_of_nth_paragraph(document, k, m, n);</span><br><span class="line">            print_word(word);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (type == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k, m;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;k, &amp;m);</span><br><span class="line">            <span class="keyword">char</span>** sentence = kth_sentence_in_mth_paragraph(document, k, m);</span><br><span class="line">            print_sentence(sentence);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> k;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            <span class="keyword">char</span>*** paragraph = kth_paragraph(document, k);</span><br><span class="line">            print_paragraph(paragraph);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><font color="#00CED1">Reference</font></h1><hr>
 <p><a href="https://cboard.cprogramming.com/c-programming/61578-4-dimensional-array-contiguous-allocation.html" target="_blank" rel="noopener">4-dimensional array contiguous allocation</a></p>
 
-      
-    </div>
-    
-      <footer class="article-footer">
-        完
-      </footer>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  <div class="article-nav-block">
-    
-      <a href="/2019/04/13/HackerRank-Vector-Erase/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            HackerRank-Vector Erase
-          
-        </div>
-      </a>
-    
-  </div>
-  <div class="article-nav-block">
-    
-      <a href="/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">HackerRank-Small Triangles, Large Triangles</div>
-        <strong class="article-nav-caption"></strong>
-      </a>
-    
-  </div>
-</nav>
+                <hr>
+                
 
-    
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/04/13/HackerRank-Vector-Erase/" data-toggle="tooltip" data-placement="top" title="HackerRank-Vector Erase">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/" data-toggle="tooltip" data-placement="top" title="HackerRank-Small Triangles, Large Triangles">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hexo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
 <script>
-var gitment = new Gitment({
-  owner: '',
-  repo: '',
-  oauth: {
-    client_id: '',
-    client_secret: '',
-  },
-})
-gitment.render('gitmentContainer')
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
 </script>
 
-  
-  
-</article>
-</section>
-        <aside id="sidebar">
-  
-    <div class="widget-box">
-  <div class="avatar-box">
-    <img class="avatar" src="/images/default-avatar.jpeg" title="圖片來自網路">
-    <h3 class="avatar-name">
-      
-        bookeel
-      
-    </h3>
-    <p class="avatar-slogan">
-      nope。
-    </p>
-  </div>
-</div>
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
-  
-    
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    }});
+</script>
 
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-    </div>
-  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
 
-
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 18px;">Aizu OJ</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 14px;">STL</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Struct/" style="font-size: 12px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 14px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Maps-STL/">HackerRank-Maps STL</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Sets-STL/">HackerRank-Sets STL</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-      </div>
-      <footer id="footer">
-  <div class="foot-box global-width">
-    &copy; 2019 bookeel &nbsp;&nbsp;
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
-    <br>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
-  </div>
-</footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
-<script src="/js/script.js"></script>
+<!-- Google Analytics -->
 
 
 
-    </div>
-    <nav id="mobile-nav" class="mobile-nav-box">
-  <div class="mobile-nav-img mobile-nav-top"></div>
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-  <div class="mobile-nav-img  mobile-nav-bottom"></div>
-</nav>    
-  </div>
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="undefined">
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -279,4 +402,5 @@ gitment.render('gitmentContainer')
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
+
 </html>
