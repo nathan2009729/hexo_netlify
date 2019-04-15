@@ -77,7 +77,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/14/Halting-Problem-using-diagonalization-method/" data-id="cjui8gjy4002lswvxi0nvxs2j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/14/Halting-Problem-using-diagonalization-method/" data-id="cjui8jav1002lasvxmikemnei" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -137,7 +137,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Maps-STL/" data-id="cjui8gjxu0026swvx3wk2hon1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Maps-STL/" data-id="cjui8jaur0026asvxvph9hitl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -190,7 +190,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Sets-STL/" data-id="cjui8gjxx002bswvxjcthk5y7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Sets-STL/" data-id="cjui8jauu002basvx19r4wv63" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -228,58 +228,6 @@
 
 
   
-    <article id="post-HackerRank-Vector-Erase" class="post-HackerRank-Vector-Erase post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Vector-Erase/" data-id="cjui8gjy2002iswvxivxsyvca" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://www.hackerrank.com/challenges/vector-erase/problem" target="_blank" rel="noopener">問題連結</a></p>
-<iframe src="https://drive.google.com/file/d/1p_slRic33ZRldw7F4uyXdtoOhAfOoju_/preview" width="100%" height="800"></iframe>
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>這題是拿來練習C++中的STL的。要注意，vector內的.end()是最後一個元素的下一個元素。</p>
-<p>The aim of this problem is to practice STL in C++. In particular, the end() function of vector is used to return an iterator pointing to next to last element of the vector container.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Enter your code here. Read input from STDIN. Print output to STDOUT */</span></span><br><span class="line">    <span class="keyword">int</span> data_num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; data_num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data_num; i++) &#123;</span><br><span class="line">      <span class="built_in">cin</span> &gt;&gt; data;</span><br><span class="line">      g1.push_back(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> erase_pos, erase_start, erase_end;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_pos;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_start &gt;&gt; erase_end;</span><br><span class="line">    g1.erase(g1.begin() + erase_pos - <span class="number">1</span>);</span><br><span class="line">    g1.erase(g1.begin() + erase_start - <span class="number">1</span>, g1.begin() + erase_end - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; g1.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = g1.begin(); i != g1.end() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; *i &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *(g1.end() - <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/04/13/HackerRank-Vector-Erase/">
-    <time datetime="2019-04-13T00:11:21.000Z" class="entry-date">
-        2019-04-13
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">Vector</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-HackerRank-Lower-Bound-STL" class="post-HackerRank-Lower-Bound-STL post type-post status-publish format-standard hentry">
     <!---->
 
@@ -295,7 +243,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Lower-Bound-STL/" data-id="cjui8gjxs0024swvx3qy198zd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Lower-Bound-STL/" data-id="cjui8jauq0024asvxc8o4ce5a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -335,6 +283,58 @@
 
 
   
+    <article id="post-HackerRank-Vector-Erase" class="post-HackerRank-Vector-Erase post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/13/HackerRank-Vector-Erase/" data-id="cjui8jauz002iasvx91wr8od5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://www.hackerrank.com/challenges/vector-erase/problem" target="_blank" rel="noopener">問題連結</a></p>
+<iframe src="https://drive.google.com/file/d/1p_slRic33ZRldw7F4uyXdtoOhAfOoju_/preview" width="100%" height="800"></iframe>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>這題是拿來練習C++中的STL的。要注意，vector內的.end()是最後一個元素的下一個元素。</p>
+<p>The aim of this problem is to practice STL in C++. In particular, the end() function of vector is used to return an iterator pointing to next to last element of the vector container.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Enter your code here. Read input from STDIN. Print output to STDOUT */</span></span><br><span class="line">    <span class="keyword">int</span> data_num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; data_num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data_num; i++) &#123;</span><br><span class="line">      <span class="built_in">cin</span> &gt;&gt; data;</span><br><span class="line">      g1.push_back(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> erase_pos, erase_start, erase_end;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_pos;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_start &gt;&gt; erase_end;</span><br><span class="line">    g1.erase(g1.begin() + erase_pos - <span class="number">1</span>);</span><br><span class="line">    g1.erase(g1.begin() + erase_start - <span class="number">1</span>, g1.begin() + erase_end - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; g1.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = g1.begin(); i != g1.end() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; *i &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *(g1.end() - <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/04/13/HackerRank-Vector-Erase/">
+    <time datetime="2019-04-13T00:11:21.000Z" class="entry-date">
+        2019-04-13
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">Vector</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-HackerRank-Querying-the-Document" class="post-HackerRank-Querying-the-Document post type-post status-publish format-standard hentry">
     <!---->
 
@@ -350,7 +350,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/07/HackerRank-Querying-the-Document/" data-id="cjui8gjxw0029swvxg6plq7vt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/07/HackerRank-Querying-the-Document/" data-id="cjui8jaut0029asvxzlgzex3p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -404,7 +404,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/" data-id="cjui8gjxy002dswvxj0x6c7c1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/" data-id="cjui8jauv002dasvxjbaxuoe6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -455,7 +455,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/06/HackerRank-Structuring-the-Document/" data-id="cjui8gjy0002gswvxjmkkxf9u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/04/06/HackerRank-Structuring-the-Document/" data-id="cjui8jaux002gasvx9h0m2fve" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -513,7 +513,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/Aizu-IPT1-11-D-Dice-IV/" data-id="cjui8gjwb000aswvxcwb0ftkw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/Aizu-IPT1-11-D-Dice-IV/" data-id="cjui8jat9000aasvxl86ccoq1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -574,7 +574,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/Aizu-IPT1-11-C-Dice-III/" data-id="cjui8gjwa0009swvxbt0jyinl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/Aizu-IPT1-11-C-Dice-III/" data-id="cjui8jat70009asvx8jn7ond5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -659,11 +659,11 @@
           </li>
         
           <li>
-            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
+            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
           </li>
         
           <li>
-            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
+            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
           </li>
         
       </ul>
