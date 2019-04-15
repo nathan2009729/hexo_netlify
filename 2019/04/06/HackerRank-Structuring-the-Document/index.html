@@ -1,46 +1,90 @@
 <!DOCTYPE html>
 <html>
-    <head><meta name="generator" content="Hexo 3.8.0">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
 
-<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    </head>
-    <body>
-        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
-            <header>
-<div class="main">
-<div class="title">
-    <a href="#" class="logo">Hexo</a>
-</div>
-<div class="site-nav">
-    <ul id="menu" class="menu">
+  
+  <title>HackerRank-Structuring the Document | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="Problem 問題連結   Solution 這題要考的是對C裡struct的了解，blog主搞了一個禮拜。 這題的題意是給予一個文件(document)，文件含有數個paragraph，paragraph由一至數個sentence組成，一個sentence由一個以上word組成，word由character組成。不同的paragraph由分行號(newline，\n)區隔，不同的sentenc">
+<meta name="keywords" content="基礎語法練習,HackerRank OJ,Struct,Pointer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackerRank-Structuring the Document">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/HackerRank-Structuring-the-Document/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Problem 問題連結   Solution 這題要考的是對C裡struct的了解，blog主搞了一個禮拜。 這題的題意是給予一個文件(document)，文件含有數個paragraph，paragraph由一至數個sentence組成，一個sentence由一個以上word組成，word由character組成。不同的paragraph由分行號(newline，\n)區隔，不同的sentenc">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-06T01:38:54.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HackerRank-Structuring the Document">
+<meta name="twitter:description" content="Problem 問題連結   Solution 這題要考的是對C裡struct的了解，blog主搞了一個禮拜。 這題的題意是給予一個文件(document)，文件含有數個paragraph，paragraph由一至數個sentence組成，一個sentence由一個以上word組成，word由character組成。不同的paragraph由分行號(newline，\n)區隔，不同的sentenc">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
     
-        <li class="menu-item text-underline">
-            <a href="/">Home</a>
-        </li>
+      <div id="wrapper" title="圖片來自網路">
     
-        <li class="menu-item text-underline">
-            <a href="/archives">Archives</a>
-        </li>
     
-        <li class="menu-item text-underline">
-            <a href="/about/">About</a>
-        </li>
-            
-    </ul>
-</div>
-</div>
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+    </nav>
+  </div>
 </header>
-            <main class="main">
-                <section class="posts clearfix">
-<div class="post-wrapper">
-    <article class="post article-entry">
-    <div class="post-title">
-        HackerRank-Structuring the Document
-    </div>
-    <p class="sub">Apr 06 2019</p>
-    <div class="post-content">
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-HackerRank-Structuring-the-Document" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      HackerRank-Structuring the Document
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/04/06/HackerRank-Structuring-the-Document/" class="article-date">
+  <time datetime="2019-04-06T00:25:55.000Z" itemprop="datePublished">2019-04-06</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Struct/">Struct</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
         <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://www.hackerrank.com/challenges/structuring-the-document/problem" target="_blank" rel="noopener">問題連結</a></p>
 <iframe src="https://drive.google.com/file/d/16xgCTTr8C2ZrPyAlnrQbixMyeb63e6Dn/preview" width="100%" height="720"></iframe>
@@ -49,76 +93,181 @@
 <p>這題要考的是對C裡struct的了解，blog主搞了一個禮拜。</p>
 <p>這題的題意是給予一個文件(document)，文件含有數個paragraph，paragraph由一至數個sentence組成，一個sentence由一個以上word組成，word由character組成。不同的paragraph由分行號(newline，\n)區隔，不同的sentence由句點(.)區隔，不同的word由空白區隔。</p>
 <p>先說說如何宣告變數。因為每次輸入只會有一個文件，所以宣告文件時僅需struct document doc;即可。但其他的paragraph、sentence、word等，根本不知道具體的數量(只知道最多5個paragraph、1000個characters)，怎麼辦? 只好用動態分配。</p>
-<p>但是struct的宣告又是一個包一個的，像是<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">document</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>但是struct的宣告又是一個包一個的，像是<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">document</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div></p>
 <p>文件struct又包了paragraph的struct。所以，要宣告名為doc的文件含5個paragraph要怎麼辦? 答案是<br><code>doc.data = malloc(5*sizeof(struct paragraph));</code><br>第i個paragraph含有100個sentence要怎麼辦?<br><code>doc.data[i].data = malloc(100 * sizeof(struct sentence));</code><br>其他的就是以此類推。</p>
 <p>再來說說存取的部分。如果我們要存取第1個paragraph的第2個sentence的第3個word的第4個字母(character)，怎麼辦呢?<br>就是<code>doc.data[1].data[2].data[3].data[4]</code>。</p>
 <p>原本blog主是想到doc-&gt;data這樣的寫法，但這樣有問題: 如果要存取第三個paragraph的話呢?會變成(doc-&gt;data)[3]，要存取第三個paragraph的第i個word呢?會變成很不直觀、不好理解的寫法。而且，一開始要聲明的時候，不是宣告成struct document doc而是struct document <em>doc。<br>這是因為， -&gt;(arrow) operator只是syntax sugar，a-&gt;b其實是(\</em>a).b的簡易寫法罷了。所以doc-&gt;data就是(*doc).data，第3個paragraph就是<em>(((\</em>doc).data)+3)。又比如，如果不只一個文件，存取第2個文件的第3個paragraph就是*(*(doc+1).data)+3。<br>我去你的，很複雜阿。因此-&gt;寫法似乎比較適合paragraph、sentence等等都只有1個的狀況，如果多個paragraph、sentence，還是不要耍炫，乖乖用.吧。</p>
-<p>其餘，是發現一些奇怪的問題。第59行的wr，其實就是代表word_count，但在迴圈結束前把它的值assign給doc.data[i].data[j].word_count卻會顯示0。另外，如果sentence、word、character都各配置1000個(也就是有1000個sentence，每個sentence有1000個word，每個word有1000個字)，則會segmentation fault。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_CHARACTERS 1005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_PARAGRAPHS 5</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">word</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span>* data;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sentence</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">word</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> word_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentence</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> sentence_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">document</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct document <span class="title">get_document</span><span class="params">(<span class="keyword">char</span>* text)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="comment">//1 document </span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">document</span> <span class="title">doc</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//5 paragraphs in document</span></span><br><span class="line">    doc.data = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(struct paragraph));</span><br><span class="line">    doc.paragraph_count = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//100 sentence in 1st and 2nd paragraph of doc</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        doc.data[i].data = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(struct sentence));</span><br><span class="line">        doc.data[i].sentence_count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//1000 words per sentence</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</span><br><span class="line">            doc.data[i].data[j].data = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(struct word));</span><br><span class="line">            doc.data[i].data[j].word_count = <span class="number">1</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//1000 char per word</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">                doc.data[i].data[j].data[k].data = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> par = <span class="number">0</span>, se = <span class="number">0</span>, wr = <span class="number">0</span>, ch = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; text[i]!=<span class="string">'\0'</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(text[i]==<span class="string">' '</span>) &#123;</span><br><span class="line">            doc.data[par].data[se].data[wr].data[ch] = <span class="string">'\0'</span>;</span><br><span class="line">            ch++; wr++;</span><br><span class="line">            doc.data[par].data[se].word_count++;<span class="comment">//new</span></span><br><span class="line">            ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i]==<span class="string">'.'</span>) &#123;</span><br><span class="line">            se++;</span><br><span class="line">            doc.data[par].sentence_count++;<span class="comment">//new</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//doc.data[par].data[se].word_count = wr+1;</span></span><br><span class="line">            wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i]==<span class="string">'\n'</span>) &#123;</span><br><span class="line">            par++;</span><br><span class="line">            doc.paragraph_count++;<span class="comment">//new</span></span><br><span class="line">            se = <span class="number">0</span>; wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            doc.data[par].data[se].data[wr].data[ch] = text[i];</span><br><span class="line">            ch++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> doc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct word <span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[n<span class="number">-1</span>].data[m<span class="number">-1</span>].data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct sentence <span class="title">kth_sentence_in_mth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[m<span class="number">-1</span>].data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct paragraph <span class="title">kth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_word</span><span class="params">(struct word w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, w.data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_sentence</span><span class="params">(struct sentence sen)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; sen.word_count; i++)&#123;</span><br><span class="line">        print_word(sen.data[i]);</span><br><span class="line">        <span class="keyword">if</span>(i != sen.word_count<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_paragraph</span><span class="params">(struct paragraph para)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;para.sentence_count; i++)&#123;</span><br><span class="line">        print_sentence(para.data[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_document</span><span class="params">(struct document doc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;doc.paragraph_count; i++)&#123;</span><br><span class="line">        print_paragraph(doc.data[i]);</span><br><span class="line">        <span class="keyword">if</span>(i!=doc.paragraph_count<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_input_text</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;paragraph_count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> p[MAX_PARAGRAPHS][MAX_CHARACTERS], doc[MAX_CHARACTERS];</span><br><span class="line">    <span class="built_in">memset</span>(doc, <span class="number">0</span>, <span class="keyword">sizeof</span>(doc));</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;paragraph_count; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%[^\n]%*c"</span>, p[i]);</span><br><span class="line">        <span class="built_in">strcat</span>(doc, p[i]);</span><br><span class="line">        <span class="keyword">if</span>(i!=paragraph_count<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">strcat</span>(doc, <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span>* returnDoc = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>((<span class="built_in">strlen</span>(doc)+<span class="number">1</span>) * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="built_in">strcpy</span>(returnDoc, doc);</span><br><span class="line">    <span class="keyword">return</span> returnDoc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> *text = get_input_text();</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">document</span> <span class="title">Doc</span> = <span class="title">get_document</span>(<span class="title">text</span>);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        <span class="keyword">int</span> type;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;type);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(type == <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k,m,n;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;k, &amp;m, &amp;n);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">word</span> <span class="title">w</span>=<span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>, <span class="title">m</span>, <span class="title">n</span>);</span></span><br><span class="line">            print_word(w);        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k,m;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;k, &amp;m);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">sentence</span> <span class="title">sen</span> = <span class="title">kth_sentence_in_mth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>, <span class="title">m</span>);</span></span><br><span class="line">            print_sentence(sen);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> k;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span> <span class="title">para</span> = <span class="title">kth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>);</span></span><br><span class="line">            print_paragraph(para);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其餘，是發現一些奇怪的問題。第59行的wr，其實就是代表word_count，但在迴圈結束前把它的值assign給doc.data[i].data[j].word_count卻會顯示0。另外，如果sentence、word、character都各配置1000個(也就是有1000個sentence，每個sentence有1000個word，每個word有1000個字)，則會segmentation fault。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_CHARACTERS 1005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_PARAGRAPHS 5</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">word</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span>* data;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sentence</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">word</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> word_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentence</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> sentence_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">document</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span>* <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct document <span class="title">get_document</span><span class="params">(<span class="keyword">char</span>* text)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="comment">//1 document </span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">document</span> <span class="title">doc</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//5 paragraphs in document</span></span><br><span class="line">    doc.data = <span class="built_in">malloc</span>(<span class="number">5</span>*<span class="keyword">sizeof</span>(struct paragraph));</span><br><span class="line">    doc.paragraph_count = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//100 sentence in 1st and 2nd paragraph of doc</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        doc.data[i].data = <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(struct sentence));</span><br><span class="line">        doc.data[i].sentence_count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//1000 words per sentence</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</span><br><span class="line">            doc.data[i].data[j].data = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(struct word));</span><br><span class="line">            doc.data[i].data[j].word_count = <span class="number">1</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//1000 char per word</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</span><br><span class="line">                doc.data[i].data[j].data[k].data = <span class="built_in">malloc</span>(<span class="number">1000</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> par = <span class="number">0</span>, se = <span class="number">0</span>, wr = <span class="number">0</span>, ch = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; text[i]!=<span class="string">'\0'</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(text[i]==<span class="string">' '</span>) &#123;</span><br><span class="line">            doc.data[par].data[se].data[wr].data[ch] = <span class="string">'\0'</span>;</span><br><span class="line">            ch++; wr++;</span><br><span class="line">            doc.data[par].data[se].word_count++;<span class="comment">//new</span></span><br><span class="line">            ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i]==<span class="string">'.'</span>) &#123;</span><br><span class="line">            se++;</span><br><span class="line">            doc.data[par].sentence_count++;<span class="comment">//new</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//doc.data[par].data[se].word_count = wr+1;</span></span><br><span class="line">            wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(text[i]==<span class="string">'\n'</span>) &#123;</span><br><span class="line">            par++;</span><br><span class="line">            doc.paragraph_count++;<span class="comment">//new</span></span><br><span class="line">            se = <span class="number">0</span>; wr = <span class="number">0</span>; ch = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            doc.data[par].data[se].data[wr].data[ch] = text[i];</span><br><span class="line">            ch++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> doc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct word <span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[n<span class="number">-1</span>].data[m<span class="number">-1</span>].data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct sentence <span class="title">kth_sentence_in_mth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[m<span class="number">-1</span>].data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">struct paragraph <span class="title">kth_paragraph</span><span class="params">(struct document Doc, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Doc.data[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_word</span><span class="params">(struct word w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, w.data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_sentence</span><span class="params">(struct sentence sen)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; sen.word_count; i++)&#123;</span><br><span class="line">        print_word(sen.data[i]);</span><br><span class="line">        <span class="keyword">if</span>(i != sen.word_count<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_paragraph</span><span class="params">(struct paragraph para)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;para.sentence_count; i++)&#123;</span><br><span class="line">        print_sentence(para.data[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_document</span><span class="params">(struct document doc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;doc.paragraph_count; i++)&#123;</span><br><span class="line">        print_paragraph(doc.data[i]);</span><br><span class="line">        <span class="keyword">if</span>(i!=doc.paragraph_count<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_input_text</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> paragraph_count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;paragraph_count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> p[MAX_PARAGRAPHS][MAX_CHARACTERS], doc[MAX_CHARACTERS];</span><br><span class="line">    <span class="built_in">memset</span>(doc, <span class="number">0</span>, <span class="keyword">sizeof</span>(doc));</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;paragraph_count; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%[^\n]%*c"</span>, p[i]);</span><br><span class="line">        <span class="built_in">strcat</span>(doc, p[i]);</span><br><span class="line">        <span class="keyword">if</span>(i!=paragraph_count<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">strcat</span>(doc, <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span>* returnDoc = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>((<span class="built_in">strlen</span>(doc)+<span class="number">1</span>) * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">    <span class="built_in">strcpy</span>(returnDoc, doc);</span><br><span class="line">    <span class="keyword">return</span> returnDoc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> *text = get_input_text();</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">document</span> <span class="title">Doc</span> = <span class="title">get_document</span>(<span class="title">text</span>);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        <span class="keyword">int</span> type;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;type);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(type == <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k,m,n;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;k, &amp;m, &amp;n);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">word</span> <span class="title">w</span>=<span class="title">kth_word_in_mth_sentence_of_nth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>, <span class="title">m</span>, <span class="title">n</span>);</span></span><br><span class="line">            print_word(w);        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k,m;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;k, &amp;m);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">sentence</span> <span class="title">sen</span> = <span class="title">kth_sentence_in_mth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>, <span class="title">m</span>);</span></span><br><span class="line">            print_sentence(sen);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> k;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">paragraph</span> <span class="title">para</span> = <span class="title">kth_paragraph</span>(<span class="title">Doc</span>, <span class="title">k</span>);</span></span><br><span class="line">            print_paragraph(para);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 
+      
     </div>
-    </article>
-</div>
-
-    <div class="_toc">
-        <strong class="toc-title">
-        Contents
-        </strong>
-        <div class="toc-content">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            HackerRank-Small Triangles, Large Triangles
+          
         </div>
-    </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/23/Aizu-IPT1-11-D-Dice-IV/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Aizu IPT1_11_D Dice IV</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
 
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
 </section>
-
-
-    <nav class="post-nav">
-        
-            <div class="page-tags">
-                
-                    <a href="/tags/基礎語法練習/">基礎語法練習</a>
-                
-                    <a href="/tags/HackerRank-OJ/">HackerRank OJ</a>
-                
-                    <a href="/tags/Struct/">Struct</a>
-                
-                    <a href="/tags/Pointer/">Pointer</a>
-                
-            </div>
-        
-    </nav>
-
-
-
-    <nav class="paginator">
-        
-            <a class="prev" href="/2019/04/06/HackerRank-Small-Triangles-Large-Triangles/">
-                <i class="iconfont icon-left"></i>
-                <span class="prev-text">HackerRank-Small Triangles, Large Triangles</span>
-            </a>
-        
-        
-            <a class="next" href="/2019/03/23/Aizu-IPT1-11-D-Dice-IV/">
-                
-                <span class="prev-text">Aizu IPT1_11_D Dice IV</span>
-                <i class="iconfont icon-right"></i>
-            </a>
-        
-    </nav>
-
-
-            </main>
-            <div class="copyright">
-  <div class="text">Powered By
-    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="圖片來自網路">
+    <h3 class="avatar-name">
+      
+        bookeel
+      
+    </h3>
+    <p class="avatar-slogan">
+      nope。
+    </p>
   </div>
 </div>
 
-        </div>
-    <div class="back-to-top" id="back-to-top">
-            <i class="iconfont icon-up"></i>
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Aizu-OJ/" style="font-size: 18px;">Aizu OJ</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 14px;">STL</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Struct/" style="font-size: 12px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 14px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
         
-    <script type="text/x-mathjax-config">
+          <li>
+            <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Maps-STL/">HackerRank-Maps STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Sets-STL/">HackerRank-Sets STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 bookeel &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -134,43 +283,4 @@
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/back-to-top.js"></script>
-    <script src="/js/scroll.js"></script>
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 </html>

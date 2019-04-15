@@ -1,48 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head><meta name="generator" content="Hexo 3.8.0">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
 
-<link rel="stylesheet" href="/styles/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    </head>
-    <body>
-        <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container">
-            <header>
-<div class="main">
-<div class="title">
-    <a href="#" class="logo">Hexo</a>
-</div>
-<div class="site-nav">
-    <ul id="menu" class="menu">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
     
-        <li class="menu-item text-underline">
-            <a href="/">Home</a>
-        </li>
+      <div id="wrapper" title="圖片來自網路">
     
-        <li class="menu-item text-underline">
-            <a href="/archives">Archives</a>
-        </li>
     
-        <li class="menu-item text-underline">
-            <a href="/about/">About</a>
-        </li>
-            
-    </ul>
-</div>
-</div>
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+    </nav>
+  </div>
 </header>
-            <main class="main">
-                <section class="posts clearfix">
-    <div class="posts-wrapper">
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main">
+  
+    <article id="post-Aizu-IPT1-7-D-Matrix-Multiplication" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/Aizu-IPT1-7-D-Matrix-Multiplication/">Aizu IPT1_7_D Matrix Multiplication</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/28/Aizu-IPT1-7-D-Matrix-Multiplication/" class="article-date">
+  <time datetime="2019-02-28T10:49:42.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-D-Matrix-Multiplication/">Aizu IPT1_7_D Matrix Multiplication</a>
-            </div>
-            <p class="sub">Feb 28 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_D
 </a></p>
 <p><img src="https://i.imgur.com/UznI02M.png" alt></p>
@@ -51,18 +87,45 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br>1 8 5<br>0 9 6<br>4 23 14</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>Pay a attention to the problem of overflow of element of the production of the input matrix.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrixA[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> matrixB[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">double</span> matrixC[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> n,m,l;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*initialize matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">101</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">101</span>; j++)&#123;</span><br><span class="line">            matrixA[i][j] = <span class="number">0</span>;</span><br><span class="line">            matrixB[i][j] = <span class="number">0</span>;</span><br><span class="line">            matrixC[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*Input matrixA*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;l);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;m; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrixA[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*Input matrixB*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrixB[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*multi matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;m; k++)&#123;</span><br><span class="line">                matrixC[i][j] += matrixA[i][k] * matrixB[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*print multiplication of matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j != l<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"%.0lf "</span>, matrixC[i][j]);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%.0lf"</span>, matrixC[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Pay a attention to the problem of overflow of element of the production of the input matrix.<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrixA[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> matrixB[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">double</span> matrixC[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> n,m,l;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*initialize matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">101</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">101</span>; j++)&#123;</span><br><span class="line">            matrixA[i][j] = <span class="number">0</span>;</span><br><span class="line">            matrixB[i][j] = <span class="number">0</span>;</span><br><span class="line">            matrixC[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*Input matrixA*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;l);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;m; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrixA[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*Input matrixB*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrixB[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*multi matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;m; k++)&#123;</span><br><span class="line">                matrixC[i][j] += matrixA[i][k] * matrixB[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*print multiplication of matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;l; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j != l<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"%.0lf "</span>, matrixC[i][j]);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%.0lf"</span>, matrixC[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 
-            </div>
-        </article>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-C-Spreadsheet/">Aizu IPT1_7_C Spreadsheet</a>
-            </div>
-            <p class="sub">Feb 28 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-7-C-Spreadsheet" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/Aizu-IPT1-7-C-Spreadsheet/">Aizu IPT1_7_C Spreadsheet</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/28/Aizu-IPT1-7-C-Spreadsheet/" class="article-date">
+  <time datetime="2019-02-28T10:37:33.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_C</a></p>
 <h2 id="Spreadsheet"><a href="#Spreadsheet" class="headerlink" title="Spreadsheet"></a>Spreadsheet</h2><p>Your task is to perform a simple table calculation.</p>
 <p>Write a program which reads the number of rows r, columns c and a table of r × c elements, and prints a new table, which includes the total sum for each row and column.</p>
@@ -74,18 +137,45 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br>1 1 3 4 5 14<br>2 2 2 4 5 15<br>3 3 0 1 1 8<br>2 3 4 4 6 19<br>8 9 9 13 17 56</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>What will happen If we put the statement “sum_of_all += sum_of_column” in line 45?<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> transpose_matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> r,c;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*initialize matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">101</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">101</span>; j++)&#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            transpose_matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Input matrix*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;r, &amp;c);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrix[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_row = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, matrix[i][j]);</span><br><span class="line">            sum_of_row += matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum_of_row);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*transpose of the matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            transpose_matrix[j][i] = matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**/</span></span><br><span class="line">    <span class="keyword">int</span> sum_of_all = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;c; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_column = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;r; j++)&#123;</span><br><span class="line">            sum_of_column += transpose_matrix[i][j];</span><br><span class="line">            <span class="comment">//sum_of_all += sum_of_column;</span></span><br><span class="line">        &#125;</span><br><span class="line">        sum_of_all += sum_of_column;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, sum_of_column);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum_of_all);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>What will happen If we put the statement “sum_of_all += sum_of_column” in line 45?<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> transpose_matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> r,c;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*initialize matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">101</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">101</span>; j++)&#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">            transpose_matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Input matrix*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;r, &amp;c);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrix[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_row = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, matrix[i][j]);</span><br><span class="line">            sum_of_row += matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum_of_row);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*transpose of the matrix*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;r; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;c; j++)&#123;</span><br><span class="line">            transpose_matrix[j][i] = matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**/</span></span><br><span class="line">    <span class="keyword">int</span> sum_of_all = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;c; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> sum_of_column = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;r; j++)&#123;</span><br><span class="line">            sum_of_column += transpose_matrix[i][j];</span><br><span class="line">            <span class="comment">//sum_of_all += sum_of_column;</span></span><br><span class="line">        &#125;</span><br><span class="line">        sum_of_all += sum_of_column;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, sum_of_column);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum_of_all);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 
-            </div>
-        </article>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-B-How-many-ways/">Aizu IPT1_7_B How many ways?</a>
-            </div>
-            <p class="sub">Feb 28 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-7-B-How-many-ways" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/Aizu-IPT1-7-B-How-many-ways/">Aizu IPT1_7_B How many ways?</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/28/Aizu-IPT1-7-B-How-many-ways/" class="article-date">
+  <time datetime="2019-02-28T10:31:59.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_B
 </a></p>
 <h2 id="How-many-ways"><a href="#How-many-ways" class="headerlink" title="How many ways?"></a>How many ways?</h2><p>Write a program which identifies the number of combinations of three integers which satisfy the following conditions:</p>
@@ -101,17 +191,44 @@
 <p>Sample Output<br>2</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
 <p>Pay a attention to the variable ans in line 6. What will happen If declare int ans = 0 in line 6?</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="keyword">int</span> a, b ,c;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;x);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span> &amp;&amp; x==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(a=<span class="number">1</span>; a&lt;=n; a++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(b=a+<span class="number">1</span>; b&lt;=n; b++)&#123;</span><br><span class="line">                c = x-a-b;</span><br><span class="line">                <span class="keyword">if</span>(c&gt;b &amp;&amp; c&lt;=n) ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="keyword">int</span> a, b ,c;</span><br><span class="line">    <span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;x);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span> &amp;&amp; x==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(a=<span class="number">1</span>; a&lt;=n; a++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(b=a+<span class="number">1</span>; b&lt;=n; b++)&#123;</span><br><span class="line">                c = x-a-b;</span><br><span class="line">                <span class="keyword">if</span>(c&gt;b &amp;&amp; c&lt;=n) ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/28/Aizu-IPT1-7-A-Grading/">Aizu IPT1_7_A Grading</a>
-            </div>
-            <p class="sub">Feb 28 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-7-A-Grading" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/Aizu-IPT1-7-A-Grading/">Aizu IPT1_7_A Grading</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/28/Aizu-IPT1-7-A-Grading/" class="article-date">
+  <time datetime="2019-02-28T10:20:14.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_A
 </a></p>
 <h2 id="Grading"><a href="#Grading" class="headerlink" title="Grading"></a>Grading</h2><p>Write a program which reads a list of student test scores and evaluates the performance for each student.</p>
@@ -127,18 +244,45 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br>A<br>C<br>F</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>It should be noted that the condition of getting C. If the score of the makeup examination is greater than or equal to 50, the grade shall be C, then, what about the makeup examination is less than 50?<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, f, r;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;m, &amp;f, &amp;r);</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">-1</span> &amp;&amp; f == <span class="number">-1</span> &amp;&amp; r == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">-1</span> || f == <span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"F\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">80</span>) <span class="built_in">printf</span>(<span class="string">"A\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">65</span> &amp;&amp; (m+f) &lt; <span class="number">80</span>) <span class="built_in">printf</span>(<span class="string">"B\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">50</span> &amp;&amp; (m+f) &lt; <span class="number">65</span>) <span class="built_in">printf</span>(<span class="string">"C\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">30</span> &amp;&amp; (m+f) &lt; <span class="number">50</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (r == <span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"D\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(r &gt;= <span class="number">50</span>) <span class="built_in">printf</span>(<span class="string">"C\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"D\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &lt; <span class="number">30</span>) <span class="built_in">printf</span>(<span class="string">"F\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>It should be noted that the condition of getting C. If the score of the makeup examination is greater than or equal to 50, the grade shall be C, then, what about the makeup examination is less than 50?<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, f, r;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;m, &amp;f, &amp;r);</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">-1</span> &amp;&amp; f == <span class="number">-1</span> &amp;&amp; r == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">-1</span> || f == <span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"F\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">80</span>) <span class="built_in">printf</span>(<span class="string">"A\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">65</span> &amp;&amp; (m+f) &lt; <span class="number">80</span>) <span class="built_in">printf</span>(<span class="string">"B\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">50</span> &amp;&amp; (m+f) &lt; <span class="number">65</span>) <span class="built_in">printf</span>(<span class="string">"C\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &gt;= <span class="number">30</span> &amp;&amp; (m+f) &lt; <span class="number">50</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (r == <span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"D\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(r &gt;= <span class="number">50</span>) <span class="built_in">printf</span>(<span class="string">"C\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"D\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((m+f) &lt; <span class="number">30</span>) <span class="built_in">printf</span>(<span class="string">"F\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 
-            </div>
-        </article>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/24/Aizu-IPT1-6-D-Matrix-Vector-Multiplication/">Aizu IPT1_6_D Matrix Vector Multiplication</a>
-            </div>
-            <p class="sub">Feb 24 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-6-D-Matrix-Vector-Multiplication" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/24/Aizu-IPT1-6-D-Matrix-Vector-Multiplication/">Aizu IPT1_6_D Matrix Vector Multiplication</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/24/Aizu-IPT1-6-D-Matrix-Vector-Multiplication/" class="article-date">
+  <time datetime="2019-02-24T05:44:02.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_D" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_D
 </a><br><img src="https://i.imgur.com/M3gvYyp.png" alt></p>
 <h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
@@ -146,17 +290,44 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br>5<br>6<br>9</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> b[<span class="number">101</span>],c[<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">100</span>; j++)&#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)&#123;</span><br><span class="line">        b[i] = <span class="number">0</span>;</span><br><span class="line">        c[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> row_num, column_num;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;row_num, &amp;column_num);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=column_num; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrix[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=column_num; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=column_num; j++)&#123;</span><br><span class="line">            c[i] += matrix[i][j] * b[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> matrix[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> b[<span class="number">101</span>],c[<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">100</span>; j++)&#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)&#123;</span><br><span class="line">        b[i] = <span class="number">0</span>;</span><br><span class="line">        c[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> row_num, column_num;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;row_num, &amp;column_num);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=column_num; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;matrix[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=column_num; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=column_num; j++)&#123;</span><br><span class="line">            c[i] += matrix[i][j] * b[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=row_num; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/24/Aizu-IPT1-6-C-Official-House/">Aizu IPT1_6_C Official House</a>
-            </div>
-            <p class="sub">Feb 24 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-6-C-Official-House" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/24/Aizu-IPT1-6-C-Official-House/">Aizu IPT1_6_C Official House</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/24/Aizu-IPT1-6-C-Official-House/" class="article-date">
+  <time datetime="2019-02-24T04:34:25.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_C
 </a></p>
 <h2 id="Official-House"><a href="#Official-House" class="headerlink" title="Official House"></a>Official House</h2><p>You manage 4 buildings, each of which has 3 floors, each of which consists of 10 rooms. Write a program which reads a sequence of tenant/leaver notices, and reports the number of tenants for each room.</p>
@@ -170,17 +341,44 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br> 0 0 8 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br>####################<br> 0 0 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br>####################<br> 0 0 0 0 0 0 0 0 0 0<br> 0 7 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br>####################<br> 0 0 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 0 0 0<br> 0 0 0 0 0 0 0 1 0 0</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> house_status[<span class="number">5</span>][<span class="number">4</span>][<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=<span class="number">10</span>; k++)&#123;</span><br><span class="line">                house_status[i][j][k] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> b, f, r, v;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;b, &amp;f, &amp;r, &amp;v);</span><br><span class="line">        house_status[b][f][r] += v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=<span class="number">10</span>; k++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">" %d"</span>, house_status[i][j][k]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i!=<span class="number">4</span>)<span class="built_in">printf</span>(<span class="string">"####################\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> house_status[<span class="number">5</span>][<span class="number">4</span>][<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=<span class="number">10</span>; k++)&#123;</span><br><span class="line">                house_status[i][j][k] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> b, f, r, v;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;b, &amp;f, &amp;r, &amp;v);</span><br><span class="line">        house_status[b][f][r] += v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=<span class="number">10</span>; k++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">" %d"</span>, house_status[i][j][k]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i!=<span class="number">4</span>)<span class="built_in">printf</span>(<span class="string">"####################\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/24/Aizu-IPT1-6-B-Finding-Missing-Cards/">Aizu IPT1_6_B Finding Missing Cards</a>
-            </div>
-            <p class="sub">Feb 24 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-6-B-Finding-Missing-Cards" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/24/Aizu-IPT1-6-B-Finding-Missing-Cards/">Aizu IPT1_6_B Finding Missing Cards</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/24/Aizu-IPT1-6-B-Finding-Missing-Cards/" class="article-date">
+  <time datetime="2019-02-24T03:10:10.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_B
 </a></p>
 <h2 id="Finding-Missing-Cards"><a href="#Finding-Missing-Cards" class="headerlink" title="Finding Missing Cards"></a>Finding Missing Cards</h2><p>Taro is going to play a card game. However, now he has only n cards, even though there should be 52 cards (he has no Jokers).</p>
@@ -194,18 +392,45 @@
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
 <p>Sample Output<br>S 1<br>H 3<br>H 7<br>C 12<br>D 8</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>Declare a two-dimensional array card[i][j] that has four rows(one for each suit, 1 as S, 2 as H, 3 as C, 4 as D) and 13 columns(one for each rank). There are two values of card[i][j], if rank j of suit i is missing, card[i][j] = 0, otherwise card[i][j] is 1.<br>Initialize the value of card array with 0. (Line 6-11)<br>While each rank j of suit i card is given, assign card[i][j] to 1. (Line 16-24)<br>print the  suit i and rank j if card[i][j] = 0 (Line 26-36)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> card[<span class="number">5</span>][<span class="number">14</span>];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            card[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> suit;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="keyword">int</span> rank;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%c %d"</span>, &amp;suit, &amp;rank);</span><br><span class="line">        <span class="keyword">if</span>(suit == <span class="string">'S'</span>) card[<span class="number">1</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'H'</span>) card[<span class="number">2</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'C'</span>) card[<span class="number">3</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'D'</span>) card[<span class="number">4</span>][rank] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(card[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"S %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">2</span>) <span class="built_in">printf</span>(<span class="string">"H %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">"C %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">4</span>) <span class="built_in">printf</span>(<span class="string">"D %d\n"</span>, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Declare a two-dimensional array card[i][j] that has four rows(one for each suit, 1 as S, 2 as H, 3 as C, 4 as D) and 13 columns(one for each rank). There are two values of card[i][j], if rank j of suit i is missing, card[i][j] = 0, otherwise card[i][j] is 1.<br>Initialize the value of card array with 0. (Line 6-11)<br>While each rank j of suit i card is given, assign card[i][j] to 1. (Line 16-24)<br>print the  suit i and rank j if card[i][j] = 0 (Line 26-36)<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> card[<span class="number">5</span>][<span class="number">14</span>];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            card[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> suit;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="keyword">int</span> rank;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%c %d"</span>, &amp;suit, &amp;rank);</span><br><span class="line">        <span class="keyword">if</span>(suit == <span class="string">'S'</span>) card[<span class="number">1</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'H'</span>) card[<span class="number">2</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'C'</span>) card[<span class="number">3</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'D'</span>) card[<span class="number">4</span>][rank] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(card[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"S %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">2</span>) <span class="built_in">printf</span>(<span class="string">"H %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">"C %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">4</span>) <span class="built_in">printf</span>(<span class="string">"D %d\n"</span>, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 
-            </div>
-        </article>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-6-A-Reversing-Numbers/">Aizu IPT1_6_A Reversing Numbers</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-6-A-Reversing-Numbers" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/17/Aizu-IPT1-6-A-Reversing-Numbers/">Aizu IPT1_6_A Reversing Numbers</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/17/Aizu-IPT1-6-A-Reversing-Numbers/" class="article-date">
+  <time datetime="2019-02-17T08:14:49.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_A
 </a></p>
 <h2 id="Reversing-Numbers"><a href="#Reversing-Numbers" class="headerlink" title="Reversing Numbers"></a>Reversing Numbers</h2><p>Write a program which reads a sequence and prints it in the reverse order.</p>
@@ -220,17 +445,44 @@
 <h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><p>5 4 3 2 1</p>
 <h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><p>9 7 8 5 4 4 3 3</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">200</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=n<span class="number">-1</span>; i&gt;<span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">200</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=n<span class="number">-1</span>; i&gt;<span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-5-C-Print-a-Chessboard/">Aizu IPT1_5_C Print a Chessboard</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-5-C-Print-a-Chessboard" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/17/Aizu-IPT1-5-C-Print-a-Chessboard/">Aizu IPT1_5_C Print a Chessboard</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/17/Aizu-IPT1-5-C-Print-a-Chessboard/" class="article-date">
+  <time datetime="2019-02-17T08:05:34.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/5/ITP1_5_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/5/ITP1_5_C
 </a></p>
 <h2 id="Print-a-Chessboard"><a href="#Print-a-Chessboard" class="headerlink" title="Print a Chessboard"></a>Print a Chessboard</h2><p>Draw a chessboard which has a height of H cm and a width of W cm. For example, the following figure shows a chessboard which has a height of 6 cm and a width of 10 cm.</p>
@@ -249,17 +501,44 @@
 <p>#.<br>.#</p>
 <p>#</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> H,W;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;H, &amp;W);</span><br><span class="line">        <span class="keyword">if</span>(H==<span class="number">0</span> &amp;&amp; W==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=H; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=W; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j%<span class="number">2</span> == <span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j%<span class="number">2</span> == <span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> H,W;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;H, &amp;W);</span><br><span class="line">        <span class="keyword">if</span>(H==<span class="number">0</span> &amp;&amp; W==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=H; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=W; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j%<span class="number">2</span> == <span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j%<span class="number">2</span> == <span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-        <article class="post article-entry">
-            <div class="post-title">
-                <a class="post-title-link text-underline" href="/2019/02/17/Aizu-IPT1-5-B-Print-a-Frame/">Aizu IPT1_5_B Print a Frame</a>
-            </div>
-            <p class="sub">Feb 17 2019</p>
-            <div class="post-content">
-                <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Aizu-IPT1-5-B-Print-a-Frame" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/17/Aizu-IPT1-5-B-Print-a-Frame/">Aizu IPT1_5_B Print a Frame</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/02/17/Aizu-IPT1-5-B-Print-a-Frame/" class="article-date">
+  <time datetime="2019-02-17T07:59:48.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
 <p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/5/ITP1_5_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/5/ITP1_5_B
 </a></p>
 <h2 id="Print-a-Frame"><a href="#Print-a-Frame" class="headerlink" title="Print a Frame"></a>Print a Frame</h2><p>Draw a frame which has a height of H cm and a width of W cm. For example, the following figure shows a frame which has a height of 6 cm and a width of 10 cm.</p>
@@ -276,65 +555,141 @@
 <p>######<br>#….#<br>#….#<br>#….#<br>######</p>
 <p>###<br>#.#<br>###</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> H,W;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;H, &amp;W);</span><br><span class="line">        <span class="keyword">if</span>(H==<span class="number">0</span> &amp;&amp; W==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=H; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=W; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span> || i==H)&#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">1</span> || j==W)</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                    <span class="keyword">else</span> </span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            </div>
-        </article>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> H,W;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;H, &amp;W);</span><br><span class="line">        <span class="keyword">if</span>(H==<span class="number">0</span> &amp;&amp; W==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=H; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=W; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span> || i==H)&#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">1</span> || j==W)</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">                    <span class="keyword">else</span> </span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
     
-</div>
-<div class="side-bar">
+  </div>
+  
+  
+</article>
+
+  
 
 
-    <div class="avator" id="avator">
-    <div class="title">
-        <a href="#" class="text-underline">About Me</a>
-    </div>
-        <img src="avator.jpg" class="ava-img">
-        <!-- <h3 class="author">bookeel</h3> -->
-        <div class="icon-list">
-        <a href="yourweibo"><i class="iconfont icon-weibo icon-item"></i></a>
-        <a href="mailto:youremail"><i class="iconfont icon-email icon-item"></i></a>
-        <a href="yourgithub"><i class="iconfont icon-github icon-item"></i></a>
-        <a href="yourlinkedin"><i class="iconfont icon-linkedin icon-item"></i></a>
-        </div>
-    <div class="tags">
-    <h3 class="tags-title">Tags</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a><span class="tag-list-count">42</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li></ul>
-</div>
-    </div>
-</div>
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
 
 </section>
-
-    <nav class="page-nav">
-    
-        <a class="prev" href="/page/2/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text">Prev</span>
-        </a>
-    
-    
-        <a class="next" href="/page/4/">
-            <span class="next-text">Next</span>
-            <i class="iconfont icon-right"></i>
-        </a>
-    
-    </nav>
-
-
-
-            </main>
-            <div class="copyright">
-  <div class="text">Powered By
-    <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="圖片來自網路">
+    <h3 class="avatar-name">
+      
+        bookeel
+      
+    </h3>
+    <p class="avatar-slogan">
+      nope。
+    </p>
   </div>
 </div>
 
-        </div>
-    <div class="back-to-top" id="back-to-top">
-            <i class="iconfont icon-up"></i>
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Aizu-OJ/" style="font-size: 18px;">Aizu OJ</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 14px;">STL</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Struct/" style="font-size: 12px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 14px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
         
-    <script type="text/x-mathjax-config">
+          <li>
+            <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Maps-STL/">HackerRank-Maps STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Sets-STL/">HackerRank-Sets STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Lower-Bound-STL/">HackerRank-Lower Bound-STL</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 bookeel &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -350,43 +705,4 @@
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/back-to-top.js"></script>
-    <script src="/js/scroll.js"></script>
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 </html>
