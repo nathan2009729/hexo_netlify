@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>Aizu ALDS1 3-A Stack | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/3/ALDS1_3_A StackReverse Polish notation is a notation where every operator follows all of its operands. For example, an expression (1+2">
+<meta name="keywords" content="Aizu OJ,Stack,Struct,strrok">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aizu ALDS1 3-A Stack">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/Aizu-ALDS1-3-A-Stack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/3/ALDS1_3_A StackReverse Polish notation is a notation where every operator follows all of its operands. For example, an expression (1+2">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-29T10:25:19.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aizu ALDS1 3-A Stack">
+<meta name="twitter:description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/3/ALDS1_3_A StackReverse Polish notation is a notation where every operator follows all of its operands. For example, an expression (1+2">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="圖片來自網路">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Aizu-ALDS1-3-A-Stack" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Aizu ALDS1 3-A Stack
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/04/29/Aizu-ALDS1-3-A-Stack/" class="article-date">
+  <time datetime="2019-04-29T10:04:41.000Z" itemprop="datePublished">2019-04-29</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stack/">Stack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Struct/">Struct</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/strrok/">strrok</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/3/ALDS1_3_A" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/3/ALDS1_3_A</a></p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><p>Reverse Polish notation is a notation where every operator follows all of its operands. For example, an expression (1+2)*(5+4) in the conventional Polish notation can be represented as 1 2 + 5 4 + * in the Reverse Polish notation. One of advantages of the Reverse Polish notation is that it is parenthesis-free.</p>
+<p>Write a program which reads an expression in the Reverse Polish notation and prints the computational result.</p>
+<p>An expression in the Reverse Polish notation is calculated using a stack. To evaluate the expression, the program should read symbols in order. If the symbol is an operand, the corresponding value should be pushed into the stack. On the other hand, if the symbols is an operator, the program should pop two elements from the stack, perform the corresponding operations, then push the result in to the stack. The program should repeat this operations.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>An expression is given in a line. Two consequtive symbols (operand or operator) are separated by a space character.</p>
+<p>You can assume that +, - and * are given as the operator and an operand is a positive integer less than $10^6$</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the computational result in a line.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><ul>
+<li>$2 \leq$ the number of operands in the expression $\leq 200,000$</li>
+<li>$-10^9 \leq$ values in the stack $\leq 10^9$</li>
+</ul>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><p>1 2 +</p>
+<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><p>1 2 + 3 4 - *</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><p>3</p>
+<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><p>-3</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>attention to the usage of <strong>strtok()</strong> in string library</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="keyword">enum</span>&#123;MaxStack = <span class="number">300</span>&#125;;<span class="comment">//#define MaxStack = 300;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">    <span class="keyword">int</span> st[MaxStack];</span><br><span class="line">&#125;<span class="built_in">stack</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">stack</span>* <span class="title">init_stack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>* sp = (<span class="built_in">stack</span>*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="built_in">stack</span>));</span><br><span class="line">    sp -&gt; top = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> sp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">empty</span><span class="params">(<span class="built_in">stack</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (s -&gt; top == <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="built_in">stack</span> *s, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;top == MaxStack - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Stack Overflow\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    (s-&gt;top)++;</span><br><span class="line">    s -&gt; st[s-&gt;top] = n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">(<span class="built_in">stack</span>* s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(empty(s)) <span class="keyword">return</span> <span class="number">-9999</span>;</span><br><span class="line">    <span class="keyword">int</span> hold = s -&gt; st[s-&gt;top];</span><br><span class="line">    (s-&gt;top) --;</span><br><span class="line">    <span class="keyword">return</span> hold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> formula[<span class="number">300</span>];</span><br><span class="line">    fgets(formula, <span class="keyword">sizeof</span>(formula), <span class="built_in">stdin</span>);</span><br><span class="line">    formula[<span class="built_in">strlen</span>(formula)<span class="number">-1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="built_in">stack</span>* S = init_stack();</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">char</span> *x = strtok(formula,<span class="string">" "</span>);</span><br><span class="line">    <span class="keyword">int</span> num1 = atoi(x);</span><br><span class="line">    push(S, num1);</span><br><span class="line">    <span class="keyword">char</span> *p;</span><br><span class="line">    <span class="keyword">while</span>((p=strtok(<span class="literal">NULL</span>, <span class="string">" "</span>)))&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(*p == <span class="string">'+'</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> b = pop(S);</span><br><span class="line">            <span class="keyword">int</span> a = pop(S);</span><br><span class="line">            push(S, a+b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(*p == <span class="string">'-'</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> b = pop(S);</span><br><span class="line">            <span class="keyword">int</span> a = pop(S);</span><br><span class="line">            push(S, a-b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(*p == <span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> b = pop(S);</span><br><span class="line">            <span class="keyword">int</span> a = pop(S);</span><br><span class="line">            push(S, a*b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(*p == <span class="string">'/'</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> b = pop(S);</span><br><span class="line">            <span class="keyword">int</span> a = pop(S);</span><br><span class="line">            push(S, a/b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            push(S, atoi(p));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, pop(S));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/29/Aizu-ALDS1-3-B-Queue/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Aizu ALDS1 3-B Queue
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/21/Aizu-ALDS1-1-D-Maximum-Profit/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Aizu ALDS1_1_D Maximum Profit</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="圖片來自網路">
+    <h3 class="avatar-name">
+      
+        bookeel
+      
+    </h3>
+    <p class="avatar-slogan">
+      nope。
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Aizu-OJ/" style="font-size: 18.33px;">Aizu OJ</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16.67px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 15px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/29/Aizu-ALDS1-3-B-Queue/">Aizu ALDS1 3-B Queue</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/29/Aizu-ALDS1-3-A-Stack/">Aizu ALDS1 3-A Stack</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/21/Aizu-ALDS1-1-D-Maximum-Profit/">Aizu ALDS1_1_D Maximum Profit</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/21/讓Hexo主題可以支援mathjax/">&#39;讓Hexo主題可以支援mathjax</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 bookeel &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+	<!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
