@@ -51,6 +51,95 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-HackerRank-Sets-STL" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/13/HackerRank-Sets-STL/">HackerRank-Sets STL</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/04/13/HackerRank-Sets-STL/" class="article-date">
+  <time datetime="2019-04-13T06:02:32.000Z" itemprop="datePublished">2019-04-13</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sets/">Sets</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://www.hackerrank.com/challenges/cpp-sets/problem" target="_blank" rel="noopener">問題連結</a></p>
+<iframe src="https://drive.google.com/file/d/1Y9mAshg62FGhQ8cR4bEFlViwjEPaXpEw/preview" width="100%" height="800"></iframe>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>set的基本用法。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Enter your code here. Read input from STDIN. Print output to STDOUT */</span></span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="keyword">int</span> query_num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; query_num;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;query_num; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> type, data;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; type &gt;&gt; data;</span><br><span class="line">        <span class="keyword">if</span>(type == <span class="number">1</span>)&#123;</span><br><span class="line">            s.insert(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="number">2</span>)&#123;</span><br><span class="line">            s.erase(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.count(data))</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes\n"</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"No\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><font color="#00CED1">Reference</font></h1><hr>
+<p><a href="http://www.cplusplus.com/reference/set/set/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/set/set/</a><br><a href="https://blog.csdn.net/yas12345678/article/details/52601454" target="_blank" rel="noopener">https://blog.csdn.net/yas12345678/article/details/52601454</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-HackerRank-Vector-Erase" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/13/HackerRank-Vector-Erase/">HackerRank-Vector Erase</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/04/13/HackerRank-Vector-Erase/" class="article-date">
+  <time datetime="2019-04-13T00:11:21.000Z" itemprop="datePublished">2019-04-13</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">Vector</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://www.hackerrank.com/challenges/vector-erase/problem" target="_blank" rel="noopener">問題連結</a></p>
+<iframe src="https://drive.google.com/file/d/1p_slRic33ZRldw7F4uyXdtoOhAfOoju_/preview" width="100%" height="800"></iframe>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>這題是拿來練習C++中的STL的。要注意，vector內的.end()是最後一個元素的下一個元素。</p>
+<p>The aim of this problem is to practice STL in C++. In particular, the end() function of vector is used to return an iterator pointing to next to last element of the vector container.</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Enter your code here. Read input from STDIN. Print output to STDOUT */</span></span><br><span class="line">    <span class="keyword">int</span> data_num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; data_num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data_num; i++) &#123;</span><br><span class="line">      <span class="built_in">cin</span> &gt;&gt; data;</span><br><span class="line">      g1.push_back(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> erase_pos, erase_start, erase_end;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_pos;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; erase_start &gt;&gt; erase_end;</span><br><span class="line">    g1.erase(g1.begin() + erase_pos - <span class="number">1</span>);</span><br><span class="line">    g1.erase(g1.begin() + erase_start - <span class="number">1</span>, g1.begin() + erase_end - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; g1.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = g1.begin(); i != g1.end() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; *i &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *(g1.end() - <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-HackerRank-Lower-Bound-STL" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -451,107 +540,6 @@
 </article>
 
   
-    <article id="post-Aizu-IPT1-10-C-Standard-Deviation" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/17/Aizu-IPT1-10-C-Standard-Deviation/">Aizu IPT1_10_C Standard Deviation</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/17/Aizu-IPT1-10-C-Standard-Deviation/" class="article-date">
-  <time datetime="2019-03-17T07:15:21.000Z" itemprop="datePublished">2019-03-17</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_10_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_10_C</a></p>
-<h2 id="Standard-Deviation"><a href="#Standard-Deviation" class="headerlink" title="Standard Deviation"></a>Standard Deviation</h2><p>You have final scores of an examination for n students. Calculate standard deviation of the scores $s_1, s_2 … s_n$.</p>
-<p>The variance $α^2$ is defined by</p>
-<script type="math/tex; mode=display">
-\alpha^2 = \sum_{i=1}^n(s_i-m)^2/n</script><p>where m is an average of $s_i$. The standard deviation of the scores is the square root of their variance.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of multiple datasets. Each dataset is given in the following format:</p>
-<p>n<br>$s_1 s_2 … s_n$<br>The input ends with single zero for n.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each dataset, print the standard deviation in a line. The output should not contain an absolute error greater than 10-4.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>n ≤ 1000<br>0 ≤ $s_i$ ≤ 100</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<p>Sample Input<br>5<br>70 80 100 90 20<br>3<br>80 80 80<br>0</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<p>Sample Output<br>27.85677655<br>0.00000000</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">double</span> total = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">double</span> score[<span class="number">1005</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;score[i]);</span><br><span class="line">            total += score[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> average = total / n;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">double</span> square = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            square += <span class="built_in">pow</span>(score[i] - average, <span class="number">2</span>);    </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> standard_deviation = <span class="built_in">sqrt</span>(square/n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>, standard_deviation);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Aizu-IPT1-10-B-Triangle" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/17/Aizu-IPT1-10-B-Triangle/">Aizu IPT1_10_B Triangle</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/17/Aizu-IPT1-10-B-Triangle/" class="article-date">
-  <time datetime="2019-03-17T07:11:00.000Z" itemprop="datePublished">2019-03-17</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PI/">PI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_10_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_10_B</a></p>
-<h2 id="Triangle"><a href="#Triangle" class="headerlink" title="Triangle"></a>Triangle</h2><p>For given two sides of a triangle a and b and the angle C between them, calculate the following properties:</p>
-<p>S: Area of the triangle<br>L: The length of the circumference of the triangle<br>h: The height of the triangle with side a as a bottom edge</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The length of a, the length of b and the angle C are given in integers.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print S, L and h in a line respectively. The output should not contain an absolute error greater than 10-4.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<p>Sample Input<br>4 3 90</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<p>Sample Output<br>6.00000000<br>12.00000000<br>3.00000000</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>要注意的是三角函數的函式，以及PI的定義可以學起來: <strong>4*atan(1.0)</strong>。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">4.0</span> * <span class="built_in">atan</span>(<span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">double</span> a, b, angle;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf %lf %lf"</span>, &amp;a, &amp;b, &amp;angle);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> rad = (angle/<span class="number">180</span>) * PI;</span><br><span class="line">    <span class="keyword">double</span> area = a*b*<span class="built_in">sin</span>(rad)/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>, area);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> length_c = <span class="built_in">sqrt</span>(<span class="built_in">pow</span>(a,<span class="number">2</span>) + <span class="built_in">pow</span>(b,<span class="number">2</span>) - <span class="number">2</span>*a*b*<span class="built_in">cos</span>(rad));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>, a + b + length_c);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> hight = b * <span class="built_in">sin</span>(((<span class="number">180</span>-angle)/<span class="number">180</span>) * PI);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>, hight);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -586,7 +574,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
     </div>
   </div>
 
@@ -596,7 +584,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 18.33px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16.67px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 15px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
+      <a href="/tags/Aizu-OJ/" style="font-size: 18.33px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 16.67px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 15px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 10px;">struct</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
     </div>
   </div>
 
@@ -617,6 +605,14 @@
       <ul>
         
           <li>
+            <a href="/2019/05/05/Aizu-ALDS1-3-C-Doubly-Linked-List/">Aizu ALDS1 3-C Doubly Linked List</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/01/Aizu-ALDS1-2-C-Stable-Sort/">Aizu ALDS1 2-C Stable Sort</a>
+          </li>
+        
+          <li>
             <a href="/2019/05/01/Aizu-ALDS1-2-B-Selection-Sort/">Aizu ALDS1 2-B Selection Sort</a>
           </li>
         
@@ -626,14 +622,6 @@
         
           <li>
             <a href="/2019/04/29/Aizu-ALDS1-3-B-Queue/">Aizu ALDS1 3-B Queue</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/29/Aizu-ALDS1-3-A-Stack/">Aizu ALDS1 3-A Stack</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/21/Aizu-ALDS1-1-D-Maximum-Profit/">Aizu ALDS1_1_D Maximum Profit</a>
           </li>
         
       </ul>
