@@ -51,6 +51,99 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-C語言觀念-pointer(1)" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/03/C語言觀念-pointer(1)/">C語言觀念</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/03/C語言觀念-pointer(1)/" class="article-date">
+  <time datetime="2019-08-03T01:56:15.000Z" itemprop="datePublished">2019-08-03</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[] = <span class="string">"0123456"</span>;</span><br><span class="line"><span class="keyword">char</span> *p = s;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*p++);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*(p++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,(*p)++);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*++p);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*(++p));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,++*p);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,++(*p));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*++p);</span><br></pre></td></tr></table></figure></div>
+<p>先來看看以下表格，知道一下++跟指標的混合是多機車的事，簡而言之，++的優先級高於星號。<br>operation | meaning<br>—— | —-<br>&lowast;p++ = &lowast;(p++) | 先取值(&lowast;p)，再指標加1(p++)<br>&lowast;++p = &lowast;(++p) | 先指標加1(p++)，再取值(&lowast;p)<br>++&lowast;p = ++(&lowast;p) | 先把指標指向的值加1(*p++)，再取值(&lowast;p)<br>(&lowast;p)++ | 先取值(&lowast;p)，再把指標指向的值加1(*p++)</p>
+<p>所以再來分析上面的code會輸出什麼。<strong><em>斜體粗數字</em></strong>代表現在指標的位置。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>輸出(%c)</th>
+<th>字串s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*p++</td>
+<td>0</td>
+<td>0<strong><em>1</em></strong>23456</td>
+</tr>
+<tr>
+<td>*(p++)</td>
+<td>1</td>
+<td>01<strong><em>2</em></strong>3456</td>
+</tr>
+<tr>
+<td>(*p)++</td>
+<td>2</td>
+<td>01<strong><em>3</em></strong>3456</td>
+</tr>
+<tr>
+<td>*++p</td>
+<td>3</td>
+<td>013<strong><em>3</em></strong>456</td>
+</tr>
+<tr>
+<td>*(++p)</td>
+<td>4</td>
+<td>0133<strong><em>4</em></strong>56</td>
+</tr>
+<tr>
+<td>++*p</td>
+<td>5</td>
+<td>0133<strong><em>5</em></strong>56</td>
+</tr>
+<tr>
+<td>++(*p)</td>
+<td>6</td>
+<td>0133<strong><em>6</em></strong>56</td>
+</tr>
+<tr>
+<td>*++p</td>
+<td>5</td>
+<td>01336<strong><em>5</em></strong>6</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-Aizu-ALDS1-5-A-Exhaustive-Search" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -583,58 +676,6 @@
 </article>
 
   
-    <article id="post-Halting-Problem-using-diagonalization-method" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/Halting-Problem-using-diagonalization-method/">Halting Problem-using diagonalization method</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/04/14/Halting-Problem-using-diagonalization-method/" class="article-date">
-  <time datetime="2019-04-14T01:44:37.000Z" itemprop="datePublished">2019-04-14</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diagonalization/">diagonalization</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <p><strong>定義1:(d1)</strong><br>(&lt;M&gt;,x)為機器&lt;M&gt;輸入x時的輸出。輸出有三種情形，一是輸出非0且停機、二是輸出0且停機、三是無限循環也就是不停機。<br><strong>定義2:(d2)</strong><br>halting function h<br>h(&lt;M&gt;,x)=1 $\Leftrightarrow$ (&lt;M&gt;,x)停機，<br><strong>Theorem 1.5:</strong><br>The halting function h is not computable.<br><strong>Proof:</strong><br>要先知道，機器(也可以想成演算法)有很多種的，像是下圖，有機器T1、T2…等等。這是因為我們想知道世界上所有的演算法是不是有一個可以解決停機問題。下圖的表格，就是演算法Ti輸入演算法Tj時會發生什麼事，是停機呢(輸出Yes或No)，還是進入無限循環。<br><img src="https://i.imgur.com/VGSFgc3.png" alt><br>此圖引用於<a href="http://www.regor.url.tw/cnchou/2016/06/14/〈計算理論很好玩〉計算模型23：不可決定性問題/" target="_blank" rel="noopener">http://www.regor.url.tw/cnchou/2016/06/14/〈計算理論很好玩〉計算模型23：不可決定性問題/</a></p>
-<p>而證明的方法，是證明即使將h限定到其對角線上也不可解。對角線也就是機器自己輸入自己，我們定義<code>h限定到其對角線上</code>這個函數為d，具體來說，d(&lt;M&gt;) = h(&lt;M&gt;,&lt;M&gt;)。<br><strong>定義3:(d3)</strong><br>d(&lt;M&gt;) = h(&lt;M&gt;,&lt;M&gt;)</p>
-<p>我們會先構造一個和d相關的函數d’，先證明d’不可計算。d如果可以計算，那d’也很好算; 但如果d’不可計算，d就不能計算了。又因為d不可計算，clearly，h()也不可計算。</p>
-<p><strong>Lemma1(L1): 證明d’不可計算:</strong><br>先考慮一個與d相關的函數d’，這函數是被定義為做反事的(The function d’ is defined on purpose so to foil any attempt to compute it)，即對任意機器M，d’(&lt;M&gt;)的值不同於(&lt;M&gt;,&lt;M&gt;)。</p>
-<p><strong>定義4:(d4)</strong><br>d’(&lt;M&gt;) = 1 $\Leftrightarrow$ M halt on input M with output 0<br>(That is, 在無限循環或輸出不為0時, d’(&lt;M&gt;) = 0)</p>
-<p>現在假設有一機器$M_{d’}$可計算d’且對任何輸入停機。由<strong>d4</strong>，d’(&lt;$M_{d’}$&gt;) = 1$\Leftrightarrow$(&lt;$M_{d’}$&gt;,&lt;$M_{d’}$&gt;) = 0.也就是說，因為$M_{d’}$是用來計算d’，所以(&lt;$M_{d’}$&gt;,&lt;$M_{d’}$&gt;)跟d’(&lt;$M_{d’}$&gt;)應該要一樣的值，但照定義卻不同，因此有矛盾。<br><strong>Lemma1 QED</strong></p>
-<p><strong>Lemma2(L2): 利用d來算出d’的algo:</strong><br>再來，構造兩個機器M’跟M’’，使得<br>d(&lt;M’’&gt;) = d’(&lt;M’&gt;)，也就是說，如果d是可計算的，那也可以算出d’。但L1已證明d’不可計算，所以d也無法計算。<br>M’’ is defined to operates as follows:</p>
-<ol>
-<li>on input x, M’’ emulates M’ on x.</li>
-<li>If M’ halt on input x with output 0, M’’ halts.</li>
-<li>If M’ halt on input x with <strong>an</strong> output different from 0, then M’’ infimite loop(不停機)</li>
-<li>Otherwise, M’’ does not halt.</li>
-</ol>
-<p>在步驟2，d’(&lt;M’&gt;) = 1(by d4)<br>d(&lt;M’’&gt;) = h(&lt;M’’&gt;,&lt;M’’&gt;)(by d3)，<br>h(&lt;M’’&gt;,&lt;M’’&gt;) = 1(by d2)<br>$\Rightarrow$ d(&lt;M’’&gt;) = 1<br>所以步驟2中d(&lt;M’’&gt;) = d’(&lt;M’&gt;)，步驟三跟四也符合這等式。<br><strong>Lemma2(L2) QED</strong></p>
-<p>根據L2，我們可以利用d來算出d’。試著想像一下，有一個算d’的演算法A調用了算出d的演算法B，如果d’根本不能算，那代表演算法B也是不能算的，也就是d也算不出來。</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -669,7 +710,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
     </div>
   </div>
 
@@ -679,7 +720,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 12px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 16px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 14px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 10px;">struct</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a>
+      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 12px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 16px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 14px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 10px;">struct</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/面試題/" style="font-size: 10px;">面試題</a>
     </div>
   </div>
 
@@ -688,7 +729,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
     </div>
   </div>
 
@@ -698,6 +739,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/03/C語言觀念-pointer(1)/">C語言觀念</a>
+          </li>
         
           <li>
             <a href="/2019/06/01/Aizu-ALDS1-5-A-Exhaustive-Search/">Aizu ALDS1 5-A Exhaustive Search</a>
@@ -713,10 +758,6 @@
         
           <li>
             <a href="/2019/05/01/Aizu-ALDS1-2-B-Selection-Sort/">Aizu ALDS1 2-B Selection Sort</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/01/Aizu-ALDS1-2-A-Bubble-Sort/">Aizu ALDS1 2-A Bubble Sort</a>
           </li>
         
       </ul>
