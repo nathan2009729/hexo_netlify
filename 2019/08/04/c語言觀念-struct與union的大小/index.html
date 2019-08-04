@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="這篇說一下如何計算struct跟union所佔的記憶體大小，記憶體的大小為n就是offset佔位0~n-1。 先從struct說起，計算原則如下：  對齊: struct的第一個成員從offset起始位置從0開始。第二個成員開始，offset起始位置從該成員大小的整數被開始。舉例來說，struct的第一個成員是char a[9]，代表a已經占據了offset 0-8。如果第二個成員是int b，那">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-04T04:56:25.660Z">
+<meta property="og:updated_time" content="2019-08-04T04:58:26.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c語言觀念--struct與union的大小">
 <meta name="twitter:description" content="這篇說一下如何計算struct跟union所佔的記憶體大小，記憶體的大小為n就是offset佔位0~n-1。 先從struct說起，計算原則如下：  對齊: struct的第一個成員從offset起始位置從0開始。第二個成員開始，offset起始位置從該成員大小的整數被開始。舉例來說，struct的第一個成員是char a[9]，代表a已經占據了offset 0-8。如果第二個成員是int b，那">
@@ -127,6 +127,12 @@
 <p>3 奇怪例子:</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>  </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">union</span> A</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> t;   <span class="comment">//4</span></span><br><span class="line">		<span class="keyword">short</span> m; <span class="comment">//2</span></span><br><span class="line">		<span class="keyword">char</span> p;  <span class="comment">//1</span></span><br><span class="line">	&#125; ;</span><br><span class="line">    <span class="keyword">double</span> c;    <span class="comment">//8</span></span><br><span class="line">	<span class="keyword">char</span> p2;     <span class="comment">//1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
 <p>總大小:要注意的是，這struct裡的union僅是定義，非宣告新變數，因此並未再記憶體占空間，所以總大小是16。</p>
+<p>char：8位 </p>
+<p>short：16位</p>
+<p>int：32位</p>
+<p>long：32位</p>
+<p>float：32位</p>
+<p>double：64位</p>
 
       
     </div>
