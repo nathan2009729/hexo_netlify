@@ -5,23 +5,23 @@
   
 
   
-  <title>Aizu IPT1_2_C Sorting Three Numbers | Hexo</title>
+  <title>c語言觀念--bit manipulation | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C Sorting Three NumbersWrite a program which reads three integers, and prints them in ascending order. InputThree integers separ">
-<meta name="keywords" content="基礎語法練習,Aizu OJ">
+  <meta name="description" content="討論一下bit操作的實際應用。先複習一下and的bit操作: 1 &amp;amp; 1 = 10 &amp;amp; 1 = 01 &amp;amp; 0 = 00 &amp;amp; 0 = 0把左邊數字當作我們需要操作的bit，我們可以得出結論  1或0去跟1做and，會得到原本的結果，這性質可以實際應用在我們需要得知某一個bit的值。比如說我們需要知道第5個bit是0還是1，我們可以12int a = x &amp;amp; (">
+<meta name="keywords" content="面試題,bit manipulation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Aizu IPT1_2_C Sorting Three Numbers">
-<meta property="og:url" content="http://yoursite.com/2019/02/17/Aizu-IPT1-2-C-Sorting-Three-Numbers/index.html">
+<meta property="og:title" content="c語言觀念--bit manipulation">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/c語言觀念-bit-manipulation/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C Sorting Three NumbersWrite a program which reads three integers, and prints them in ascending order. InputThree integers separ">
+<meta property="og:description" content="討論一下bit操作的實際應用。先複習一下and的bit操作: 1 &amp;amp; 1 = 10 &amp;amp; 1 = 01 &amp;amp; 0 = 00 &amp;amp; 0 = 0把左邊數字當作我們需要操作的bit，我們可以得出結論  1或0去跟1做and，會得到原本的結果，這性質可以實際應用在我們需要得知某一個bit的值。比如說我們需要知道第5個bit是0還是1，我們可以12int a = x &amp;amp; (">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-05T00:37:31.595Z">
+<meta property="og:updated_time" content="2019-08-17T10:57:40.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aizu IPT1_2_C Sorting Three Numbers">
-<meta name="twitter:description" content="Problem https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C Sorting Three NumbersWrite a program which reads three integers, and prints them in ascending order. InputThree integers separ">
+<meta name="twitter:title" content="c語言觀念--bit manipulation">
+<meta name="twitter:description" content="討論一下bit操作的實際應用。先複習一下and的bit操作: 1 &amp;amp; 1 = 10 &amp;amp; 1 = 01 &amp;amp; 0 = 00 &amp;amp; 0 = 0把左邊數字當作我們需要操作的bit，我們可以得出結論  1或0去跟1做and，會得到原本的結果，這性質可以實際應用在我們需要得知某一個bit的值。比如說我們需要知道第5個bit是0還是1，我們可以12int a = x &amp;amp; (">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -54,25 +54,25 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-Aizu-IPT1-2-C-Sorting-Three-Numbers" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-c語言觀念-bit-manipulation" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      Aizu IPT1_2_C Sorting Three Numbers
+      c語言觀念--bit manipulation
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/02/17/Aizu-IPT1-2-C-Sorting-Three-Numbers/" class="article-date">
-  <time datetime="2019-02-17T02:55:12.000Z" itemprop="datePublished">2019-02-17</time>
+    <a href="/2019/08/17/c語言觀念-bit-manipulation/" class="article-date">
+  <time datetime="2019-08-17T10:15:15.000Z" itemprop="datePublished">2019-08-17</time>
 </a>
     
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
 
   </div>
   
@@ -85,18 +85,18 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00ffff">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/2/ITP1_2_C</a></p>
-<h2 id="Sorting-Three-Numbers"><a href="#Sorting-Three-Numbers" class="headerlink" title="Sorting Three Numbers"></a>Sorting Three Numbers</h2><p>Write a program which reads three integers, and prints them in ascending order.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Three integers separated by a single space are given in a line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the given integers in ascending order in a line. Put a single space between two integers.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ the three integers ≤ 10000</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00ffff">Sample Input</font></h1><hr>
-<p>Sample Input 1<br>3 8 1</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00ffff">Sample Output</font></h1><hr>
-<p>Sample Output 1<br>1 3 8</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00ffff">Solution</font></h1><hr>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">10001</span>;</span><br><span class="line">    <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(a &gt; max) max = a;</span><br><span class="line">    <span class="keyword">if</span>(b &gt; max) max = b;</span><br><span class="line">    <span class="keyword">if</span>(c &gt; max) max = c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(a &lt; min) min = a;</span><br><span class="line">    <span class="keyword">if</span>(b &lt; min) min = b;</span><br><span class="line">    <span class="keyword">if</span>(c &lt; min) min = c;</span><br><span class="line">    </span><br><span class="line">    middle = (a+b+c) - max - min;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, min, middle, max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+        <p>討論一下bit操作的實際應用。<br>先複習一下and的bit操作:</p>
+<p>1 &amp; 1 = 1<br>0 &amp; 1 = 0<br>1 &amp; 0 = 0<br>0 &amp; 0 = 0<br>把左邊數字當作我們需要操作的bit，我們可以得出結論</p>
+<ol>
+<li>1或0去跟1做and，會得到原本的結果，這性質可以實際應用在<strong>我們需要得知某一個bit的值</strong>。比如說我們需要知道第5個bit是0還是1，我們可以<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = x &amp; (<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br><span class="line">a = a &gt;&gt; <span class="number">4</span>;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>a就是第5個bit的值。第一行代表把1往左移4格，也就是移到第5個bit的位置。這時如果第5個bit是1，a會是16，這是因為除了第5個外的bit全部被清0，而10000是16。所以才會有第二行，把得出的值往右移四位，剛好就只剩下0。</p>
+<p>再複習一下or的bit操作:<br>1 | 1 = 1<br>0 | 1 = 1<br>1 | 0 = 1<br>0 | 0 = 0<br>把左邊數字當作我們需要操作的bit，我們可以得出結論<br>只要跟1去or，就可以把不管是0或是1變成1，這性質可以實際應用在<strong>我們需要把某個bit變成1</strong>。<br>假設我們要把x的第5位bit換成1，就可以這樣寫:<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x |= (<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></figure></div></p>
+<p>這樣不但把x的第5位bit換成1，且因為其他bit皆跟0去or，所以值也沒被改變。</p>
+<p>最難的是最後一個應用: <strong>我們需要把某個bit變成0</strong>，當然，其他是不能變的。所以第一個想法，當然是把某個bit跟0去做and。OK，但是因為要做and就是要全部bit一起做，所以如果想維持其他bit不變，代表其他bit要and 1。也就是說，假設我們想讓第5個bit變成0，我們應該是跟1111…11101111去做and。诶?這個只有第5個bit是0，其他都是1的東西，要怎麼得到? 其實就是10000去做not，也就是~(10000)，10000要怎麼得到? 當然不是像剛剛那樣直接打，而是(1&lt;<4)。答案終於出來了，就是 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br></pre></td></tr></table></4)。答案終於出來了，就是></p>
+<p>以下是範例小程式。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print2</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">11</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x&amp;(<span class="number">1</span>&lt;&lt;i);</span><br><span class="line">        <span class="keyword">if</span>(a!=<span class="number">0</span>) a &gt;&gt;= i;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0xfaf</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x);</span><br><span class="line">    </span><br><span class="line">    print2(x);</span><br><span class="line">    <span class="comment">//1 1 1 1 1 0 1 0 1 1 1 1</span></span><br><span class="line">    </span><br><span class="line">    x |= (<span class="number">1</span>&lt;&lt;<span class="number">4</span>);</span><br><span class="line">    print2(x);</span><br><span class="line">	<span class="comment">//1 1 1 1 1 0 1 1 1 1 1 1</span></span><br><span class="line">    </span><br><span class="line">    x &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">5</span>);</span><br><span class="line">    print2(x);</span><br><span class="line">    <span class="comment">//1 1 1 1 1 0 1 1 1 1 1 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+
       
     </div>
     
@@ -110,20 +110,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/02/17/Aizu-IPT1-2-D-Circle-in-a-Rectangle/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            Aizu IPT1_2_D Circle in a Rectangle
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/02/17/Aizu-IPT1-2-B-Range/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Aizu IPT1_2_B Range</div>
+      <a href="/2019/08/11/Advanced-C-第一堂課程筆記-基礎簡介-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Advanced C++第一堂課程筆記--基礎簡介(1)</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
