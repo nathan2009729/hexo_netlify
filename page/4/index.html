@@ -51,6 +51,56 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-Aizu-IPT1-9-C-Card-Game" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/Aizu-IPT1-9-C-Card-Game/">Aizu IPT1_9_C Card Game</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/10/Aizu-IPT1-9-C-Card-Game/" class="article-date">
+  <time datetime="2019-03-10T11:21:17.000Z" itemprop="datePublished">2019-03-10</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/9/ITP1_9_C" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/9/ITP1_9_C</a></p>
+<h2 id="Card-Game"><a href="#Card-Game" class="headerlink" title="Card Game"></a>Card Game</h2><p>Taro and Hanako are playing card games. They have n cards each, and they compete n turns. At each turn Taro and Hanako respectively puts out a card. The name of the animal consisting of alphabetical letters is written on each card, and the bigger one in lexicographical order becomes the winner of that turn. The winner obtains 3 points. In the case of a draw, they obtain 1 point each.</p>
+<p>Write a program which reads a sequence of cards Taro and Hanako have and reports the final scores of the game.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, the number of cards n is given. In the following n lines, the cards for n turns are given respectively. For each line, the first string represents the Taro’s card and the second one represents Hanako’s card.</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>n ≤ 1000<br>The length of the string ≤ 100</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the final scores of Taro and Hanako respectively. Put a single space character between them.</p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
+<p>Sample Input<br>3<br>cat dog<br>fish fish<br>lion tiger</p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
+<p>Sample Output<br>1 7</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
+<p>沒什麼好說的，只要使用strcmp即可達到字典比較字串的功能。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> score_T = <span class="number">0</span>, score_H = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> round_num;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;round_num);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;round_num; i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> str_T[<span class="number">105</span>], str_H[<span class="number">105</span>];</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %s"</span>, str_T, str_H);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(str_T, str_H))&#123;</span><br><span class="line">            score_T += <span class="number">1</span>;</span><br><span class="line">            score_H += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str_T, str_H)&gt;<span class="number">0</span>)</span><br><span class="line">            score_T += <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            score_H += <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, score_T, score_H);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-Aizu-IPT1-9-B-Shuffle" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -521,63 +571,11 @@
 </article>
 
   
-    <article id="post-Aizu-IPT1-6-B-Finding-Missing-Cards" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/Aizu-IPT1-6-B-Finding-Missing-Cards/">Aizu IPT1_6_B Finding Missing Cards</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/02/24/Aizu-IPT1-6-B-Finding-Missing-Cards/" class="article-date">
-  <time datetime="2019-02-24T03:10:10.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_B
-</a></p>
-<h2 id="Finding-Missing-Cards"><a href="#Finding-Missing-Cards" class="headerlink" title="Finding Missing Cards"></a>Finding Missing Cards</h2><p>Taro is going to play a card game. However, now he has only n cards, even though there should be 52 cards (he has no Jokers).</p>
-<p>The 52 cards include 13 ranks of each of the four suits: spade, heart, club and diamond.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>In the first line, the number of cards n (n ≤ 52) is given.</p>
-<p>In the following n lines, data of the n cards are given. Each card is given by a pair of a character and an integer which represent its suit and rank respectively. A suit is represented by ‘S’, ‘H’, ‘C’ and ‘D’ for spades, hearts, clubs and diamonds respectively. A rank is represented by an integer from 1 to 13.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the missing cards. The same as the input format, each card should be printed with a character and an integer separated by a space character in a line. Arrange the missing cards in the following priorities:</p>
-<p>Print cards of spades, hearts, clubs and diamonds in this order.<br>If the ranks are equal, print cards with lower ranks first.</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<p>Sample Input<br>47<br>S 10<br>S 11<br>S 12<br>S 13<br>H 1<br>H 2<br>S 6<br>S 7<br>S 8<br>S 9<br>H 6<br>H 8<br>H 9<br>H 10<br>H 11<br>H 4<br>H 5<br>S 2<br>S 3<br>S 4<br>S 5<br>H 12<br>H 13<br>C 1<br>C 2<br>D 1<br>D 2<br>D 3<br>D 4<br>D 5<br>D 6<br>D 7<br>C 3<br>C 4<br>C 5<br>C 6<br>C 7<br>C 8<br>C 9<br>C 10<br>C 11<br>C 13<br>D 9<br>D 10<br>D 11<br>D 12<br>D 13</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<p>Sample Output<br>S 1<br>H 3<br>H 7<br>C 12<br>D 8</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>Declare a two-dimensional array card[i][j] that has four rows(one for each suit, 1 as S, 2 as H, 3 as C, 4 as D) and 13 columns(one for each rank). There are two values of card[i][j], if rank j of suit i is missing, card[i][j] = 0, otherwise card[i][j] is 1.<br>Initialize the value of card array with 0. (Line 6-11)<br>While each rank j of suit i card is given, assign card[i][j] to 1. (Line 16-24)<br>print the  suit i and rank j if card[i][j] = 0 (Line 26-36)<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> card[<span class="number">5</span>][<span class="number">14</span>];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            card[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> suit;</span><br><span class="line">    <span class="keyword">char</span> op;</span><br><span class="line">    <span class="keyword">int</span> rank;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        op = getchar();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%c %d"</span>, &amp;suit, &amp;rank);</span><br><span class="line">        <span class="keyword">if</span>(suit == <span class="string">'S'</span>) card[<span class="number">1</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'H'</span>) card[<span class="number">2</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'C'</span>) card[<span class="number">3</span>][rank] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(suit == <span class="string">'D'</span>) card[<span class="number">4</span>][rank] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=<span class="number">13</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(card[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"S %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">2</span>) <span class="built_in">printf</span>(<span class="string">"H %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">"C %d\n"</span>, j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">4</span>) <span class="built_in">printf</span>(<span class="string">"D %d\n"</span>, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 
@@ -607,7 +605,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
     </div>
   </div>
 
@@ -617,7 +615,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 12px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 12px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 16px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 14px;">Struct</a> <a href="/tags/Vector/" style="font-size: 12px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16px;">c++基礎語法練習</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 12px;">struct</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/面試題/" style="font-size: 14px;">面試題</a>
+      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18.33px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16.67px;">c++基礎語法練習</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.67px;">struct</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/面試題/" style="font-size: 13.33px;">面試題</a>
     </div>
   </div>
 
@@ -638,6 +636,10 @@
       <ul>
         
           <li>
+            <a href="/2019/08/18/Advanced-C-第二堂課程筆記-指標、函式介紹與類別-class-初探/">Advanced C++第二堂課程筆記--指標、函式介紹與類別(class)初探</a>
+          </li>
+        
+          <li>
             <a href="/2019/08/17/c語言觀念-bit-manipulation/">c語言觀念--bit manipulation</a>
           </li>
         
@@ -651,10 +653,6 @@
         
           <li>
             <a href="/2019/08/03/C語言觀念-pointer(1)/">C語言觀念</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/01/Aizu-ALDS1-5-A-Exhaustive-Search/">Aizu ALDS1 5-A Exhaustive Search</a>
           </li>
         
       </ul>
