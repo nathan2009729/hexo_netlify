@@ -51,6 +51,111 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-嵌入式移植第一堂筆記" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/31/嵌入式移植第一堂筆記/">嵌入式移植第一堂筆記</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/31/嵌入式移植第一堂筆記/" class="article-date">
+  <time datetime="2019-08-31T12:21:24.000Z" itemprop="datePublished">2019-08-31</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="整備本機環境"><a href="#整備本機環境" class="headerlink" title="整備本機環境"></a>整備本機環境</h1><p>使用的環境是ubuntu，先打開終端機，執行以下指令，準備好等下弄板子需要的程式工具。</p>
+<ol>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386</code></li>
+<li><code>sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so</code></li>
+<li><p>修改文件，以下載mingw32。這是因為自ubuntu16起，mingw32從台灣載點被刪除，我們要加入美國的伺服器位址才能載的回來。<br>打開需修改的文件(/etc/apt/sources.list)<br><code>sudo gedit /etc/apt/sources.list</code><br>在裡面加上<br><code>deb http://us.archive.ubuntu.com/ubuntu trusty main universe</code><br>儲存後離開。</p>
+</li>
+<li><p><code>sudo apt-get update</code></p>
+</li>
+<li><code>sudo apt-get install mingw32</code></li>
+<li>安裝filezilla<br><code>sudo apt‐get install filezilla</code></li>
+<li>安裝minicom，要透過這程式來設定連接板子的usb。<br><code>sudo apt-get install minicom</code></li>
+</ol>
+<h1 id="連到板子"><a href="#連到板子" class="headerlink" title="連到板子"></a>連到板子</h1><p>用的板子是cortex系列。會用到兩條線:<br>usb-to-rs232(型號是u232-p9)<br>vga轉接(是母對母的)</p>
+<p>可以看到u232-p9的一端是usb另一端是vga(公)。把usb端接到電腦，vga(公)接到vga轉接線，再把vga轉接線接到板子上的vga接頭(公)。這時打指令<code>lsmod</code>可看到下面一行:<br><code>usbserial              49152  3 pl2303</code><br>代表這線是pl2303的driver。也有人是另一條不同driver的線(ch43x)。</p>
+<p>再打<code>ls /dev/tty*</code>這指令，檢查一下電腦是否有抓到u232-p9，如果有，應該會多一個<code>/dev/ttyUSB0</code>。</p>
+<p>接下來使用minicom，來設定usb。首先輸入<br><code>sudo minicom -s</code>，進入以下畫面:<br><img src="https://imgur.com/5Sp5Pi4.jpg" alt><br>進入<code>Serial port setup</code>，會出現以下畫面:<br><img src="https://imgur.com/wk7YHuG.jpg" alt><br>我們需要把F跟G的Hardware Flow Control跟Software Flow Control給設定成No，否則等下畫面出不來。只要輸入最左邊的英文字母就可以改變相對應的設定。設定完成後按鍵盤上的Esc即可離開<code>Serial port setup</code>，回到<br><img src="https://imgur.com/5Sp5Pi4.jpg" alt><br>先把游標移到<code>Save setup as dfl</code>按下Enter可儲存為預設設定，再把游標移到<code>Exit from Minicom</code>按下Enter即可離開設定。</p>
+<p>接下來在板子關機的前提下插上兩條線，連接電腦跟板子後把板子開機。接下來輸入以下指令<code>sudo Minicom</code>即可進入以下畫面<br><img src="https://imgur.com/H2iJTZG.jpg" alt></p>
+<p>如果出現的是下面這種只有一半的，就按下板子的reset鍵重新開機。<br><img src="https://imgur.com/VSQShjx.jpg" alt><br>成功進入上述完整畫面，可試試更改設定。<br>輸入<code>set bootdelay 20</code>可把開機的倒數從預設的30秒變成20秒。可在輸入上述指令後，再輸入以下指令確認是否修改。<br><code>printenv</code>，可簡寫為<code>pri</code><br>會輸出以下畫面(節錄)<br><img src="https://imgur.com/GYHOiPL.jpg" alt><br>可發現紅框處已變成20。<br>最後再輸入指令<code>saveenv</code>把這設定變成預設。</p>
+<h1 id="整備編譯環境"><a href="#整備編譯環境" class="headerlink" title="整備編譯環境"></a>整備編譯環境</h1><p>[以下皆在電腦端執行]<br>把提供的arm-4.5.1.tar.bz2給解壓縮到/usr/local資料夾內，這個資料夾內有arm平台的編譯工具(像是arm-linux-gcc，這是gcc的arm版)。<br><code>sudo tar -jxvf arm-4.5.1.tar.bz2 -C /usr/local</code><br>解壓縮結束後，如果每次要用到arm編譯工具都要先cd到/usr/local再使用，但這太不方便，所以要把arm編譯工具的路徑加入環境變數，這樣就不用每次都先cd到/usr/local。<br>加入環境變數步驟如下:</p>
+<ol>
+<li><code>sudo vim ~/.bashrc</code></li>
+<li>開啟bashrc檔案，並再<strong>最後一行</strong>加入<br><code>export PATH=/usr/local/arm/4.5.1/bin:$PATH</code></li>
+<li>再執行<br><code>source ~/.bashrc</code><br>即可。<br>做個測試，創建hello.c，其內容如下:<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">"HELLO WORLD!!\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>在hello.c所在的資料夾(哪都沒關係)，執行以下指令<br><code>arm-linux-gcc hello.c -o hello</code><br>如果生成名為hello的執行檔，即成功。注意在電腦上是無法執行的，只能在arm平台上執行。</p>
+<h1 id="燒錄準備"><a href="#燒錄準備" class="headerlink" title="燒錄準備"></a>燒錄準備</h1><p>這款cortex A9用的處理器是三星Exynos 4412，我們要燒錄開機程式至板子上，需要灌一些燒錄用的工具。<br>(以下都在電腦端)首先下載<code>dnw.tar.bz2</code>並解壓縮<br><code>sudo tar ‐jxvf dnw.tar.bz2</code></p>
+<p>解壓縮後出現dnw資料夾，我們須編譯裡面的dnw_new.c<br>輸入<code>gcc dnw_new.c -o dnw</code>會出現錯誤:<br><img src="https://imgur.com/zW5Cu4O.jpg" alt><br>這是因為我們沒裝libusb-dev，因此下以下指令安裝<br><code>sudo apt-get install libusb-dev</code><br>安裝libusb-dev完後，再編譯一次依然有錯:<br><img src="https://imgur.com/D3FI8RC.jpg" alt><br>出現的是undefined reference，這是因為編譯器不知道用到的函數要去哪裡找，所以要打以下指令才會編譯成功:<br><code>gcc dnw_new.c -o dnw -lusb</code><br><img src="https://imgur.com/2wSeh0u.jpg" alt><br>接下來試試看如何傳資料:</p>
+<ol>
+<li>在板子端開啟Minicom，輸入dnw。</li>
+<li>在電腦端隨便傳一個檔案，假設是note.txt<br><code>sudo dnw E4412_N.bl1.bin</code><br><img src="https://imgur.com/iTbRaR8.jpg" alt><br>板子端也會出現傳輸成功。</li>
+</ol>
+<hr>
+<p>Bootloader傳輸實驗</p>
+<ol>
+<li>[板子端]emmc open 0<br><img src="https://imgur.com/n6DMrz4.jpg" alt></li>
+<li>[板子端]dnw<br><img src="https://imgur.com/rYbjJYF.jpg" alt></li>
+<li>[電腦端] sudo dnw E4412_N.bl1.bin<br><img src="https://imgur.com/HBCjiN0.jpg" alt><br>板子端會出現以下畫面:<br><img src="https://imgur.com/BHWDjel.jpg" alt></li>
+<li>[板子端]mmc write 0 0xc0000000 0 0x10<br><img src="https://imgur.com/DiJmWSc.jpg" alt><br>把E4412_N.bl1.bin寫入0x10<br>以下指令不貼圖，因為只是傳不同的檔案，畫面類似。</li>
+<li>[板子端]dnw</li>
+<li>[電腦端]sudo dnw bl2.bin</li>
+<li>[板子端]mmc write 0 0xc0000000 0x10 0x1C<br>再來一組，</li>
+<li>[板子端]dnw</li>
+<li>[電腦端]sudo dnw u-boot.bin</li>
+<li>[板子端] mmc write 0 0xc0000000 0x30 0x21D<br>最後關閉，再重啟</li>
+<li>[板子端]emmc close 0</li>
+<li>[板子端]reset </li>
+</ol>
+<hr>
+<p>FastBoot</p>
+<ol>
+<li>[電腦端]<code>chmod 777 fastboot</code></li>
+<li>[電腦端]<code>sudo cp fastboot /sbin</code><br><img src="https://imgur.com/ZK6AEek.jpg" alt></li>
+<li>[板子端]<code>fastboot</code><br><img src="https://imgur.com/1DkuMaw.jpg" alt></li>
+<li>[電腦端]<code>sudo fastboot flash kernel zImage</code><br><img src="https://imgur.com/joI1YjS.jpg" alt></li>
+<li><p>[板子端]<code>reset</code></p>
+<p>如果再次restart板子，進入minicom後輸入<code>boot</code>指令，可看到有四隻企鵝在板子螢幕上。</p>
+<hr>
+<p>安裝nfs (network file system)</p>
+<p>首先就是安裝相關套件:</p>
+</li>
+<li>sudo apt-get install nfs-common nfs-kernel-server<br>再來下載課堂提供的root_mkfs.tar.bz2，並解壓縮:</li>
+<li>sudo tar -jxvf root_mkfs.tar.bz2<br>解壓縮後用指令pwd，會顯示root_mkfs的路徑，等等會用到</li>
+<li>pwd<br>假設pwd後顯示出來的路徑是/home/cadtc/root_mkfs。<br>nfs-common跟nfs-kernel-server安裝完成後etc目錄內會出現exports檔案，要在最後一行加上剛剛顯示的root_mkfs的路徑</li>
+<li>sudo vim /etc/exports<br>執行上述命令後，進入exports檔案，最後一行加上<br>/home/cadtc/root_mkfs  *(rw,sync,no_root_squash)<br>儲存後離開。</li>
+<li>sudo /etc/init.d/nfs-kernel-server restart<img src="https://imgur.com/gjkdDHr.jpg" alt><br>出現如上圖最後一行的ok即成功。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-Advanced-C-第三堂課程筆記-類別" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -912,63 +1017,6 @@
 </article>
 
   
-    <article id="post-Aizu-ALDS1-2-B-Selection-Sort" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/01/Aizu-ALDS1-2-B-Selection-Sort/">Aizu ALDS1 2-B Selection Sort</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/05/01/Aizu-ALDS1-2-B-Selection-Sort/" class="article-date">
-  <time datetime="2019-05-01T00:04:33.000Z" itemprop="datePublished">2019-05-01</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><font color="#00CED1">Problem</font></h1><hr>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/2/ALDS1_2_B" target="_blank" rel="noopener">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/2/ALDS1_2_B</a></p>
-<h2 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h2><p>Write a program of the Selection Sort algorithm which sorts a sequence A in ascending order. The algorithm should be based on the following pseudocode:</p>
-<p>SelectionSort(A)<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASIC"><figure class="iseeu highlight /basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="keyword">for</span> i = <span class="number">0</span> <span class="keyword">to</span> A.length-<span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span>    mini = i</span><br><span class="line"><span class="symbol">3 </span>    <span class="keyword">for</span> j = i <span class="keyword">to</span> A.length-<span class="number">1</span></span><br><span class="line"><span class="symbol">4 </span>        <span class="keyword">if</span> A[j] &lt; A[mini]</span><br><span class="line"><span class="symbol">5 </span>            mini = j</span><br><span class="line"><span class="symbol">6 </span>    <span class="keyword">swap</span> A[i] <span class="keyword">and</span> A[mini]</span><br></pre></td></tr></table></figure></div></p>
-<p>Note that, indices for array elements are based on 0-origin.</p>
-<p>Your program should also print the number of swap operations defined in line 6 of the pseudocode in the case where i ≠ mini.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line of the input includes an integer N, the number of elements in the sequence.</p>
-<p>In the second line, N elements of the sequence are given separated by space characters.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>The output consists of 2 lines.</p>
-<p>In the first line, please print the sorted sequence. Two contiguous elements of the sequence should be separated by a space character.</p>
-<p>In the second line, please print the number of swap operations.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><p>1 ≤ N ≤ 100</p>
-<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><font color="#00CED1">Sample Input</font></h1><hr>
-<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><p>6<br>5 6 4 2 1 3</p>
-<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><p>6<br>5 2 4 6 1 3</p>
-<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><font color="#00CED1">Sample Output</font></h1><hr>
-<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><p>1 2 3 4 5 6<br>4</p>
-<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><p>1 2 3 4 5 6<br>3</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><font color="#00CED1">Solution</font></h1><hr>
-<p>given an execution example of sample input 2( only the first pass, namely, i=0):<br>5 2 4 6 1 3<br>1 2 4 6 5 3 (we find min_i = 4)</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_array</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==length<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a[i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">selection_sort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> swap_num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> min_i = i;</span><br><span class="line">        <span class="keyword">int</span> swap_flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &lt; a[min_i])&#123;</span><br><span class="line">                min_i = j;</span><br><span class="line">                swap_flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;a[i], &amp;a[min_i]);</span><br><span class="line">        <span class="keyword">if</span>(swap_flag == <span class="number">1</span>) swap_num++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> swap_num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data_length, arr[<span class="number">110</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;data_length);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;data_length; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> swap = selection_sort(arr, data_length);</span><br><span class="line">    print_array(arr, data_length);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, swap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -1003,7 +1051,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-語法練習/">c++語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-語法練習/">c++語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
     </div>
   </div>
 
@@ -1013,7 +1061,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18.33px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16.67px;">c++基礎語法練習</a> <a href="/tags/c-語法練習/" style="font-size: 10px;">c++語法練習</a> <a href="/tags/class/" style="font-size: 11.67px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.67px;">struct</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/面試題/" style="font-size: 13.33px;">面試題</a>
+      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/Embedded-Linux系統移植實作/" style="font-size: 10px;">Embedded Linux系統移植實作</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18.33px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16.67px;">c++基礎語法練習</a> <a href="/tags/c-語法練習/" style="font-size: 10px;">c++語法練習</a> <a href="/tags/class/" style="font-size: 11.67px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.67px;">struct</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/面試題/" style="font-size: 13.33px;">面試題</a>
     </div>
   </div>
 
@@ -1034,6 +1082,10 @@
       <ul>
         
           <li>
+            <a href="/2019/08/31/嵌入式移植第一堂筆記/">嵌入式移植第一堂筆記</a>
+          </li>
+        
+          <li>
             <a href="/2019/08/25/Advanced-C-第三堂課程筆記-類別/">Advanced-C-第三堂課程筆記-類別</a>
           </li>
         
@@ -1047,10 +1099,6 @@
         
           <li>
             <a href="/2019/08/11/Advanced-C-第一堂課程筆記-基礎簡介-1/">Advanced C++第一堂課程筆記--基礎簡介(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/04/c語言觀念-struct與union的大小/">c語言觀念--struct與union的大小</a>
           </li>
         
       </ul>
