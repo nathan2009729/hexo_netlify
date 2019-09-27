@@ -51,6 +51,81 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-嵌入式移植第三堂筆記-重灌板子-bootloader改寫-控制板子硬體-led、蜂鳴器" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/嵌入式移植第三堂筆記-重灌板子-bootloader改寫-控制板子硬體-led、蜂鳴器/">嵌入式移植第三堂筆記--重灌板子, bootloader改寫, 控制板子硬體(led、蜂鳴器)</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/09/21/嵌入式移植第三堂筆記-重灌板子-bootloader改寫-控制板子硬體-led、蜂鳴器/" class="article-date">
+  <time datetime="2019-09-21T10:53:26.000Z" itemprop="datePublished">2019-09-21</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootloader改寫/">bootloader改寫</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/控制板子硬體/">控制板子硬體</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重灌板子/">重灌板子</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="要是板子作業系統損壞，該如何復原"><a href="#要是板子作業系統損壞，該如何復原" class="headerlink" title="要是板子作業系統損壞，該如何復原"></a>要是板子作業系統損壞，該如何復原</h1><p>首先要製作一張還原卡：<br>將SD卡插入電腦，並確認它的代號(使用linux命令df或fdisk -l)，應該是sdb接某數字。</p>
+<p>再來，下載課程提供的sd_fusing.tar.bz2壓縮檔，並解壓縮<br>    tar -xvf sd_fusing.tar.bz2<br>再執行以下指令：<br>    cd sd_fusing<br>    sudo sh ./sd_fusing.sh /dev/sdb  </p>
+<p>製作完還原卡，就是重灌。在關機的情況下，插入製作好的sd卡，把開關對面的黑桿往下搬，即可設定成sd卡開機，開機後執行以下指令：<br>(板子端) In Exynos4412 bootloader stage<br>1 emmc open 1<br>2 dnw<br>4 mmc write 1 0xc0000000 0 0x10<br>5 dnw<br>7 mmc write 1 0xc0000000 0x10 0x1C<br>8 dnw<br>10 mmc write 1 0xc0000000 0x30 0x21D<br>11 emmc close 1<br>(電腦端)注意現在目錄在init_boot下，其中包含E4412_N.bl1.bin, bl2.bin,u-boot.bin跟zImage<br>3 sudo dnw E4412_N.bl1.bin<br>6 sudo dnw bl2.bin<br>9 sudo dnw u-boot.bin<br>(板子端)  </p>
+<ol>
+<li>fastboot  </li>
+<li>按重開鍵<br>(電腦端) In host PC  </li>
+<li>sudo fastboot flash kernel zImage  <h1 id="更改程式碼使得在bootloder階段可做一些事"><a href="#更改程式碼使得在bootloder階段可做一些事" class="headerlink" title="更改程式碼使得在bootloder階段可做一些事"></a>更改程式碼使得在bootloder階段可做一些事</h1></li>
+</ol>
+<p>先下載uboot_tiny4412_new.tgz，解壓縮後移至該目錄。<br><code>tar xvf uboot_tiny4412_new.tgz</code><br><code>cd uboot_tiny4412_new</code>  </p>
+<p>練習1<br>修改uboot中tiny4412的設定檔，更改bootdelay的值  </p>
+<hr>
+<p><code>sudo vim include/configs/tiny4412.h</code><br>找到#define CONFIG_BOOTDELAY並修改其後面的值<br><img src="https://imgur.com/MalpBjP.jpg" alt><br>儲存離開後，執行以下2指令<br><code>make tiny4412_config</code><br><code>make -j8</code>  </p>
+<hr>
+<p>將更改過後的設定值燒錄到板子，步驟如下：<br>(板子端)  </p>
+<ol>
+<li>fastboot  </li>
+<li>按下reset鈕<br>(電腦端)  </li>
+<li>sudo fastboot flash bootloader u-boot.bin  </li>
+</ol>
+<p>練習2  </p>
+<h2 id="更改main-c，使得開機時可出現自己print出來的文字。"><a href="#更改main-c，使得開機時可出現自己print出來的文字。" class="headerlink" title="更改main.c，使得開機時可出現自己print出來的文字。"></a>更改main.c，使得開機時可出現自己print出來的文字。</h2><p>移動到<br>在<br>修改<code>uboot_tiny4412_new/common</code>資料夾內的main.c，找到以下程式碼：<br><img src="https://imgur.com/jP0Wsn4.jpg" alt><br>在<br><code>#if defined(CONFIG_BOOTDELAY) &amp;&amp; (CONFIG_BOOTDELAY &gt;= 0)</code>的前面加上<br><code>printf(&quot;hahaha\n&quot;);</code><br><img src="https://imgur.com/IYAaTpS.jpg" alt></p>
+<p>將更改過後的設定值燒錄到板子，步驟如下：<br>(板子端)<br>1 fastboot<br>3 按下reset鈕<br>(電腦端)<br>2  sudo fastboot flash bootloader u-boot.bin<br>在reset後，可在板子端的terminal看到hahaha<br><img src="https://imgur.com/xcaGvLY.jpg" alt></p>
+<hr>
+<h1 id="Bootloader-LED-Driver"><a href="#Bootloader-LED-Driver" class="headerlink" title="Bootloader LED Driver"></a>Bootloader LED Driver</h1><p>在板子尚未開機，停留在bootloader前，輸入<br><code>mw 0x110002E0 0x1100 1</code><br><code>mw 0x110002E4 0x0003 1</code><br>0x0003(HEX)代表 0000 0000 0000 0011 (Binary)就是(LED1 LED2 off, LED3 LED4 on)。</p>
+<p>利用c code做控制：<br>到以下目錄：<br><code>/uboot_tiny4412_new/arch/arm/include/asm/arch-exynos</code><br>修改裡面的s5p_nand.h，在#define區塊的最前面加上以下#define:<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GPM4CON_OFFSET                  0x2E0 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GPM4DAT_OFFSET                  0x2E4</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GPM4CON_REG                     __REG(GPIO_BASE + GPM4CON_OFFSET)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GPM4DAT_REG                     __REG(GPIO_BASE + GPM4DAT_OFFSET)</span></span><br></pre></td></tr></table></figure></div></p>
+<p>再來回到<br><code>/uboot_tiny4412_new/common</code><br>修改裡面的main.c<br>在<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> CONFIG_MODEM_SUPPORT</span></span><br><span class="line">  <span class="keyword">int</span> do_mdm_init = <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">mdm_init</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">/* defined in board.c */</span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">``` </span><br><span class="line">的後面加上以下函式定義：</span><br><span class="line">```cpp</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">gpio_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//CONFIGURE GPM4_2 and GPM4_3 as output pin</span></span><br><span class="line">        GPM4CON_REG &amp;=<span class="number">0xFFFF00FF</span>;</span><br><span class="line">        GPM4CON_REG |=<span class="number">0x00001100</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"LED init\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">led_off</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> pinno)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pinno == <span class="number">3</span>)&#123;</span><br><span class="line">                GPM4DAT_REG |= <span class="number">0x04</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                GPM4DAT_REG |= <span class="number">0x08</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">led_on</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> pinno)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pinno == <span class="number">3</span>)&#123;</span><br><span class="line">        	GPM4DAT_REG &amp;=<span class="number">0xFB</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">        	GPM4DAT_REG &amp;=<span class="number">0xF7</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">```    </span><br><span class="line">並在`void main_loop (void)`這函式裡的  </span><br><span class="line">```cpp</span><br><span class="line">debug (<span class="string">"### main_loop: bootcmd=\"%s\"\n"</span>, s ? s : <span class="string">"&lt;UNDEFINED&gt;"</span>);</span><br></pre></td></tr></table></figure></div></p>
+<p>語句後面，加上以下c code<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	gpio_init();</span><br><span class="line">        <span class="keyword">for</span>(count=<span class="number">0</span>; count &lt; <span class="number">5</span> ;count++)</span><br><span class="line">        &#123;</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_on(<span class="number">3</span>);</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_on(<span class="number">4</span>);</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_off(<span class="number">3</span>);</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_off(<span class="number">4</span>);</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_on(<span class="number">3</span>);</span><br><span class="line">                udelay(<span class="number">100000</span>);</span><br><span class="line">                led_on(<span class="number">4</span>);</span><br><span class="line"> 	&#125;<span class="comment">//&gt;</span></span><br></pre></td></tr></table></figure></div></p>
+<p><img src="https://imgur.com/xHuCWsU.jpg" alt></p>
+<p>儲存後離開。之後再次回到/uboot_tiny4412_new/目錄下：  </p>
+<ol>
+<li>make tiny4412_config  </li>
+<li>make -j4</li>
+</ol>
+<p>之後就是再次燒錄板子：<br>(板子端)<br>1 fastboot<br>3 按下reset鈕<br>(電腦端)<br>2   sudo fastboot flash bootloader u-boot.bin<br>在板子再次重開機時，可發現板子端的terminal出現LED init，且led燈閃爍。<br><img src="https://imgur.com/HLRprzN.jpg" alt></p>
+<p>挑戰：讓蜂鳴器響  </p>
+<p>直接讓板子叫：<br><code>mw 0x114000A0 0x00000001</code><br><code>mw 0x114000A4 0x00000001</code><br>先找到板子上蜂鳴器的編號：BP1，再對照底板(buttom)說明文件，可以發現BP1先接到PWM0，再接到XpwmTOUT0。再來看看<br>core文件，可以發現XpwmTOUT0接到了AE24，同時跟GPD0_0共用接口。接下來我們來看Exynos 4412 SCP的user manual，尋找要如何控制GPD0_0。首先要找到GPD0的con(control)，再找到dat(data)，搜尋後結果如下<br><img src="https://imgur.com/7dzYKB6.jpg" alt><br>最底下的GPD0CON[0]就是GPD0_0，我們希望它叫，所以它是<br>output，依文件說明，設成output代表要設成1。再看看上圖最上方，知道了要從位址0x114000A0來控制GPD0，所以我們的<br><code>mw 0x114000A0 0x00000001</code><br>就是把蜂鳴器設定成output。</p>
+<p>想讓它叫，就會用到GPD0DAT，文件說明如下：<br><img src="https://imgur.com/TAl4CW3.jpg" alt><br>可以知道位址是0x114000A4，而要響，就是這位址後面加上<br>0x00000001<br>也就是<br><code>mw 0x114000A4 0x00000001</code>  </p>
+<p>使用c code控制:</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-嵌入式移植第二堂筆記-nfs-交叉編譯-移植fbv程式" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -1027,99 +1102,6 @@
 </article>
 
   
-    <article id="post-C語言觀念-pointer(1)" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/03/C語言觀念-pointer(1)/">C語言觀念</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/08/03/C語言觀念-pointer(1)/" class="article-date">
-  <time datetime="2019-08-03T01:56:15.000Z" itemprop="datePublished">2019-08-03</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[] = <span class="string">"0123456"</span>;</span><br><span class="line"><span class="keyword">char</span> *p = s;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*p++);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*(p++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,(*p)++);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*++p);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*(++p));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,++*p);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,++(*p));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c"</span>,*++p);</span><br></pre></td></tr></table></figure></div>
-<p>先來看看以下表格，知道一下++跟指標的混合是多機車的事，簡而言之，++的優先級高於星號。<br>operation | meaning<br>—— | —-<br>&lowast;p++ = &lowast;(p++) | 先取值(&lowast;p)，再指標加1(p++)<br>&lowast;++p = &lowast;(++p) | 先指標加1(p++)，再取值(&lowast;p)<br>++&lowast;p = ++(&lowast;p) | 先把指標指向的值加1(*p++)，再取值(&lowast;p)<br>(&lowast;p)++ | 先取值(&lowast;p)，再把指標指向的值加1(*p++)</p>
-<p>所以再來分析上面的code會輸出什麼。<strong><em>斜體粗數字</em></strong>代表現在指標的位置。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>輸出(%c)</th>
-<th>字串s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*p++</td>
-<td>0</td>
-<td>0<strong><em>1</em></strong>23456</td>
-</tr>
-<tr>
-<td>*(p++)</td>
-<td>1</td>
-<td>01<strong><em>2</em></strong>3456</td>
-</tr>
-<tr>
-<td>(*p)++</td>
-<td>2</td>
-<td>01<strong><em>3</em></strong>3456</td>
-</tr>
-<tr>
-<td>*++p</td>
-<td>3</td>
-<td>013<strong><em>3</em></strong>456</td>
-</tr>
-<tr>
-<td>*(++p)</td>
-<td>4</td>
-<td>0133<strong><em>4</em></strong>56</td>
-</tr>
-<tr>
-<td>++*p</td>
-<td>5</td>
-<td>0133<strong><em>5</em></strong>56</td>
-</tr>
-<tr>
-<td>++(*p)</td>
-<td>6</td>
-<td>0133<strong><em>6</em></strong>56</td>
-</tr>
-<tr>
-<td>*++p</td>
-<td>5</td>
-<td>01336<strong><em>5</em></strong>6</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -1154,7 +1136,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-語法練習/">c++語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protected/">protected</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/交叉編譯/">交叉編譯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抽象函式/">抽象函式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛型/">泛型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移植fbv/">移植fbv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繼承/">繼承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootloader改寫/">bootloader改寫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-語法練習/">c++語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protected/">protected</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/交叉編譯/">交叉編譯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抽象函式/">抽象函式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制板子硬體/">控制板子硬體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛型/">泛型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移植fbv/">移植fbv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繼承/">繼承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重灌板子/">重灌板子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
     </div>
   </div>
 
@@ -1164,7 +1146,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/Embedded-Linux系統移植實作/" style="font-size: 11.67px;">Embedded Linux系統移植實作</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18.33px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16.67px;">c++基礎語法練習</a> <a href="/tags/c-語法練習/" style="font-size: 11.67px;">c++語法練習</a> <a href="/tags/class/" style="font-size: 11.67px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.67px;">struct</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/交叉編譯/" style="font-size: 10px;">交叉編譯</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/抽象函式/" style="font-size: 10px;">抽象函式</a> <a href="/tags/泛型/" style="font-size: 10px;">泛型</a> <a href="/tags/移植fbv/" style="font-size: 10px;">移植fbv</a> <a href="/tags/繼承/" style="font-size: 10px;">繼承</a> <a href="/tags/面試題/" style="font-size: 13.33px;">面試題</a>
+      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.67px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/Embedded-Linux系統移植實作/" style="font-size: 11.67px;">Embedded Linux系統移植實作</a> <a href="/tags/HackerRank-OJ/" style="font-size: 18.33px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Matrix/" style="font-size: 11.67px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/STL/" style="font-size: 15px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 13.33px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.67px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/bootloader改寫/" style="font-size: 10px;">bootloader改寫</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 16.67px;">c++基礎語法練習</a> <a href="/tags/c-語法練習/" style="font-size: 11.67px;">c++語法練習</a> <a href="/tags/class/" style="font-size: 11.67px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.67px;">struct</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/交叉編譯/" style="font-size: 10px;">交叉編譯</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/抽象函式/" style="font-size: 10px;">抽象函式</a> <a href="/tags/控制板子硬體/" style="font-size: 10px;">控制板子硬體</a> <a href="/tags/泛型/" style="font-size: 10px;">泛型</a> <a href="/tags/移植fbv/" style="font-size: 10px;">移植fbv</a> <a href="/tags/繼承/" style="font-size: 10px;">繼承</a> <a href="/tags/重灌板子/" style="font-size: 10px;">重灌板子</a> <a href="/tags/面試題/" style="font-size: 13.33px;">面試題</a>
     </div>
   </div>
 
@@ -1185,6 +1167,10 @@
       <ul>
         
           <li>
+            <a href="/2019/09/21/嵌入式移植第三堂筆記-重灌板子-bootloader改寫-控制板子硬體-led、蜂鳴器/">嵌入式移植第三堂筆記--重灌板子, bootloader改寫, 控制板子硬體(led、蜂鳴器)</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/12/嵌入式移植第二堂筆記-nfs-交叉編譯-移植fbv程式/">嵌入式移植第二堂筆記--nfs, 交叉編譯, 移植fbv程式</a>
           </li>
         
@@ -1198,10 +1184,6 @@
         
           <li>
             <a href="/2019/08/31/嵌入式移植第一堂筆記/">嵌入式移植第一堂筆記</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/25/Advanced-C-第三堂課程筆記-類別/">Advanced-C-第三堂課程筆記-類別</a>
           </li>
         
       </ul>
