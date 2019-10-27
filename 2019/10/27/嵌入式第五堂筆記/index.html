@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>嵌入式第五堂筆記 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="可以改變主機名字的程式編輯calls.S，路徑在linux-3.5-Tiny4412/arch/arm/kernel裡vi ~/linux-3.5-Tiny4412/arch/arm/kernel/calls.S在下圖的389行之後，加上CALL(sys_myservice) 接下來編輯unistd.h，指令如下vi ~/linux-3.5-Tiny4412/arch/arm/include/as">
+<meta name="keywords" content="Embedded Linux系統移植實作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式第五堂筆記">
+<meta property="og:url" content="http://yoursite.com/2019/10/27/嵌入式第五堂筆記/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="可以改變主機名字的程式編輯calls.S，路徑在linux-3.5-Tiny4412/arch/arm/kernel裡vi ~/linux-3.5-Tiny4412/arch/arm/kernel/calls.S在下圖的389行之後，加上CALL(sys_myservice) 接下來編輯unistd.h，指令如下vi ~/linux-3.5-Tiny4412/arch/arm/include/as">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://imgur.com/W7OszqD.jpg">
+<meta property="og:image" content="https://imgur.com/bDvTvxS.jpg">
+<meta property="og:image" content="https://imgur.com/nuuNlsC.jpg">
+<meta property="og:image" content="https://imgur.com/txbSn7H.jpg">
+<meta property="og:image" content="https://imgur.com/GJzcGYs.jpg">
+<meta property="og:image" content="https://imgur.com/HMHv1qY.jpg">
+<meta property="og:image" content="https://imgur.com/e8JaNLK.jpg">
+<meta property="og:image" content="https://imgur.com/ncT3erL.jpg">
+<meta property="og:image" content="https://imgur.com/DcYEqCA.jpg">
+<meta property="og:image" content="https://imgur.com/1rCoSjo.jpg">
+<meta property="og:image" content="https://imgur.com/soU8Aim.jpg">
+<meta property="og:image" content="https://imgur.com/VYb4XrR.jpg">
+<meta property="og:image" content="https://imgur.com/1mfui5e.jpg">
+<meta property="og:image" content="https://imgur.com/twyGB55.jpg">
+<meta property="og:image" content="https://imgur.com/X5W7z3W.jpg">
+<meta property="og:image" content="https://imgur.com/YUUWzCH.jpg">
+<meta property="og:image" content="https://imgur.com/JWeVMVW.jpg">
+<meta property="og:image" content="https://imgur.com/omOdRcH.jpg">
+<meta property="og:image" content="https://imgur.com/yf7V0Af.jpg">
+<meta property="og:image" content="https://imgur.com/vFgY4e6.jpg">
+<meta property="og:image" content="https://imgur.com/Q93P4Eu.jpg">
+<meta property="og:image" content="https://imgur.com/cOiV1Vx.jpg">
+<meta property="og:image" content="https://imgur.com/JXe8VFJ.jpg">
+<meta property="og:image" content="https://imgur.com/7J80ssn.jpg">
+<meta property="og:updated_time" content="2019-10-27T01:39:33.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="嵌入式第五堂筆記">
+<meta name="twitter:description" content="可以改變主機名字的程式編輯calls.S，路徑在linux-3.5-Tiny4412/arch/arm/kernel裡vi ~/linux-3.5-Tiny4412/arch/arm/kernel/calls.S在下圖的389行之後，加上CALL(sys_myservice) 接下來編輯unistd.h，指令如下vi ~/linux-3.5-Tiny4412/arch/arm/include/as">
+<meta name="twitter:image" content="https://imgur.com/W7OszqD.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="圖片來自網路">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-嵌入式第五堂筆記" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      嵌入式第五堂筆記
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/27/嵌入式第五堂筆記/" class="article-date">
+  <time datetime="2019-10-27T01:37:25.000Z" itemprop="datePublished">2019-10-27</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="可以改變主機名字的程式"><a href="#可以改變主機名字的程式" class="headerlink" title="可以改變主機名字的程式"></a>可以改變主機名字的程式</h1><p>編輯calls.S，路徑在linux-3.5-Tiny4412/arch/arm/kernel裡<br>vi ~/linux-3.5-Tiny4412/arch/arm/kernel/calls.S<br>在下圖的389行之後，加上CALL(sys_myservice)<br><img src="https://imgur.com/W7OszqD.jpg" alt></p>
+<p>接下來編輯unistd.h，指令如下<br>vi ~/linux-3.5-Tiny4412/arch/arm/include/asm/unistd.h<br>在下圖的下一行<br><img src="https://imgur.com/bDvTvxS.jpg" alt><br>加上下面這一行程式碼</p>
+<h1 id="define-NR-myservice-NR-SYSCALL-BASE-378"><a href="#define-NR-myservice-NR-SYSCALL-BASE-378" class="headerlink" title="define NR_myservice  (NR_SYSCALL_BASE+378)"></a>define <strong>NR_myservice  (</strong>NR_SYSCALL_BASE+378)</h1><p>接下來在linux-3.5-Tiny4412/arch/arm/kernel裡加上一個myservice.c，其程式碼如下：<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/linkage.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/utsname.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/uaccess.h&gt;</span></span></span><br><span class="line"><span class="function">asmlinkage <span class="keyword">int</span> <span class="title">sys_myservice</span><span class="params">(<span class="keyword">int</span> len,<span class="keyword">char</span>* name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	down_write(&amp;uts_sem);</span><br><span class="line">	<span class="built_in">memcpy</span>(init_uts_ns.name.nodename,name, len);</span><br><span class="line">	init_uts_ns.name.nodename[len] = <span class="number">0</span>;</span><br><span class="line">	printk(<span class="string">"Change hostname\n"</span>);</span><br><span class="line">	up_write(&amp;uts_sem);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>接下來要修改Makefile，使得kernel可以編譯到上面程式碼的.o檔<br>vim linux-3.5-Tiny4412/arch/arm/kernel/Makefile<br>在下圖<br><img src="https://imgur.com/nuuNlsC.jpg" alt><br>的traps.o後面加上myservice.o</p>
+<p>接下來我們需要編譯的修改名字程式，需要修改compiler內的unistd.h才能執行，指令如下：<br>首先編輯/usr/local/arm/4.5.1/arm-none-linux-gnueabi/include/asm內的unistd.h：<br>vi /usr/local/arm/4.5.1/arm-none-linux-gnueabi/include/asm/unistd.h<br>在下圖<br><img src="https://imgur.com/txbSn7H.jpg" alt><br>的394行的最後，加上下面這行</p>
+<h1 id="define-NR-myservice-NR-SYSCALL-BASE-378-1"><a href="#define-NR-myservice-NR-SYSCALL-BASE-378-1" class="headerlink" title="define NR_myservice    (NR_SYSCALL_BASE+378)"></a>define <strong>NR_myservice    (</strong>NR_SYSCALL_BASE+378)</h1><p>也就是上圖的第395行</p>
+<p>修改名字程式命名為myservice_test.c，程式碼如下<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argv, <span class="keyword">char</span> * argc[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">	len=<span class="built_in">strlen</span>(argc[<span class="number">1</span>]);</span><br><span class="line">	syscall(__NR_myservice,len,argc[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>接下來在電腦端把上面這code編譯成板子端可執行的程式<br>arm-linux-gcc myservice_test.c -o myservice_test<br>把編譯出來的myservice_test丟到板子端執行，執行成果如下圖<br><img src="https://imgur.com/GJzcGYs.jpg" alt></p>
+<h1 id="燒錄driver"><a href="#燒錄driver" class="headerlink" title="燒錄driver"></a>燒錄driver</h1><p>雖然標題說是driver，其實也只是print而已，但是除了程式本身不同外，燒錄的方法是相同的。</p>
+<p>首先，要讓這driver可以以掛載的方式執行。<br>先在root_mkfs/lib/modules/裡面加上3.5.0-FriendlyARM這資料夾，3.5.0-FriendlyARM裡還要有kernel這資料夾。<br>sudo mkdir -p /home/…(user name)/root_mkfs/lib/modules/3.5.0-FriendlyARM/kernel<br>首先編輯hello.c，程式碼如下：<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/init.h&gt;               </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">"Dual BSD/GPL"</span>);</span><br><span class="line">MODULE_AUTHOR(<span class="string">"CADTC Howard"</span>);</span><br><span class="line">MODULE_DESCRIPTION(<span class="string">"This is hello module"</span>);</span><br><span class="line">MODULE_VERSION(<span class="string">"rc1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_init</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">   printk(KERN_ALERT<span class="string">"Hello, world\n"</span>);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello_exit</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">   printk(KERN_ALERT<span class="string">"Goodbye, Hello world\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(hello_init);</span><br><span class="line">module_exit(hello_exit);</span><br></pre></td></tr></table></figure></div></p>
+<p>Makefile內容如下：<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MAKEFILE"><figure class="iseeu highlight /makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">KERNELDIR = /home/cyess/work/linux-3.5-Tiny4412</span><br><span class="line">PWD := <span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line">INSTALLDIR =/home/cyess/root_mkfs/lib/modules/3.5.0-FriendlyARM/kernel</span><br><span class="line"></span><br><span class="line">obj-m := hello.o </span><br><span class="line"></span><br><span class="line"><span class="section">modules:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C <span class="variable">$(KERNELDIR)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">install:</span></span><br><span class="line">	cp hello.ko <span class="variable">$(INSTALLDIR)</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions modules.order  Module.symvers</span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: modules install clean</span></span><br></pre></td></tr></table></figure></div></p>
+<p>請注意Makefile中的KERNELDIR跟 INSTALLDIR的路徑要改成自己電腦的。 接下來執行make跟sudo make install。<br>接下來的指令請在板子端執行，掛載編譯出來的driver(hello.ko)<br>insmod /lib/modules/3.5.0-FriendlyARM/kernel/hello.ko<br>結果如下圖<br><img src="https://imgur.com/HMHv1qY.jpg" alt><br>也可以卸載<br><img src="https://imgur.com/e8JaNLK.jpg" alt></p>
+<p>也可以在電腦端看看此驅動的資訊(modinfo)<br><img src="https://imgur.com/ncT3erL.jpg" alt></p>
+<p>掛載驅動的另一種方式，是在開機時核心就掛載上去，作法如下</p>
+<h2 id="kernel的config"><a href="#kernel的config" class="headerlink" title="kernel的config"></a>kernel的config</h2><p>到kernel資料夾，linux-3.5-Tiny4412裡，輸入make menuconfig可以進到config選單，如果更改設定並儲存，要再重新燒錄kernel，才會反映出更改。</p>
+<h2 id="更改menuconfig選單"><a href="#更改menuconfig選單" class="headerlink" title="更改menuconfig選單"></a>更改menuconfig選單</h2><p>在linux-3.5-Tiny4412資料夾</p>
+<p>make menuconfig</p>
+<p>進入選單，進入device drivers —&gt; Graphics supports —&gt; Bootup logo可以發現原本有三個選項，現在要修改成四個。</p>
+<p>編輯linux-3.5-Tiny4412/drivers/video/logo裡的Kconfig，如下圖</p>
+<p><img src="https://imgur.com/DcYEqCA.jpg" alt></p>
+<p>其中30-32行是後來才加的。<br>儲存後，再次make menuconfig，可以發現原本menuconfig只有三種變成了四種如下圖<br><img src="https://imgur.com/1rCoSjo.jpg" alt></p>
+<p>另外可以發現我們是加bool值，所以選單只有星號跟空白。<br>我們可以把最前面的bool改成tristate，即可選星號，M跟空白，如下圖</p>
+<p><img src="https://imgur.com/soU8Aim.jpg" alt></p>
+<p>編譯時可發現只有Kconfig重編<br><img src="https://imgur.com/VYb4XrR.jpg" alt></p>
+<p>且編譯分兩階段，跟核心綁死的(星號)，或是獨立於核心之外的(M，module)。</p>
+<p>修改linux-3.5-Tiny4412/drivers/video/logo裡的Makefile，加上第7行，這是因為我們想為它加新的kernel。</p>
+<p><img src="https://imgur.com/1mfui5e.jpg" alt><br>我們把上圖第7行的+=右邊改成hello.o。<br>再來，我們把之前make所產生的hello.c跟hello.o都複製到linux-3.5-Tiny4412裡的drivers/video/logo資料夾內。<br>回到linux-3.5-Tiny4412，重新make並燒錄。燒錄步驟：<br>板子端不要進入開機，停留在bootloader階段，輸入fastboot<br>電腦端輸入sudo fastboot flash kernel arch/arm/boot/zImage<br>板子端重新開機，即可在開機時看見Hello, world如下圖<br><img src="https://imgur.com/twyGB55.jpg" alt></p>
+<h1 id="移植音樂播放器"><a href="#移植音樂播放器" class="headerlink" title="移植音樂播放器"></a>移植音樂播放器</h1><p>移植 libid3tag:<br>./configure —host=arm-linux CC=arm-linux-gcc —prefix=/usr/local/arm/4.5.1/arm-none-linux-gnueabi<br>make -j8<br>sudo -s<br>make install</p>
+<p>移植libmad:<br>./configure —host=arm-linux CC=arm-linux-gcc —prefix=/usr/local/arm/4.5.1/arm-none-linux-gnueabi<br>make -j8<br>make install</p>
+<h1 id="在make會出現-make-error-message"><a href="#在make會出現-make-error-message" class="headerlink" title="在make會出現 make error message    "></a>在make會出現 make error message    </h1><pre><code>arm-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_ARM -DASO_INTERLEAVE1 -DASO_IMDCT -Wall -g -O -fforce-mem -fforce-addr -fthread-jumps -fcse-follow-jumps -fcse-skip-blocks -fexpensive-optimizations -fregmove -fschedule-insns2 -fstrength-reduce -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c  -fPIC -DPIC -o .libs/version.o
+c1: error: unrecognized command line option &quot;-fforce-mem&quot;
+make[2]: *** [version.lo] Error 1
+make[2]: Leaving directory `/home/cadtc/libmad-0.15.1b&#39;
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/home/cadtc/libmad-0.15.1b&#39;
+make: *** [all] Error 2
+===============
+</code></pre><p>只要把Makefile中所有的-fforce-mem通通刪除，再重新make即可</p>
+<p>編譯madplayer:<br>./configure —host=arm-linux CC=arm-linux-gcc<br>make -j8</p>
+<p>移動library<br>cp -rf /usr/local/arm/4.5.1/arm-none-linux-gnueabi/lib/libid3tag.<em> ~/root_mkfs/lib<br>cp -rf /usr/local/arm/4.5.1/arm-none-linux-gnueabi/lib/libmad.</em> ~/root_mkfs/lib<br>把madplay移到板子端<br>cp ~/mp3player/madplay-0.15.0b/madplay ~/root_mkfs</p>
+<p>但是做完以上，執行./madplayer xxx.mp3時依然沒聲音，這是因為沒有掛載音效卡驅動。<br>複製音效卡驅動(snd-soc-wm8960.ko跟snd-soc-tiny4412-wm8960.ko)至板子端<br>cp snd-soc-wm8960.ko snd-soc-tiny4412-wm8960.ko ~/root_mkfs/lib/modules/3.5.0-FriendlyARM/kernel</p>
+<p>還要有fa_codec_ctrl這檔案，來控制音效開關，複製至板子並讓它可執行(chmod)<br>cp fa_codec_ctrl ~/root_mkfs/bin<br>chmod 777 /bin/fa_codec_ctrl</p>
+<p>在板子端，輸入以下指令製造連結：<br>mkdir /dev/snd<br>ln -s /dev/pcmC0D0c /dev/snd/pcmC0D0c<br>ln -s /dev/pcmC0D0p /dev/snd/pcmC0D0p<br>ln -s /dev/controlC0 /dev/snd/controlC0<br>ln -s /dev/pcmC1D0c /dev/snd/pcmC1D0c<br>ln -s /dev/pcmC1D0p /dev/snd/pcmC1D0p<br>ln -s /dev/controlC1 /dev/snd/controlC1<br>ln -s /dev/seq /dev/snd/seq<br>ln -s /dev/timer /dev/snd/timer<br>之後執行<br>fa_codec_ctrl tiny4412<br>耳機插綠孔，執行./madplay xxx.mp3，即可聽到音樂。</p>
+<h1 id="USB無線網卡移植"><a href="#USB無線網卡移植" class="headerlink" title="USB無線網卡移植"></a>USB無線網卡移植</h1><p>目標是讓usb無線網卡插上板子可以用</p>
+<h2 id="移植驅動程式"><a href="#移植驅動程式" class="headerlink" title="移植驅動程式"></a>移植驅動程式</h2><p>要移的是RTL8192CU，把8192的壓縮檔解壓縮後，終端機進入此目錄後輸入以下指令<br>make<br>注意make前要修改一下Makefile<br><img src="https://imgur.com/X5W7z3W.jpg" alt><br>要把上圖的倒數第4行到倒數第2行要根據自己的實際環境修改。<br>make完成後出現8192cu.ko，複製到板子端放驅動的地方：<br>sudo cp 8192cu.ko /home/nathan/root_mkfs/lib/modules/3.5.0-FriendlyARM/kernel</p>
+<p>到板子端輸入以下指令<br>depmod -A<br>modprobe 8192cu #掛載驅動程式<br><img src="https://imgur.com/YUUWzCH.jpg" alt><br>插上usb無線網卡，輸入ls /sys/class/net可看到現在電腦上有哪些網卡，下圖<br><img src="https://imgur.com/JWeVMVW.jpg" alt><br>其中的wlan0就是我們的usb無線網卡，要上網前，要先把它開啟，指令如下<br>ifconfig wlan0 up<br>要讓它可以上網，還須多裝一些無線網路用的工具(iwconfig之類的)<br>首先解壓縮wireless_tools.29，修改Makefile<br><img src="https://imgur.com/omOdRcH.jpg" alt><br>注意上圖的cc、ar、ranlib都要改成arm-linux-<br>$make<br>複製make出來的執行檔跟shared library到板子端用的資料夾。<br>$cp ifrename iwconfig iwevent iwgetid iwlist iwpriv iwspy ~/root_mkfs/sbin<br>$cp libiw.so.29 ~/root_mkfs/lib<br><img src="https://imgur.com/yf7V0Af.jpg" alt><br><img src="https://imgur.com/vFgY4e6.jpg" alt><br><img src="https://imgur.com/Q93P4Eu.jpg" alt><br><img src="https://imgur.com/cOiV1Vx.jpg" alt><br>安裝dhcpcd來落得動態ip<br><img src="https://imgur.com/JXe8VFJ.jpg" alt><br><img src="https://imgur.com/7J80ssn.jpg" alt></p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/27/嵌入式第六堂筆記/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            嵌入式第六堂筆記
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/27/嵌入式第四堂筆記/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">嵌入式第四堂筆記</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="圖片來自網路"></img>
+    <h3 class="avatar-name">
+      
+        bookeel
+      
+    </h3>
+    <p class="avatar-slogan">
+      nope。
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aizu-OJ/">Aizu OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-Force/">Brute Force</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bubble-sort/">Bubble sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computational-complexity/">Computational complexity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide and Conquer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Doubly-linked-list/">Doubly linked list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-allocation/">Dynamic allocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank-OJ/">HackerRank OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Halting-Problem/">Halting Problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-theme/">Hexo theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/">Linked List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-kernel-3-5/">Linux kernel 3.5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/">Matrix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultiDimension-array/">MultiDimension array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PI/">PI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pointer/">Pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quick-sort/">Quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDL-1-2-14/">SDL-1.2.14</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDL-image-1-2-12/">SDL_image 1.2.12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selection-sort/">Selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentinel/">Sentinel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sets/">Sets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-sort/">Stable sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/">Struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit manipulation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootloader改寫/">bootloader改寫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-pointer/">c pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法/">c++基礎語法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-基礎語法練習/">c++基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-語法練習/">c++語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/">class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/diagonalization/">diagonalization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-bound/">lower_bound</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ncurses-5-9/">ncurses-5.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/">nfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pointer/">pointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protected/">protected</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sizeof/">sizeof</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strrok/">strrok</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struct/">struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/union/">union</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/交叉編譯/">交叉編譯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基礎語法練習/">基礎語法練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抽象函式/">抽象函式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制板子硬體/">控制板子硬體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泛型/">泛型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移植fbv/">移植fbv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繼承/">繼承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重灌板子/">重灌板子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面試題/">面試題</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Aizu-OJ/" style="font-size: 20px;">Aizu OJ</a> <a href="/tags/Array/" style="font-size: 11.43px;">Array</a> <a href="/tags/Brute-Force/" style="font-size: 10px;">Brute Force</a> <a href="/tags/Bubble-sort/" style="font-size: 10px;">Bubble sort</a> <a href="/tags/Computational-complexity/" style="font-size: 10px;">Computational complexity</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide and Conquer</a> <a href="/tags/Doubly-linked-list/" style="font-size: 10px;">Doubly linked list</a> <a href="/tags/Dynamic-allocation/" style="font-size: 10px;">Dynamic allocation</a> <a href="/tags/Embedded-Linux系統移植實作/" style="font-size: 18.57px;">Embedded Linux系統移植實作</a> <a href="/tags/HackerRank-OJ/" style="font-size: 17.14px;">HackerRank OJ</a> <a href="/tags/Halting-Problem/" style="font-size: 10px;">Halting Problem</a> <a href="/tags/Hexo-theme/" style="font-size: 10px;">Hexo theme</a> <a href="/tags/Linked-List/" style="font-size: 10px;">Linked List</a> <a href="/tags/Linux-kernel-3-5/" style="font-size: 10px;">Linux kernel 3.5</a> <a href="/tags/Matrix/" style="font-size: 11.43px;">Matrix</a> <a href="/tags/MultiDimension-array/" style="font-size: 10px;">MultiDimension array</a> <a href="/tags/PI/" style="font-size: 10px;">PI</a> <a href="/tags/Pointer/" style="font-size: 10px;">Pointer</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-sort/" style="font-size: 10px;">Quick sort</a> <a href="/tags/SDL-1-2-14/" style="font-size: 10px;">SDL-1.2.14</a> <a href="/tags/SDL-image-1-2-12/" style="font-size: 10px;">SDL_image 1.2.12</a> <a href="/tags/STL/" style="font-size: 14.29px;">STL</a> <a href="/tags/Selection-sort/" style="font-size: 10px;">Selection sort</a> <a href="/tags/Sentinel/" style="font-size: 10px;">Sentinel</a> <a href="/tags/Sets/" style="font-size: 10px;">Sets</a> <a href="/tags/Stable-sort/" style="font-size: 10px;">Stable sort</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Struct/" style="font-size: 12.86px;">Struct</a> <a href="/tags/Vector/" style="font-size: 11.43px;">Vector</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit manipulation</a> <a href="/tags/bootloader改寫/" style="font-size: 10px;">bootloader改寫</a> <a href="/tags/c-pointer/" style="font-size: 10px;">c pointer</a> <a href="/tags/c-基礎語法/" style="font-size: 10px;">c++基礎語法</a> <a href="/tags/c-基礎語法練習/" style="font-size: 15.71px;">c++基礎語法練習</a> <a href="/tags/c-語法練習/" style="font-size: 11.43px;">c++語法練習</a> <a href="/tags/class/" style="font-size: 11.43px;">class</a> <a href="/tags/diagonalization/" style="font-size: 10px;">diagonalization</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/lower-bound/" style="font-size: 10px;">lower_bound</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/ncurses-5-9/" style="font-size: 10px;">ncurses-5.9</a> <a href="/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/sizeof/" style="font-size: 10px;">sizeof</a> <a href="/tags/strrok/" style="font-size: 10px;">strrok</a> <a href="/tags/struct/" style="font-size: 11.43px;">struct</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/union/" style="font-size: 10px;">union</a> <a href="/tags/交叉編譯/" style="font-size: 10px;">交叉編譯</a> <a href="/tags/基礎語法練習/" style="font-size: 20px;">基礎語法練習</a> <a href="/tags/抽象函式/" style="font-size: 10px;">抽象函式</a> <a href="/tags/控制板子硬體/" style="font-size: 10px;">控制板子硬體</a> <a href="/tags/泛型/" style="font-size: 10px;">泛型</a> <a href="/tags/移植fbv/" style="font-size: 10px;">移植fbv</a> <a href="/tags/繼承/" style="font-size: 10px;">繼承</a> <a href="/tags/重灌板子/" style="font-size: 10px;">重灌板子</a> <a href="/tags/面試題/" style="font-size: 12.86px;">面試題</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/27/嵌入式第六堂筆記/">嵌入式第六堂筆記</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/27/嵌入式第五堂筆記/">嵌入式第五堂筆記</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/27/嵌入式第四堂筆記/">嵌入式第四堂筆記</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/27/Linux-kernel-3-5-編譯至tiny4412/">Linux kernel 3.5 編譯至tiny4412</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/27/安裝-ncurses-5-9-至-tiny4412/">安裝 ncurses-5.9 至 tiny4412</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 bookeel &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+	<!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
