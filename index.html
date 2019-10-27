@@ -73,6 +73,8 @@
 </a>
     
     
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Embedded-Linux系統移植實作/">Embedded Linux系統移植實作</a></li></ul>
+
   </div>
   
 
@@ -80,7 +82,175 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        
+        <p>解壓縮<br>$tar xvf rootfs_build.tar.bz2<br>解壓縮後 ls，可以發現busybox-1.19.2.tar.bz2，lib，toolfs等三樣檔案</p>
+<p>生成busybox的binary tools</p>
+<pre><code>$cd ./busybox-1.19.2
+
+busybox-1.19.2$make clean
+
+busybox-1.19.2$make menuconfig
+
+busybox-1.19.2$make -j4
+
+busybox-1.19.2$make install
+
+*資料夾內有個_install資夾.
+</code></pre><p>創建檔案系統</p>
+<pre><code>*進入rootfs_build裡的&quot;toolfs&quot;資料夾
+
+    $cd ../toolfs
+
+*check the script (the environment variables including the right version busybox)
+    $vim build.sh
+        =========================
+        CURRENTDIR=&#39;pwd&#39;
+        ROOTFS=$CURRENTDIR/rootfs
+        BUSYBOX=../busybox-1.19.2
+        LIB=../lib
+        ==========================
+
+    toolfs$./build.sh ＃執行build.sh
+
+
+*There should be a &quot;rootfs&quot; include all the FS folders generated and the content look like these
+
+    toolfs$cd rootfs
+
+    /toolfs/rootfs$ ls
+    bin  dev  etc  lib  linuxrc  mnt  proc  sbin  sys  tmp  usr  var
+</code></pre><p> Using the new FS rootfs as a NFS mounted on Tiny4412</p>
+<pre><code>*copy the new FS you make into /home/cadtc
+
+    $ sudo cp -r ~/rootfs_build/toolfs/rootfs ~ 
+
+*change/remove name the former &quot;root_mkfs&quot;
+
+    $ sudo mv ~/root_mkfs ~/old_root_mkfs ＃不要把舊的root_mkfs幹掉
+
+*change the name &quot;rootfs&quot; to root_mkfs
+
+    $ mv ~/rootfs ~/root_mkfs
+</code></pre><ol>
+<li><p>run NFS and check if the NFS has been mounted </p>
+<p> [root@Tiny4412 /]# ls<br> bin      etc      linuxrc  proc     sys      usr<br> dev      lib      mnt      sbin     tmp      var</p>
+<p> *check the version of BB</p>
+<p> [root@Tiny4412 /]# busybox<br> BusyBox v1.19.2 (2013-12-31 11:09:34 CST) multi-call binary.<br> Copyright (C) 1998-2011 Erik Andersen, Rob Landley, Denys Vlasenko<br> and others. Licensed under GPLv2.<br> See source distribution for full notice.</p>
+</li>
+</ol>
+<p>7.2<br>[target ]</p>
+<p>fdisk -l</p>
+<p>run rootfs on emmc  ＃可在不接網路線情況下開機</p>
+<pre><code>Target:
+#mount /dev/mmcblk0p3 /mnt 
+
+Host:
+#sudo cp root_mkfs.tar.bz2 ~/root_mkfs
+
+
+Target:
+#tar -xvf root_mkfs.tar.bz2 -C /mnt
+#cd /mnt/root_mkfs/
+#mv * ../
+#cd ..
+#rm -rf root_mkfs
+
+*reboot 
+set bootargs root=/dev/mmcblk0p3 rootfstype=ext3 init=linuxrc console=ttySAC0 mem=1024M lcd=s70 (in bootloader)
+boot
+</code></pre><hr>
+<p> Modify Kernel to support RAMdisk</p>
+<pre><code>make menuconfig ＃在day4的linux-3.5-Tiny4412的資料夾內執行
+
+    General setup  ---&gt;
+        [*] Initial RAM filesystem and RAM disk (initramfs/initrd) support
+                    [*]   Support initial ramdisks compressed using gzip
+
+        Device Drivers ---&gt;
+                [*] Block devices  ---&gt;
+                       &lt;*&gt;   RAM block device support
+                         (16)    Default number of RAM disks
+                         (8192)  Default RAM disk size (kbytes)
+
+
+              File systems  ---&gt;
+                       &lt;*&gt; Second extended fs support
+                           [*]   Ext2 extended attributes
+                           [*]     Ext2 POSIX Access Control Lists
+                           [*]     Ext2 Security Labels
+                           [*]   Ext2 execute in place support
+make -j8
+sudo fastboot flash kernel arch/arm/boot/zImage ＃燒錄
+
+---
+</code></pre><p> to create “ramdisk” </p>
+<pre><code>*after finish above step, you should have a folder &quot;rootfs&quot; in the current directory.
+        rootfs_build/toolfs$ ls
+        build.sh  etc  mk_ramdisk.sh  rootfs
+
+
+*generate initrd.gz
+
+    *the &quot;RAMDISKSIZE=8192&quot; in mk_ramdisk.sh should same as what we set in kernel item
+        Device Drivers  ---&gt;
+            [*] Block devices  ---&gt;
+                &lt;*&gt;   RAM block device support
+                (16)    Default number of RAM disks
+                (8192) Default RAM disk size (kbytes) 
+
+rootfs_build/toolfs$ sudo ./mk_ramdisk.sh 
+[sudo] password for alvin: 
+
+============Create Initial Ramdisk=====================
+8192+0 records in
+8192+0 records out
+8388608 bytes (8.4 MB) copied, 0.0385352 s, 218 MB/s
+mke2fs 1.41.12 (17-May-2010)
+fs_types for mke2fs.conf resolution: &#39;ext2&#39;, &#39;small&#39;
+Calling BLKDISCARD from 0 to 8388608 failed.
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+2048 inodes, 8192 blocks
+0 blocks (0.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=8388608
+1 block group
+8192 blocks per group, 8192 fragments per group
+2048 inodes per group
+
+Writing inode tables: done                            
+Writing superblocks and filesystem accounting information: done
+
+This filesystem will be automatically checked every 20 mounts or
+180 days, whichever comes first.  Use tune2fs -c or -i to override.
+-rw-r--r-- 1 root root 2.2M 2012-02-15 15:16 /home/cadtc/rootfs_build/toolfs/initrd.gz
+==============================================
+Summary:
+==&gt;Initial Ramdisk disk size  = 4920    KBytes
+==&gt;Initial Ramdisk image size = 2244     KBytes
+
+
+*Then the image &quot;initrd.gz&quot; is generated and upload it to Tiny4412
+</code></pre><p>upload ramdisk to Tiny4412</p>
+<pre><code>[Target]    
+dnw
+
+[Host]
+sudo dnw initrd.gz
+
+[Target]
+mmc write 0 0xc0000000 0x3422 0x2222
+
+*reset
+
+set read_ramdisk mmc read 0 41000000 0x3422 0x2222
+set ramdisk_boot set bootargs root=/dev/ram0 rw ramdisk=8192 initrd=0x41000000,8M console=ttySAC0 mem=1024M lcd=s70
+run read_ramdisk
+run ramdisk_boot
+boot
+</code></pre>
       
     </div>
     
